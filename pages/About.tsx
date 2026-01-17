@@ -194,7 +194,7 @@ const About: React.FC = () => {
           )}
         </section>
 
-        {/* GTM Systems Expertise Section - NEW */}
+        {/* GTM Systems Expertise Section */}
         <section className="mb-48">
           <div className="text-left mb-16">
             <h2 className="text-xs font-black text-slate-600 uppercase tracking-[0.6em] mb-4">Specialized Focus</h2>
@@ -211,6 +211,18 @@ const About: React.FC = () => {
                 <span className="text-xs font-black text-slate-400 uppercase tracking-widest group-hover:text-white transition-colors">{skill.name}</span>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Data Science Highlight Narrative Section - NEW */}
+        <section className="mb-48 border-t border-white/5 pt-48">
+          <div className="text-left">
+            <h2 className="text-xs font-black text-slate-600 uppercase tracking-[0.6em] mb-8">
+              Data Science (Applied)
+            </h2>
+            <p className="text-slate-400 max-w-3xl text-2xl font-medium leading-relaxed">
+              Currently deepening expertise in statistical modeling, machine learning, and predictive analytics through the <span className="text-white">Applied Data Science Lab at WorldQuant University</span>. My focus is on transforming raw operational telemetry into actionable business intelligence using rigorous, industry-standard methodologies.
+            </p>
           </div>
         </section>
 
