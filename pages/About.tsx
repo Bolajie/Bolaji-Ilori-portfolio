@@ -93,7 +93,7 @@ const About: React.FC = () => {
             </p>
             
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-10">
-               {['Data Integrity', 'Automation Systems', 'Operational Analytics', 'GTM Engineering'].map(tag => (
+               {['No-Code Development', 'Automation Engineering', 'AI Workflows', 'Operations Systems'].map(tag => (
                  <span key={tag} className="px-4 py-2 bg-white/5 border border-white/5 rounded-xl text-[10px] font-black uppercase tracking-widest text-slate-500">{tag}</span>
                ))}
             </div>
@@ -198,10 +198,10 @@ const About: React.FC = () => {
         <section className="mb-48">
           <div className="text-left mb-16">
             <h2 className="text-xs font-black text-slate-600 uppercase tracking-[0.6em] mb-4">Specialized Focus</h2>
-            <p className="text-white text-4xl font-black tracking-tight italic">GTM Systems Expertise.</p>
+            <p className="text-white text-4xl font-black tracking-tight italic">Automation & No-Code Expertise.</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {SKILL_GROUPS.find(g => g.name === 'Automation & GTM Systems')?.skills.map((skill, idx) => (
+            {SKILL_GROUPS.find(g => g.name === 'Automation & No-Code')?.skills.map((skill, idx) => (
               <div key={idx} className="group p-8 bg-slate-900/40 border border-white/5 rounded-[2rem] hover:border-orange-500/30 hover:bg-slate-900 transition-all duration-300 flex flex-col items-center justify-center text-center">
                 <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-slate-400 mb-6 group-hover:text-orange-500 group-hover:scale-110 transition-all duration-300">
                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">

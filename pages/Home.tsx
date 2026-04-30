@@ -16,27 +16,27 @@ interface FeaturedProject {
 const FEATURED_PROJECTS: FeaturedProject[] = [
   {
     id: 1,
-    tools: 'n8n + Gemini + Neo4j',
-    title: 'AI-Powered Tax Advisory',
-    problem: 'Tax consultancy losing 60% of billable hours to manual regulatory research.',
-    solve: 'Built a zero-hallucination RAG advisor reducing research time by 88%.',
-    breakdown: 'Engineered a three-tier retrieval system (Semantic + Knowledge Graph + Vector). Implemented hierarchy-aware chunking to preserve legal structure and an autonomous citation verification layer using Gemini Pro to ensure every answer is backed by statutory text.'
+    tools: 'n8n + Gemini 2.5 Pro + Claude AI',
+    title: 'Sales Call CRM Automation Pipeline',
+    problem: 'Sales reps spending hours logging post-call data manually, creating CRM lag and inaccuracy.',
+    solve: 'Built an end-to-end pipeline that eliminated 100% of manual post-call CRM entry.',
+    breakdown: 'An n8n workflow triggers on call completion, feeds the recording through Gemini 2.5 Pro for transcription analysis, then routes structured data via Claude AI to both Airtable (CRM) and Google Sheets (reporting) — zero manual input required from rep to record.'
   },
   {
     id: 2,
-    tools: 'SSMS + SQL Server',
-    title: 'Data Warehouse Architecture',
-    problem: 'Fragmented raw data made reliable business analysis impossible.',
-    solve: 'Built a Medallion Architecture warehouse for trusted insights.',
-    breakdown: 'Designed a multi-layer data warehouse in SSMS. Bronze layer handles raw ingestion, Silver performs cleaning/standardization, and Gold provides a Star Schema optimized for BI tools, enabling accurate sales and customer segmentation analysis.'
+    tools: 'n8n + Zep Knowledge Graph + OpenAI',
+    title: 'FTC Compliance Auditing System',
+    problem: 'Manual compliance reviews against FTC guidelines taking days per audit cycle.',
+    solve: 'Deployed an AI auditing system that reduced compliance review time from days to seconds.',
+    breakdown: 'n8n receives content submissions and routes them to OpenAI, which cross-references against FTC guidelines stored in a Zep Knowledge Graph. The Knowledge Graph enables consistent, context-aware regulatory reasoning. Structured audit results are delivered instantly to Slack via Block Kit.'
   },
   {
     id: 3,
-    tools: 'Node.js + Stripe API',
-    title: 'Revenue Recovery API',
-    problem: 'Disconnected payment gateways causing 8% revenue leakage.',
-    solve: 'Custom middleware for real-time reconciliation and dunning.',
-    breakdown: 'Deployed a serverless Node.js middleware on AWS Lambda. It listens for specific Stripe webhook failure events, executes custom retry logic, and triggers automated email sequences. Synced successful recoveries instantly to the central dashboard, recovering ~$4k/month.'
+    tools: 'Bubble.io',
+    title: 'Three-Portal SaaS Platform',
+    problem: 'A job search management company needed a production-grade multi-role app without a long dev timeline.',
+    solve: 'Architected a complete three-portal SaaS in Bubble.io — client, associate, and admin portals in one app.',
+    breakdown: 'Built a full no-code SaaS with role-based routing across three distinct portals. Clients track job search progress, associates manage their active candidate workload, and administrators oversee the full operation — all within a single Bubble.io application with clean permission separation.'
   }
 ];
 
@@ -300,7 +300,7 @@ const Home: React.FC = () => {
             <svg className="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
             </svg>
-            <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-slate-300">Data & Automation Specialist</span>
+            <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-slate-300">No-Code & Automation Engineer</span>
           </div>
 
           {/* Main Title - Updated */}

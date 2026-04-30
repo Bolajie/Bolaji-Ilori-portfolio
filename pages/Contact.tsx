@@ -100,7 +100,7 @@ const Contact: React.FC = () => {
             </h1>
             
             <p className="text-xl sm:text-2xl text-slate-400 mb-20 leading-relaxed font-medium max-w-xl">
-              I am currently accepting inquiries for <span className="text-white">enterprise-grade automation</span>, data ecosystem design, and GTM engineering projects.
+              I am currently accepting inquiries for <span className="text-white">automation engineering</span>, no-code app development, and AI workflow projects.
             </p>
             
             <div className="space-y-6">
