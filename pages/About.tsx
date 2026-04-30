@@ -89,7 +89,7 @@ const About: React.FC = () => {
           <div className="flex-1 text-center lg:text-left">
             <h1 className="text-6xl md:text-8xl font-black text-white mb-10 tracking-tighter leading-none">The Architect.</h1>
             <p className="text-2xl text-slate-400 font-medium mb-10 max-w-2xl leading-relaxed">
-              I streamline business operations by combining <span className="text-orange-500 font-bold">data integrity</span>, <span className="text-rose-500 font-bold">intelligent automation</span>, and systems thinking — building workflows that scale fast without breaking accuracy or trust.
+              No-Code & Automation Engineer based in Lagos, Nigeria — building <span className="text-orange-500 font-bold">AI-powered workflows</span>, <span className="text-rose-500 font-bold">no-code SaaS products</span>, and <span className="text-white font-bold">data pipelines</span> for startups and ops-heavy businesses. Open to remote roles and freelance contracts.
             </p>
             
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-10">
@@ -214,15 +214,23 @@ const About: React.FC = () => {
           </div>
         </section>
 
-        {/* Data Science Highlight Narrative Section - NEW */}
-        <section className="mb-48 border-t border-white/5 pt-48">
-          <div className="text-left">
-            <h2 className="text-xs font-black text-slate-600 uppercase tracking-[0.6em] mb-8">
-              Data Science (Applied)
-            </h2>
-            <p className="text-slate-400 max-w-3xl text-2xl font-medium leading-relaxed">
-              Currently deepening expertise in statistical modeling, machine learning, and predictive analytics through the <span className="text-white">Applied Data Science Lab at WorldQuant University</span>. My focus is on transforming raw operational telemetry into actionable business intelligence using rigorous, industry-standard methodologies.
-            </p>
+        {/* Availability Strip */}
+        <section className="mb-48 border-t border-white/5 pt-20">
+          <div className="flex flex-wrap gap-6 sm:gap-10">
+            {[
+              { label: 'Status', value: 'Open to Work', color: 'text-emerald-400', dot: true },
+              { label: 'Type', value: 'Full-time · Freelance', color: 'text-white', dot: false },
+              { label: 'Location', value: 'Remote · Lagos, Nigeria', color: 'text-white', dot: false },
+              { label: 'Rate', value: '$25–40/hr', color: 'text-orange-400', dot: false },
+            ].map((item, i) => (
+              <div key={i} className="flex flex-col gap-1.5">
+                <span className="text-[9px] font-black text-slate-600 uppercase tracking-widest">{item.label}</span>
+                <div className="flex items-center gap-2">
+                  {item.dot && <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_rgba(52,211,153,0.8)]"></span>}
+                  <span className={`text-base font-black ${item.color}`}>{item.value}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 

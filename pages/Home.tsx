@@ -177,33 +177,32 @@ const IntegrityCheckWidget: React.FC = () => {
 };
 
 const IntegrationEcosystem: React.FC = () => {
-  // Use icons from CORE_TOOLKIT for the ecosystem
   const services = [
-    { 
-      name: 'Stripe', 
-      iconUrl: 'https://cdn.simpleicons.org/stripe/008CDD', 
-      tooltip: 'Webhooks & Error Handling',
+    {
+      name: 'n8n',
+      iconUrl: 'https://cdn.simpleicons.org/n8n/FF656D',
+      tooltip: 'Core Automation Orchestrator',
       pos: 'top-0 left-1/2 -translate-x-1/2 -translate-y-1/2',
       line: { x1: '50%', y1: '50%', x2: '50%', y2: '15%' }
     },
-    { 
-      name: 'Slack', 
-      iconUrl: 'https://cdn.simpleicons.org/slack/4A154B',
-      tooltip: 'Real-time Alerts & Interactive Bots',
+    {
+      name: 'Airtable',
+      iconUrl: 'https://cdn.simpleicons.org/airtable/18BFFF',
+      tooltip: 'CRM & No-Code Database',
       pos: 'right-0 top-1/2 translate-x-1/2 -translate-y-1/2',
       line: { x1: '50%', y1: '50%', x2: '85%', y2: '50%' }
     },
-    { 
-      name: 'PostgreSQL', 
-      iconUrl: 'https://cdn.simpleicons.org/postgresql/4169E1',
-      tooltip: 'Complex Queries & Data Warehousing',
+    {
+      name: 'Gemini',
+      iconUrl: 'https://cdn.simpleicons.org/googlegemini/8E75B2',
+      tooltip: 'AI Reasoning & LLM Layer',
       pos: 'bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2',
       line: { x1: '50%', y1: '50%', x2: '50%', y2: '85%' }
     },
-    { 
-      name: 'Airtable', 
-      iconUrl: 'https://cdn.simpleicons.org/airtable/18BFFF',
-      tooltip: 'No-Code CMS & Workflow Triggers',
+    {
+      name: 'Slack',
+      iconUrl: 'https://cdn.simpleicons.org/slack/4A154B',
+      tooltip: 'Real-time Alerts & Block Kit Reports',
       pos: 'left-0 top-1/2 -translate-x-1/2 -translate-y-1/2',
       line: { x1: '50%', y1: '50%', x2: '15%', y2: '50%' }
     }
@@ -295,10 +294,16 @@ const Home: React.FC = () => {
             </div>
           </div>
 
-          {/* Expert Badge */}
-          <div className="inline-flex items-center space-x-2 bg-white/5 px-5 py-2 rounded-full border border-white/10 mb-8 backdrop-blur-md animate-pulse-slow">
-            <svg className="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+          {/* Availability Status */}
+          <div className="flex items-center justify-center gap-2.5 mb-5">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.9)] animate-pulse"></span>
+            <span className="text-emerald-400 text-[11px] font-black uppercase tracking-[0.3em]">Available · Remote · $25–40/hr</span>
+          </div>
+
+          {/* Role Badge */}
+          <div className="inline-flex items-center space-x-2 bg-white/5 px-5 py-2 rounded-full border border-white/10 mb-8 backdrop-blur-md">
+            <svg className="w-4 h-4 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
             </svg>
             <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-slate-300">No-Code & Automation Engineer</span>
           </div>
@@ -311,19 +316,18 @@ const Home: React.FC = () => {
 
           {/* Intro Text */}
           <div className="flex items-center justify-center space-x-2 mb-6">
-            <span className="text-2xl animate-bounce">👋</span>
             <p className="text-xl md:text-2xl font-bold text-white">Hi, I'm <span className="text-white underline decoration-brand-orange/40 decoration-4">Bolaji Ilori</span>.</p>
           </div>
 
-          {/* Sub-headline - Updated */}
+          {/* Sub-headline */}
           <p className="text-slate-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-12 font-medium">
-            I help businesses streamline operations by combining <span className="text-slate-200 font-bold">clean, reliable data</span> with <span className="text-slate-200 font-bold">intelligent automation</span> — reducing manual work, improving decision-making, and enabling teams to scale with confidence.
+            I build <span className="text-slate-200 font-bold">automation systems</span>, <span className="text-slate-200 font-bold">no-code products</span>, and <span className="text-slate-200 font-bold">AI workflows</span> that eliminate manual work and let operations scale without breaking.
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-            <Link 
-              to="/contact" 
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-14">
+            <Link
+              to="/contact"
               className="w-full sm:w-auto px-10 py-5 bg-brand-orange text-black rounded-2xl font-black text-sm uppercase tracking-widest hover:shadow-[0_0_40px_rgba(249,115,22,0.4)] hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center space-x-3"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -331,8 +335,8 @@ const Home: React.FC = () => {
               </svg>
               <span>Hire Me</span>
             </Link>
-            <Link 
-              to="/case-studies" 
+            <Link
+              to="/case-studies"
               className="w-full sm:w-auto px-10 py-5 bg-[rgba(255,255,255,0.1)] border border-[#333] text-white rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center space-x-3 backdrop-blur-sm"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -340,6 +344,24 @@ const Home: React.FC = () => {
               </svg>
               <span>View Work</span>
             </Link>
+          </div>
+
+          {/* Stats Strip */}
+          <div className="relative">
+            <div className="absolute inset-0 -z-10 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent top-0"></div>
+            <div className="pt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-6 sm:gap-x-14">
+              {[
+                { value: '14+', label: 'Systems Deployed' },
+                { value: '100%', label: 'CRM Entry Eliminated' },
+                { value: 'Days → Secs', label: 'Compliance Review' },
+                { value: '88%', label: 'Research Time Reduced' },
+              ].map((stat, i) => (
+                <div key={i} className="flex flex-col items-center gap-1.5">
+                  <span className="text-2xl sm:text-3xl font-black text-white tracking-tight">{stat.value}</span>
+                  <span className="text-[9px] font-black text-slate-600 uppercase tracking-widest">{stat.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -351,8 +373,9 @@ const Home: React.FC = () => {
       <section className="py-24 px-4 sm:px-6 bg-slate-900/30 border-t border-white/5 relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-xs font-black text-slate-500 uppercase tracking-[0.6em] mb-4">Deployed Systems</h2>
+            <h2 className="text-xs font-black text-slate-500 uppercase tracking-[0.6em] mb-4">Selected Projects</h2>
             <h3 className="text-4xl md:text-5xl font-black text-white tracking-tight">Featured Work.</h3>
+            <p className="text-slate-500 text-sm font-medium mt-4">From the <Link to="/case-studies" className="text-orange-500 hover:text-white transition-colors underline underline-offset-2">full portfolio of 14 systems →</Link></p>
           </div>
 
           {/* Grid Layout Updated for 1024px break */}

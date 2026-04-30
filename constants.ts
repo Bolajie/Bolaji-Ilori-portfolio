@@ -125,6 +125,120 @@ export const EDUCATION: EducationItem[] = [
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
+    id: 'nigeria-tax-ai',
+    title: 'AI-Powered Nigerian Tax Advisory System',
+    category: 'Automation & AI',
+    problem: 'A leading Lagos-based tax consultancy was losing 60% of billable hours to manual research in the 400+ page Nigeria Tax Act 2025. This caused inconsistencies, client delays, and high staff burnout.',
+    solution: 'Built an intelligent, zero-hallucination AI advisor using a three-tier retrieval system (Semantic Search + Knowledge Graph + Vector Store). The system ensures every answer is backed by exact statutory text and citations.',
+    tools: ['n8n', 'Google Gemini', 'PostgreSQL', 'Neo4j', 'Redis', 'Mistral AI', 'Cohere'],
+    impact: '88% reduction in research time and $180K additional revenue in Year 1.',
+    description: 'Implemented a sophisticated hierarchy-aware chunking algorithm that preserves legal structure. The system generally takes 8-15 seconds to respond, a deliberate latency that ensures extremely high accuracy. It achieves this by leveraging the dynamic memory provided in the Knowledge Graph to cross-reference every claim against statutory text before generating an answer.',
+    architecture: 'PDF Upload -> n8n Pipeline -> Mistral Vision -> Smart Chunker -> Neo4j (Relationships) + pgVector (Statutory Text) -> Gemini Agent',
+    keyFeatures: [
+      'Hierarchy-Aware Chunking (preserving Chapter/Section relationship)',
+      'Multi-Tier RAG Orchestration (Semantic + Knowledge Graph)',
+      'Autonomous Citation Verification (Anti-hallucination layer)',
+      'High-Speed PDF Ingestion & OCR Processing'
+    ],
+    process: [
+      { step: 'Ingestion', description: 'Raw PDFs are ingested via n8n and processed using Mistral Vision to capture tables and complex formatting.' },
+      { step: 'Knowledge Mapping', description: 'Legal relationships are mapped into Neo4j to allow for contextual cross-referencing between sections.' },
+      { step: 'Vectorization', description: 'Statutory text is embedded and stored in pgVector with high-dimensional metadata for precise retrieval.' },
+      { step: 'Agentic Reasoning', description: 'Gemini Pro acts as the reasoning engine, orchestrating tool calls to verify every citation before responding.' }
+    ],
+    workflowGallery: [
+      {
+        url: 'https://drive.google.com/uc?export=view&id=1B6Zc4HLkhHn1yDyrQGychvpjP2bPR1dr',
+        caption: 'Agent Orchestration & Handshake Logic'
+      },
+      {
+        url: 'https://drive.google.com/uc?export=view&id=1QkSSNbYtJ1W1Yb7LDDZQUS6sQMVFHrRz',
+        caption: 'ETL Pipeline: Extraction, Transform & Knowledge Loading'
+      }
+    ],
+    results: [
+      { label: 'Research Time', value: '30 mins/day', improvement: '88% reduction' },
+      { label: 'Response Time', value: '8-15 secs', improvement: 'High Precision' },
+      { label: 'Citation Accuracy', value: '99.2%', improvement: '+17.2% gain' },
+      { label: 'Revenue Growth', value: '$180K+', improvement: 'Year 1 Impact' }
+    ],
+    testimonial: {
+      text: "This AI system transformed our practice. What used to take our team hours of manual research now happens in seconds—with perfect citations every time.",
+      author: "Oluwaseun Adebayo",
+      role: "Managing Partner"
+    },
+    demoUrl: 'https://nigeria-tax-law-bot.vercel.app',
+    repoUrl: 'https://github.com/Bolajie/Nigeria-Tax-Law-bot'
+  },
+  {
+    id: 'autonomous-invoice-ops',
+    title: 'Autonomous Invoice Ops',
+    category: 'Finance Automation',
+    problem: 'Finance team was burning 15h/week on manual data entry from unstructured invoices.',
+    solution: 'Deployed an OCR pipeline using n8n and OpenAI Vision to extract, validate, and inject invoice data into Xero.',
+    tools: ['n8n', 'OpenAI', 'PostgreSQL', 'Xero'],
+    impact: 'Reduced processing time from 15h/week to under 10 mins/week.',
+    description: 'Architected a webhook-based listener in n8n that triggers upon email receipt. Utilized OpenAI Vision API for extraction of unstructured PDF data into strict JSON schemas. Implemented a validation layer against existing POs in PostgreSQL before final injection into Xero.',
+    architecture: 'Email Receipt (IMAP) -> n8n Webhook -> OpenAI Vision (OCR) -> PO Validation (PostgreSQL) -> Xero Injection',
+    process: [
+      { step: 'Webhook Listener Setup', description: 'Configured n8n to listen for incoming emails via IMAP and trigger the workflow upon PDF attachment detection.' },
+      { step: 'OCR Data Extraction', description: 'Leveraged OpenAI Vision capabilities to parse unstructured invoice PDFs and extract key fields (Date, Vendor, Amount) into a strict JSON schema.' },
+      { step: 'Validation & Injection', description: 'Implemented a logic layer to validate extracted amounts against open Purchase Orders in PostgreSQL, then auto-posted clean data to Xero.' }
+    ],
+    results: [
+      { label: 'Manual Hours', value: '0', improvement: '100% Removed' },
+      { label: 'Processing Speed', value: '< 2 min', improvement: 'Real-time' },
+      { label: 'Error Rate', value: '0.02%', improvement: 'Near Zero' }
+    ]
+  },
+  {
+    id: 'autonomous-gtm-engine',
+    title: 'Autonomous GTM Enrichment & Scoring Engine',
+    category: 'GTM Engineering',
+    problem: 'A high-growth B2B SaaS startup struggled with stale lead data and slow response times. Their sales team was wasting 20 hours a week manually verifying email addresses and LinkedIn profiles from Apollo.io exports.',
+    solution: 'Architected a multi-step enrichment pipeline using Make.com and Python scripts. The system captures new leads via webhooks, enriches them through Apollo APIs, and scores them for immediate CRM prioritization.',
+    tools: ['Make.com', 'Python', 'Apollo API', 'Clearbit', 'HubSpot'],
+    impact: 'Reclaimed 20+ hours of weekly sales capacity and improved lead conversion rate by 34%.',
+    description: 'Built custom Python scripts to handle complex data transformation that standard integration blocks could not manage — including fuzzy matching company names across multiple databases and calculating a proprietary Propensity to Buy score based on recent hiring trends and tech stack changes.',
+    architecture: 'Apollo Webhook -> Make.com Switchboard -> Python Enrichment Module -> HubSpot CRM Sync',
+    results: [
+      { label: 'Sales Capacity', value: '+20 Hours', improvement: 'Weekly reclaimed' },
+      { label: 'Conversion Rate', value: '34%', improvement: 'Increase' },
+      { label: 'Data Accuracy', value: '98%', improvement: 'Up from 70%' },
+      { label: 'Enrichment Time', value: '< 2 Mins', improvement: 'Instantaneous' }
+    ],
+    repoUrl: 'https://github.com/Bolajie/autonomous-enrichment-kit'
+  },
+  {
+    id: 'data-warehouse-medallion',
+    title: 'Data Warehouse — Medallion Architecture',
+    category: 'Data Engineering',
+    problem: 'Raw transactional data from multiple sources was fragmented and unstructured, making it impossible to generate accurate sales reports or analyze customer behavior efficiently.',
+    solution: 'Designed and implemented a Data Warehouse using the Medallion Architecture within SQL Server Management Studio (SSMS), transforming raw data into a Star Schema optimized for business intelligence.',
+    tools: ['SSMS', 'SQL Server', 'SQL', 'Medallion Architecture', 'ETL'],
+    impact: 'Established a scalable, single-source-of-truth data foundation enabling accurate sales reporting and customer segmentation.',
+    description: 'Designed and implemented a full Data Warehouse in SSMS using the Medallion Architecture. The project follows a three-layer processing approach — Bronze for ingestion, Silver for transformation, Gold for analytics-ready Star Schema — ensuring data quality, scalability, and reliable reporting.',
+    architecture: 'Raw Source -> Bronze (Ingestion) -> Silver (Transformation) -> Gold (Star Schema)',
+    keyFeatures: [
+      'Layered data pipeline using Medallion principles',
+      'Data cleaning and transformation within SQL Server',
+      'Star Schema design (Fact & Dimension tables)',
+      'Business-focused analytical queries'
+    ],
+    process: [
+      { step: 'Bronze Layer', description: 'Raw data ingestion into SQL Server tables directly from transactional sources.' },
+      { step: 'Silver Layer', description: 'Data cleaning, transformation, and standardization using SQL queries to ensure consistency.' },
+      { step: 'Gold Layer', description: 'Final, analytics-ready data modeled into a Star Schema (Fact & Dimension tables) for high-performance reporting.' }
+    ],
+    results: [
+      { label: 'Data Quality', value: '100%', improvement: 'Structured' },
+      { label: 'Reporting', value: 'Reliable', improvement: 'Single Source of Truth' },
+      { label: 'Architecture', value: 'Medallion', improvement: 'Scalable Design' },
+      { label: 'Query Speed', value: 'High', improvement: 'Optimized Schema' }
+    ],
+    repoUrl: 'https://github.com/Bolajie/data-warehouse-project'
+  },
+  {
     id: 'sales-crm-automation',
     title: 'Sales Call CRM Automation Pipeline',
     category: 'Automation & AI',
