@@ -19,7 +19,7 @@ const ScrollToTop = () => {
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col selection:bg-indigo-100 selection:text-indigo-900">
+      <div className="min-h-screen flex flex-col">
         <ScrollToTop />
         <Navbar />
         <main className="flex-grow">
