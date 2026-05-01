@@ -233,7 +233,10 @@ const About: React.FC = () => {
               <a href="https://github.com/Bolajie" target="_blank" rel="noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-white/10 rounded-xl font-display font-bold text-xs text-brand-cream uppercase tracking-widest hover:border-brand-orange/30 transition-all"
               >
-                Visit GitHub ↗
+                Visit GitHub
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15M19.5 4.5H8.25M19.5 4.5v11.25" />
+                </svg>
               </a>
             </div>
           )}
