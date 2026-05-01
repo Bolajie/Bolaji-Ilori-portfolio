@@ -4,6 +4,7 @@ export const CORE_TOOLKIT = [
   { name: 'n8n', icon: 'https://cdn.simpleicons.org/n8n/FF656D', category: 'Automation' },
   { name: 'Make', icon: 'https://cdn.simpleicons.org/make/61549D', category: 'Automation' },
   { name: 'Zapier', icon: 'https://cdn.simpleicons.org/zapier/FF4F00', category: 'Automation' },
+  { name: 'Claude', icon: 'https://cdn.simpleicons.org/anthropic/D4A97A', category: 'AI' },
   { name: 'OpenAI', icon: 'https://cdn.simpleicons.org/openai/ffffff', category: 'AI' },
   { name: 'Gemini', icon: 'https://cdn.simpleicons.org/googlegemini/8E75B2', category: 'AI' },
   { name: 'Airtable', icon: 'https://cdn.simpleicons.org/airtable/18BFFF', category: 'Data' },

@@ -51,11 +51,17 @@ const About: React.FC = () => {
         <section className="mb-32 animate-reveal">
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-12 lg:gap-20">
 
-            {/* Photo */}
+            {/* Monogram avatar */}
             <div className="relative flex-shrink-0">
               <div className="absolute -inset-4 accent-gradient rounded-2xl blur-3xl opacity-10"></div>
-              <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-2xl overflow-hidden bg-brand-surface border border-white/[0.07] shadow-2xl">
-                <img src="https://picsum.photos/800/800?grayscale" alt="Bolaji Ilori" className="w-full h-full object-cover brightness-110 grayscale" />
+              <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-2xl overflow-hidden bg-brand-surface border border-white/[0.07] shadow-2xl flex items-center justify-center">
+                <div className="absolute inset-0 grid-pattern opacity-30"></div>
+                <div className="absolute top-0 left-0 right-0 h-px accent-gradient opacity-50"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-white/[0.04]"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-orange/[0.08] rounded-full blur-[50px] pointer-events-none"></div>
+                <span className="relative z-10 font-display font-black text-[88px] md:text-[100px] tracking-tight leading-none select-none">
+                  B<span className="text-brand-orange">I</span>
+                </span>
               </div>
             </div>
 

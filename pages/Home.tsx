@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { MetricsMonitor, SignalWaveform, SystemTerminal } from '../components/DashboardWidgets';
 import TechStackStrip from '../components/TechStackStrip';
 import WorkflowVisualizer from '../components/WorkflowVisualizer';
 
@@ -99,30 +98,8 @@ const PROCESS_STEPS = [
   { num: '05', title: 'Deploy', desc: 'Go live. Monitor in production, document the system for team handoff.' },
 ];
 
-const CountUpAnimation: React.FC<{ target: number }> = ({ target }) => {
-  const [count, setCount] = useState(0);
-  const rafIdRef = useRef<number>(0);
-
-  useEffect(() => {
-    let startTimestamp: number | null = null;
-    const duration = 1500;
-    const step = (timestamp: number) => {
-      if (!startTimestamp) startTimestamp = timestamp;
-      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      setCount(progress * target);
-      if (progress < 1) {
-        rafIdRef.current = window.requestAnimationFrame(step);
-      }
-    };
-    rafIdRef.current = window.requestAnimationFrame(step);
-    return () => window.cancelAnimationFrame(rafIdRef.current);
-  }, [target]);
-
-  return <span>{count.toFixed(1)}</span>;
-};
-
 const WhatIAutomate: React.FC = () => (
-  <section className="py-24 px-6 sm:px-10 lg:px-16 bg-brand-surface/30 border-y border-white/[0.05]">
+  <section className="py-24 px-6 sm:px-10 lg:px-16">
     <div className="max-w-7xl mx-auto">
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-16 pb-8 border-b border-white/[0.06]">
         <div>
@@ -147,7 +124,6 @@ const WhatIAutomate: React.FC = () => (
                 <path strokeLinecap="round" strokeLinejoin="round" d={item.iconPath} />
               </svg>
             </div>
-
             <div className="flex-1">
               <h3 className="font-display font-black text-base text-brand-cream mb-2 leading-tight">{item.title}</h3>
               <p className="text-brand-muted text-sm leading-relaxed mb-4">{item.desc}</p>
@@ -161,7 +137,7 @@ const WhatIAutomate: React.FC = () => (
 );
 
 const HowIWork: React.FC = () => (
-  <section className="py-24 px-6 sm:px-10 lg:px-16">
+  <section className="py-24 px-6 sm:px-10 lg:px-16 bg-brand-surface/30 border-y border-white/[0.05]">
     <div className="max-w-7xl mx-auto">
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-16 pb-8 border-b border-white/[0.06]">
         <div>
@@ -177,7 +153,6 @@ const HowIWork: React.FC = () => (
 
       <div className="relative">
         <div className="hidden lg:block absolute top-8 left-0 right-0 h-px bg-white/[0.05]" style={{ zIndex: 0 }}></div>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6 relative z-10">
           {PROCESS_STEPS.map((step, i) => (
             <div key={i} className="flex flex-col gap-4">
@@ -195,171 +170,6 @@ const HowIWork: React.FC = () => (
     </div>
   </section>
 );
-
-const IntegrityCheckWidget: React.FC = () => {
-  const [isValidated, setIsValidated] = useState(false);
-
-  return (
-    <section className="py-24 px-6 sm:px-10 lg:px-16 relative z-10">
-      <div className="max-w-6xl mx-auto">
-
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-16 pb-8 border-b border-white/[0.06]">
-          <div>
-            <p className="section-label mb-3">Interactive Demo</p>
-            <h2 className="font-display font-black text-4xl sm:text-5xl text-brand-cream tracking-tight">
-              Data Integrity <span className="text-gradient">Check.</span>
-            </h2>
-          </div>
-          <p className="text-brand-muted text-sm font-medium max-w-sm leading-relaxed">
-            "Automation without data integrity is just making mistakes faster."
-          </p>
-        </div>
-
-        <div className={`relative overflow-hidden rounded-2xl border transition-all duration-700 ${isValidated ? 'bg-brand-surface border-emerald-500/20 shadow-[0_0_60px_rgba(16,185,129,0.08)]' : 'bg-brand-surface border-white/[0.06]'}`}>
-          <div className="absolute top-0 left-0 w-full h-px accent-gradient opacity-40"></div>
-
-          <div className="p-8 sm:p-14 flex flex-col items-center text-center">
-            <h3 className="font-display font-black text-2xl sm:text-3xl text-brand-cream mb-4 tracking-tight">
-              Toggle the <span className={isValidated ? 'text-emerald-400' : 'text-brand-muted'}>Validation Layer</span>
-            </h3>
-            <p className="text-brand-muted text-sm font-medium max-w-lg mb-10 leading-relaxed">
-              I build the filters, validators, and logic that ensure your business scales on a foundation of clean data.
-            </p>
-
-            <button
-              onClick={() => setIsValidated(!isValidated)}
-              className="group flex items-center gap-5 mb-14 focus:outline-none cursor-pointer"
-            >
-              <span className={`section-label transition-colors duration-300 ${!isValidated ? 'text-brand-cream' : 'text-brand-muted'}`}>Raw Stream</span>
-              <div className={`w-16 h-8 rounded-full border transition-all duration-300 relative p-1 ${isValidated ? 'bg-emerald-900/20 border-emerald-500' : 'bg-rose-900/10 border-rose-500/40'}`}>
-                <div className={`w-5 h-5 rounded-full shadow-lg transform transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isValidated ? 'translate-x-8 bg-emerald-400' : 'translate-x-0 bg-rose-500'}`}></div>
-              </div>
-              <span className={`section-label transition-colors duration-300 ${isValidated ? 'text-brand-cream' : 'text-brand-muted'}`}>Validated</span>
-            </button>
-
-            <div className="w-full max-w-3xl bg-black/40 rounded-xl border border-white/[0.06] h-56 sm:h-72 relative overflow-hidden">
-              <div className="absolute top-0 inset-x-0 h-8 bg-white/[0.03] border-b border-white/[0.05] flex items-center px-4 gap-1.5">
-                <div className="w-2 h-2 rounded-full bg-brand-muted/30"></div>
-                <div className="w-2 h-2 rounded-full bg-brand-muted/30"></div>
-                <div className="w-2 h-2 rounded-full bg-brand-muted/30"></div>
-                <span className="section-label ml-auto">process_monitor_v2</span>
-              </div>
-
-              <div className="absolute top-8 inset-0 flex items-center justify-center p-4">
-                {isValidated ? (
-                  <div className="flex flex-col items-center animate-reveal">
-                    <div className="relative mb-5">
-                      <div className="absolute inset-0 bg-emerald-500 blur-2xl opacity-25 animate-pulse"></div>
-                      <div className="relative w-16 h-16 bg-emerald-500/10 rounded-xl border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                      </div>
-                    </div>
-                    <span className="font-display font-black text-3xl text-brand-cream mb-2">0 Errors Found</span>
-                    <span className="px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-md section-label text-emerald-400">
-                      <CountUpAnimation target={99.9} />% Accuracy
-                    </span>
-                  </div>
-                ) : (
-                  <div className="w-full h-full relative">
-                    <div className="grid grid-cols-3 gap-3 h-full content-center">
-                      {[...Array(9)].map((_, i) => (
-                        <div key={i} className="bg-rose-500/5 border border-rose-500/10 p-2.5 rounded-lg animate-pulse" style={{ animationDelay: `${i * 0.11}s` }}>
-                          <div className="w-4 h-4 mb-1.5 text-rose-500/40">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-                          </div>
-                          <div className="w-full h-1 bg-rose-500/15 rounded mb-1"></div>
-                          <div className="w-2/3 h-1 bg-rose-500/15 rounded"></div>
-                          <span className="section-label text-rose-500 mt-1.5 block" style={{ fontSize: '7px' }}>ERR_NULL</span>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-[2px] rounded-xl">
-                      <div className="bg-rose-500/10 border border-rose-500/30 text-rose-400 px-5 py-2.5 rounded-lg flex items-center gap-2.5">
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        <span className="section-label text-rose-400">Integrity Compromised</span>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const IntegrationEcosystem: React.FC = () => {
-  const services = [
-    { name: 'n8n',      iconUrl: 'https://cdn.simpleicons.org/n8n/FF656D',             tooltip: 'Core Automation Orchestrator',       pos: 'top-0 left-1/2 -translate-x-1/2 -translate-y-1/2',   line: { x1: '50%', y1: '50%', x2: '50%', y2: '15%' } },
-    { name: 'Airtable', iconUrl: 'https://cdn.simpleicons.org/airtable/18BFFF',         tooltip: 'CRM & No-Code Database',            pos: 'right-0 top-1/2 translate-x-1/2 -translate-y-1/2',   line: { x1: '50%', y1: '50%', x2: '85%', y2: '50%' } },
-    { name: 'Gemini',   iconUrl: 'https://cdn.simpleicons.org/googlegemini/8E75B2',     tooltip: 'AI Reasoning & LLM Layer',          pos: 'bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2', line: { x1: '50%', y1: '50%', x2: '50%', y2: '85%' } },
-    { name: 'Slack',    iconUrl: 'https://cdn.simpleicons.org/slack/4A154B',            tooltip: 'Real-time Alerts & Block Kit',       pos: 'left-0 top-1/2 -translate-x-1/2 -translate-y-1/2',   line: { x1: '50%', y1: '50%', x2: '15%', y2: '50%' } },
-  ];
-
-  return (
-    <section className="py-24 px-6 sm:px-10 lg:px-16 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col lg:flex-row items-center gap-20 lg:gap-32">
-
-          <div className="flex-1">
-            <p className="section-label mb-4">Core Stack</p>
-            <h2 className="font-display font-black text-4xl sm:text-5xl text-brand-cream tracking-tight mb-6 leading-tight">
-              Integration <br/><span className="text-gradient">Ecosystem.</span>
-            </h2>
-            <p className="text-brand-muted text-base leading-relaxed max-w-md">
-              Every system I build is wired together through a tight stack of battle-tested tools. These four form the core of most workflows I deploy.
-            </p>
-
-            <div className="mt-10 space-y-3">
-              {services.map((s, i) => (
-                <div key={i} className="flex items-center gap-4 p-3 rounded-xl border border-white/[0.04] hover:border-brand-orange/20 transition-colors group">
-                  <img src={s.iconUrl} alt={s.name} className="w-6 h-6 object-contain filter grayscale group-hover:grayscale-0 transition-all" />
-                  <div>
-                    <p className="font-display font-bold text-brand-cream text-sm">{s.name}</p>
-                    <p className="section-label" style={{ fontSize: '8px' }}>{s.tooltip}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="flex-shrink-0 relative w-72 h-72 sm:w-80 sm:h-80">
-            <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
-              <defs>
-                <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#FF6B2B" stopOpacity="0.15" />
-                  <stop offset="100%" stopColor="#FF6B2B" stopOpacity="0.6" />
-                </linearGradient>
-              </defs>
-              {services.map((s, i) => (
-                <line key={i} x1={s.line.x1} y1={s.line.y1} x2={s.line.x2} y2={s.line.y2}
-                  stroke="url(#lineGrad)" strokeWidth="1.5" strokeDasharray="4 4"
-                  style={{ animation: `marquee ${3 + i * 0.6}s linear infinite` }}
-                />
-              ))}
-            </svg>
-
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-brand-surface border border-white/10 rounded-xl flex items-center justify-center shadow-[0_0_40px_rgba(255,107,43,0.2)] z-10">
-              <span className="font-display font-black text-lg text-brand-cream">B<span className="text-brand-orange">I</span></span>
-              <div className="absolute -inset-3 border border-brand-orange/20 rounded-xl animate-pulse opacity-40"></div>
-            </div>
-
-            {services.map((service, idx) => (
-              <div key={idx} className={`absolute ${service.pos} w-14 h-14 bg-brand-surface border border-white/[0.08] rounded-xl flex items-center justify-center hover:scale-110 hover:border-brand-orange/40 transition-all duration-300 group z-20 cursor-default shadow-lg`}>
-                <img src={service.iconUrl} alt={service.name} className="w-7 h-7 object-contain filter grayscale group-hover:grayscale-0 transition-all" />
-                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span className="section-label text-brand-cream" style={{ fontSize: '7px' }}>{service.name}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 const Home: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<FeaturedProject | null>(null);
@@ -433,8 +243,14 @@ const Home: React.FC = () => {
       {/* ── WORKFLOW VISUALIZER ──────────────────────────── */}
       <WorkflowVisualizer />
 
+      {/* ── WHAT I AUTOMATE ──────────────────────────────── */}
+      <WhatIAutomate />
+
+      {/* ── HOW I WORK ───────────────────────────────────── */}
+      <HowIWork />
+
       {/* ── FEATURED WORK ────────────────────────────────── */}
-      <section className="py-24 px-6 sm:px-10 lg:px-16 bg-brand-surface/30 border-y border-white/[0.05] relative overflow-hidden">
+      <section className="py-24 px-6 sm:px-10 lg:px-16 bg-brand-surface/30 border-t border-white/[0.05] relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
 
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-16 pb-8 border-b border-white/[0.06]">
@@ -482,7 +298,7 @@ const Home: React.FC = () => {
                   className="w-full py-2.5 border border-white/[0.08] text-brand-muted rounded-xl hover:border-brand-orange/30 hover:text-brand-cream transition-all flex items-center justify-center gap-2 font-display font-bold text-xs uppercase tracking-widest cursor-pointer"
                 >
                   Technical Breakdown
-                  <svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/>
                   </svg>
                 </button>
@@ -493,57 +309,6 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* ── WHAT I AUTOMATE ──────────────────────────────── */}
-      <WhatIAutomate />
-
-      {/* ── TECHNICAL DASHBOARD ──────────────────────────── */}
-      <section className="py-24 px-6 sm:px-10 lg:px-16 relative">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
-
-            <div className="flex-1 space-y-6 text-center lg:text-left">
-              <p className="section-label">Live System View</p>
-              <h2 className="font-display font-black text-4xl lg:text-5xl text-brand-cream leading-tight tracking-tight">
-                Technical <br/><span className="text-gradient">Underpinning.</span>
-              </h2>
-              <p className="text-brand-muted text-base leading-relaxed max-w-md mx-auto lg:mx-0">
-                Behind every system I scale is a high-velocity technical framework designed for zero-latency operations and predictive scalability.
-              </p>
-            </div>
-
-            <div className="flex-1 w-full max-w-xl relative animate-reveal">
-              <div className="glass-card rounded-2xl p-6 sm:p-10 overflow-hidden">
-                <div className="flex justify-between items-center mb-8">
-                  <div className="flex gap-1.5">
-                    <div className="w-2 h-2 rounded-full bg-rose-500/40"></div>
-                    <div className="w-2 h-2 rounded-full bg-brand-amber/40"></div>
-                    <div className="w-2 h-2 rounded-full bg-emerald-500/40"></div>
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <span className="section-label text-emerald-400">engine_active</span>
-                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></div>
-                  </div>
-                </div>
-                <MetricsMonitor />
-                <SignalWaveform />
-                <SystemTerminal />
-              </div>
-              <div className="absolute -top-8 -right-8 w-56 h-56 bg-brand-orange/8 rounded-full blur-[80px] -z-10"></div>
-              <div className="absolute -bottom-8 -left-8 w-56 h-56 bg-brand-rose/8 rounded-full blur-[80px] -z-10"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── INTEGRITY CHECK ──────────────────────────────── */}
-      <IntegrityCheckWidget />
-
-      {/* ── HOW I WORK ───────────────────────────────────── */}
-      <HowIWork />
-
-      {/* ── INTEGRATION ECOSYSTEM ────────────────────────── */}
-      <IntegrationEcosystem />
 
       {/* ── TECHNICAL BREAKDOWN MODAL ────────────────────── */}
       {selectedProject && (
