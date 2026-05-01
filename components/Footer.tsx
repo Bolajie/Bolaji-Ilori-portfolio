@@ -66,9 +66,12 @@ const Footer: React.FC = () => {
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-display font-bold text-brand-muted hover:text-brand-orange text-sm transition-colors w-fit"
+                className="inline-flex items-center gap-1.5 font-display font-bold text-brand-muted hover:text-brand-orange text-sm transition-colors w-fit"
               >
-                {s.name} ↗
+                {s.name}
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15M19.5 4.5H8.25M19.5 4.5v11.25" />
+                </svg>
               </a>
             ))}
           </div>
