@@ -1,4 +1,4 @@
-import React, { useState, useEffect, memo } from 'react';
+import React, { useState, useEffect, useRef, memo } from 'react';
 
 export const MetricsMonitor = memo(() => {
   const [activeMetric, setActiveMetric] = useState(0);
@@ -60,11 +60,12 @@ export const SignalWaveform = memo(() => {
 });
 
 export const SystemTerminal = memo(() => {
-  const [terminalLines, setTerminalLines] = useState<string[]>([
-    '[13:21:11] VECTOR_MATCH: 0.98',
-    '[13:21:11] AGENT_01: ACTIVE',
-    '[13:21:11] n8n_FLOW: TRIGGERED',
-    '[13:21:11] n8n_FLOW: TRIGGERED'
+  const counterRef = useRef(4);
+  const [terminalLines, setTerminalLines] = useState<{ id: number; text: string }[]>([
+    { id: 0, text: '[13:21:11] VECTOR_MATCH: 0.98' },
+    { id: 1, text: '[13:21:11] AGENT_01: ACTIVE' },
+    { id: 2, text: '[13:21:11] n8n_FLOW: TRIGGERED' },
+    { id: 3, text: '[13:21:11] n8n_FLOW: TRIGGERED' },
   ]);
 
   useEffect(() => {
@@ -76,10 +77,9 @@ export const SystemTerminal = memo(() => {
       '[13:21:11] DB_UPLINK: ACTIVE'
     ];
     const interval = setInterval(() => {
-      setTerminalLines(prev => {
-        const next = [...prev, logs[Math.floor(Math.random() * logs.length)]];
-        return next.slice(-4);
-      });
+      const id = counterRef.current++;
+      const text = logs[id % logs.length];
+      setTerminalLines(prev => [...prev, { id, text }].slice(-4));
     }, 3000);
 
     return () => clearInterval(interval);
@@ -87,10 +87,10 @@ export const SystemTerminal = memo(() => {
 
   return (
     <div className="bg-black/60 rounded-2xl p-6 font-mono text-[10px] space-y-2 border border-white/5 h-32 overflow-hidden">
-      {terminalLines.map((line, i) => (
-        <div key={i} className="flex space-x-4 opacity-40">
-            <span className="text-brand-orange font-bold">{line.split(' ')[0]}</span>
-            <span className="text-slate-400">{line.split(' ').slice(1).join(' ')}</span>
+      {terminalLines.map(({ id, text }) => (
+        <div key={id} className="flex space-x-4 opacity-40">
+            <span className="text-brand-orange font-bold">{text.split(' ')[0]}</span>
+            <span className="text-slate-400">{text.split(' ').slice(1).join(' ')}</span>
         </div>
       ))}
       <div className="flex space-x-4">
