@@ -99,23 +99,24 @@ const CaseStudyList: React.FC = () => {
               className="group relative flex flex-col bg-brand-surface border border-white/[0.06] rounded-2xl overflow-hidden hover:border-brand-orange/30 transition-all duration-500 hover:scale-[1.01] active:scale-[0.99]"
               style={{ animationDelay: `${idx * 60}ms` }}
             >
-              {/* Image */}
-              <div className="relative h-52 sm:h-64 overflow-hidden">
-                <img
-                  src={`https://picsum.photos/1200/800?random=${study.id}`}
-                  alt={study.title}
-                  className="w-full h-full object-cover grayscale brightness-[0.35] group-hover:grayscale-0 group-hover:scale-105 group-hover:brightness-50 transition-all duration-700 ease-out"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-surface via-brand-surface/30 to-transparent"></div>
+              {/* Project panel */}
+              <div className="relative h-52 sm:h-64 overflow-hidden bg-brand-deep border-b border-white/[0.06]">
+                <div className="absolute inset-0 grid-pattern opacity-40"></div>
+                <div className="absolute top-0 left-0 right-0 h-px accent-gradient opacity-60"></div>
+                {/* Faded index watermark */}
+                <div className="absolute -right-2 -bottom-4 font-display font-black leading-none text-white/[0.04] select-none pointer-events-none" style={{ fontSize: 'clamp(80px, 14vw, 128px)' }}>
+                  {String(idx + 1).padStart(2, '0')}
+                </div>
+                {/* Ambient glow */}
+                <div className="absolute top-0 right-0 w-48 h-48 bg-brand-orange/[0.06] rounded-full blur-[60px] group-hover:bg-brand-orange/[0.12] transition-all duration-700 pointer-events-none"></div>
                 <div className="absolute bottom-5 left-6 right-6">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/10 backdrop-blur-md border border-white/10 rounded-lg section-label text-brand-cream mb-2.5">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/[0.06] border border-white/[0.08] rounded-lg section-label text-brand-muted mb-2.5">
                     {study.category}
                   </span>
                   <h3 className="font-display font-black text-xl sm:text-2xl text-brand-cream leading-tight tracking-tight group-hover:text-gradient transition-all duration-500">
                     {study.title}
                   </h3>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none"></div>
               </div>
 
               {/* Body */}
