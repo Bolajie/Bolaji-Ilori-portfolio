@@ -2,19 +2,64 @@
 <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-# Run and deploy your AI Studio app
+# Bolaji Ilori — Portfolio
 
-This contains everything you need to run your app locally.
+Personal portfolio for **Bolaji (Emmanuel) Ilori**, No-Code & Automation Engineer based in Lagos, Nigeria.
 
-View your app in AI Studio: https://ai.studio/apps/drive/181fm2YLI23KisaeeEw1QGcMhHlZczhVm
+Live site: [bolaji-ilori-portfolio.vercel.app](https://bolaji-ilori-portfolio.vercel.app)
+
+---
+
+## Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Framework | React + TypeScript |
+| Build tool | Vite |
+| Styling | Tailwind CSS (CDN) |
+| Fonts | Syne · Instrument Sans · JetBrains Mono |
+| Animation | Framer Motion · CSS keyframes |
+| Deployment | Vercel |
+| AI Integration | Gemini API |
+
+---
+
+## Pages
+
+- **Home** — Hero, workflow visualizer, featured projects, automation domains, technical dashboard, engagement process
+- **About** — Background, skills, timeline, GitHub repos, education
+- **Case Studies** — Full project index (10 projects) with filterable cards and detail view
+- **Contact** — Contact form wired to a live endpoint + direct email/LinkedIn links
+
+---
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
-
+**Prerequisites:** Node.js
 
 1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+   ```bash
+   npm install
+   ```
+
+2. Add your Gemini API key to `.env.local`:
+   ```
+   GEMINI_API_KEY=your_key_here
+   ```
+
+3. Start the dev server:
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## Deployment
+
+Auto-deploys via Vercel on push to `main`. No manual steps required.
+
+---
+
+## Contact
+
+**Bolaji Ilori** · ibolajie@gmail.com · [linkedin.com/in/ibolajie](https://linkedin.com/in/ibolajie)
