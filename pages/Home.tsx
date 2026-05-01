@@ -187,7 +187,7 @@ const Home: React.FC = () => {
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.9)] animate-pulse"></span>
             <span className="section-label text-emerald-400">Available for Work</span>
           </div>
-          <span className="section-label hidden sm:block">Lagos, Nigeria · Remote · $25–40/hr</span>
+          <span className="section-label hidden sm:block">Remote · $25–40/hr</span>
         </div>
 
         <div className="relative z-10 -mx-2 sm:-mx-4 mt-6 md:mt-0">

@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
           {/* Role + availability */}
           <div>
             <p className="font-display font-bold text-brand-cream text-sm mb-2">No-Code & Automation Engineer</p>
-            <p className="section-label mb-6">Lagos, Nigeria · Remote</p>
+            <p className="section-label mb-6">Remote · Worldwide</p>
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_rgba(52,211,153,0.8)]"></span>
               <span className="section-label text-emerald-400">Open to work · $25–40/hr</span>

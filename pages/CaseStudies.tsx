@@ -241,18 +241,21 @@ const CaseStudyDetail: React.FC = () => {
             </div>
           </div>
 
-          {study.workflowGallery && (
-            <div className="animate-reveal">
-              <div className="mb-10">
-                <p className="section-label mb-3">System Visuals</p>
-                <h2 className="font-display font-black text-3xl text-brand-cream tracking-tight italic">Architecture & Data Flow.</h2>
-              </div>
+          <div className="animate-reveal">
+            <div className="mb-10">
+              <p className="section-label mb-3">Workflow Proof</p>
+              <h2 className="font-display font-black text-3xl text-brand-cream tracking-tight italic">System in Action.</h2>
+            </div>
+            {study.workflowGallery && study.workflowGallery.length > 0 ? (
               <div className="grid md:grid-cols-2 gap-5">
                 {study.workflowGallery.map((img, idx) => (
                   <div key={idx} className="group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-brand-surface hover:border-brand-orange/25 transition-all duration-500">
-                    <div className="aspect-video overflow-hidden">
-                      <img src={img.url} alt={img.caption} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        onError={(e) => { e.currentTarget.src = `https://placehold.co/1200x800/141210/EDE8E0?text=${encodeURIComponent(img.caption)}`; }}
+                    <div className="aspect-video overflow-hidden bg-brand-deep">
+                      <img
+                        src={img.url}
+                        alt={img.caption}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
                       />
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-deep/90 to-transparent pointer-events-none"></div>
@@ -262,8 +265,25 @@ const CaseStudyDetail: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </div>
-          )}
+            ) : (
+              <div className="grid md:grid-cols-2 gap-5">
+                {['Workflow Canvas', 'Node Configuration'].map((label, idx) => (
+                  <div key={idx} className="relative aspect-video rounded-2xl border border-white/[0.06] bg-brand-surface overflow-hidden flex flex-col items-center justify-center gap-4">
+                    <div className="absolute inset-0 grid-pattern opacity-30"></div>
+                    <div className="relative z-10 flex flex-col items-center gap-3 text-center px-8">
+                      <div className="w-12 h-12 rounded-xl border border-white/[0.08] bg-white/[0.03] flex items-center justify-center">
+                        <svg className="w-5 h-5 text-brand-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                        </svg>
+                      </div>
+                      <p className="section-label">{label}</p>
+                      <p className="text-brand-muted text-xs leading-relaxed">n8n workflow screenshot</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
 
           {study.process && (
             <div className="grid lg:grid-cols-12 gap-10 lg:gap-20 animate-reveal">
