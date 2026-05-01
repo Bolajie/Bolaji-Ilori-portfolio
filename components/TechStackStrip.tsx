@@ -15,7 +15,7 @@ const TechStackStrip: React.FC = () => {
           </h2>
         </div>
         <p className="section-label max-w-xs leading-relaxed" style={{ lineHeight: '2' }}>
-          14 tools · verified stack · no bloat
+          15 tools · verified stack · no bloat
         </p>
       </div>
 
