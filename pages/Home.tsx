@@ -211,8 +211,11 @@ const Home: React.FC = () => {
             </p>
           </div>
           <div className="flex items-center gap-3 flex-shrink-0">
-            <Link to="/contact" className="px-7 py-3 accent-gradient text-white font-display font-bold text-sm uppercase tracking-wide rounded-xl shadow-[0_0_24px_rgba(255,107,43,0.3)] hover:shadow-[0_0_40px_rgba(255,107,43,0.5)] hover:scale-[1.03] active:scale-95 transition-all">
-              Hire Me ↗
+            <Link to="/contact" className="inline-flex items-center gap-2 px-7 py-3 accent-gradient text-white font-display font-bold text-sm uppercase tracking-wide rounded-xl shadow-[0_0_24px_rgba(255,107,43,0.3)] hover:shadow-[0_0_40px_rgba(255,107,43,0.5)] hover:scale-[1.03] active:scale-95 transition-all">
+              Hire Me
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15M19.5 4.5H8.25M19.5 4.5v11.25" />
+              </svg>
             </Link>
             <Link to="/case-studies" className="px-7 py-3 border border-white/10 text-brand-cream font-display font-bold text-sm uppercase tracking-wide rounded-xl hover:border-brand-orange/40 hover:bg-white/[0.04] active:scale-95 transition-all">
               View Work
