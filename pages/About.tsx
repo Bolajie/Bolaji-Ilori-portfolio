@@ -72,7 +72,7 @@ const About: React.FC = () => {
                 Bolaji Ilori<span className="text-brand-orange">.</span>
               </h1>
               <p className="text-brand-muted text-base sm:text-lg font-medium mb-8 max-w-xl leading-relaxed">
-                No-Code & Automation Engineer based in Lagos, Nigeria — building{' '}
+                No-Code & Automation Engineer, available remotely — building{' '}
                 <span className="text-brand-orange font-semibold">AI-powered workflows</span>,{' '}
                 <span className="text-brand-rose font-semibold">no-code SaaS products</span>, and{' '}
                 <span className="text-brand-cream font-semibold">data pipelines</span> for startups and ops-heavy businesses. Open to remote roles and freelance contracts.
@@ -107,7 +107,7 @@ const About: React.FC = () => {
             {[
               { label: 'Status',   value: 'Open to Work',          color: 'text-emerald-400', dot: true },
               { label: 'Type',     value: 'Full-time · Freelance',  color: 'text-brand-cream', dot: false },
-              { label: 'Location', value: 'Remote · Lagos, Nigeria', color: 'text-brand-cream', dot: false },
+              { label: 'Location', value: 'Remote · Worldwide',      color: 'text-brand-cream', dot: false },
               { label: 'Rate',     value: '$25–40/hr',              color: 'text-brand-orange', dot: false },
             ].map((item, i) => (
               <div key={i} className="flex flex-col gap-1.5">
