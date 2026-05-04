@@ -249,6 +249,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     impact: 'Eliminated 100% of manual post-call CRM entry.',
     description: 'Designed and deployed an n8n workflow that processes sales call data end-to-end. Gemini 2.5 Pro handles transcription analysis while Claude AI extracts structured deal data. Clean records route automatically to Airtable for CRM management and Google Sheets for reporting — replacing a fully manual post-call process.',
     architecture: 'Call Recording → n8n Trigger → Gemini 2.5 Pro (Transcription) → Claude AI (Data Extraction) → Airtable (CRM) + Google Sheets (Reporting)',
+    workflowGallery: [
+      { url: 'https://drive.google.com/uc?export=view&id=1LDP9qPeV-15EX2Z4QTt1fkNNljSx54Zd', caption: 'n8n workflow — Claude AI performance agent routing structured deal data to Airtable and reporting outputs' },
+    ],
   },
   {
     id: 'ftc-compliance-auditing',
@@ -289,10 +292,13 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: 'Content Automation',
     problem: 'Converting raw transcripts into two distinct formatted document types required significant manual editing effort — a bottleneck for content teams producing at volume.',
     solution: 'Built an n8n pipeline that accepts transcript input, applies structured LLM prompt engineering to generate two distinct document formats simultaneously, and publishes directly to Google Docs via API.',
-    tools: ['n8n', 'LLM Prompt Engineering', 'Google Docs API'],
+    tools: ['n8n', 'Claude AI', 'LLM Prompt Engineering', 'Google Docs API'],
     impact: 'Automated dual-format document generation directly from transcripts.',
-    description: 'Designed a content automation workflow in n8n that takes raw transcript data as input. Structured LLM prompts generate two distinct output formats in parallel. Both documents are published automatically to Google Docs via API, eliminating manual editing and reformatting entirely.',
-    architecture: 'Transcript Input → n8n → LLM (Format A Prompt) + LLM (Format B Prompt) → Google Docs API (Publish)',
+    description: 'Designed a content automation workflow in n8n that takes raw transcript data as input. A Claude AI PDF agent extracts and structures source content, then structured LLM prompts generate two distinct output formats in parallel. Both documents are published automatically to Google Docs via API, eliminating manual editing and reformatting entirely.',
+    architecture: 'Transcript/PDF Input → n8n → Claude AI PDF Agent (Extraction) → LLM (Format A + Format B) → Google Docs API (Publish)',
+    workflowGallery: [
+      { url: 'https://drive.google.com/uc?export=view&id=148pTvziPhBzMogUFj-HCFlw6zOEIsazo', caption: 'n8n workflow — Claude AI PDF agent extracting and processing content for dual-format Google Docs output' },
+    ],
   },
   {
     id: 'thumbnail-generator',
@@ -322,10 +328,13 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: 'Data Extraction',
     problem: 'Extracting transcripts from Zoom recordings required navigating both OAuth API access and browser-based flows depending on account configuration — with no reliable automated solution that handled both cases.',
     solution: 'Engineered a hybrid extraction system combining Zoom OAuth API as the primary method with Playwright browser automation as a fallback, plus a custom VTT parser to normalize transcript output across both paths.',
-    tools: ['n8n', 'Playwright', 'Zoom API', 'VTT Parser'],
-    impact: 'Reliable hybrid OAuth + Playwright transcript extraction system.',
-    description: 'Built a resilient transcript extraction pipeline in n8n. The system first attempts extraction via Zoom\'s OAuth API. When API access is restricted, Playwright browser automation handles extraction as a fallback. A custom VTT parser normalizes raw transcript files into clean, structured data regardless of which path was used.',
-    architecture: 'Zoom Recording → n8n → Zoom OAuth API (Primary) / Playwright (Fallback) → VTT Parser → Structured Transcript',
+    tools: ['n8n', 'Playwright', 'Zoom API', 'Gemini', 'OpenAI', 'VTT Parser'],
+    impact: 'Reliable hybrid OAuth + Playwright transcript extraction with AI-powered analysis.',
+    description: 'Built a resilient transcript extraction and analysis pipeline in n8n. The system first attempts extraction via Zoom\'s OAuth API; when API access is restricted, Playwright browser automation handles extraction as a fallback. A custom VTT parser normalizes raw transcript files into clean structured data. AI agents — Gemini and OpenAI — then run classification and extraction on the normalized transcript output.',
+    architecture: 'Zoom Recording → n8n → Zoom OAuth API (Primary) / Playwright (Fallback) → VTT Parser → Gemini + OpenAI Agents (Classification/Extraction) → Structured Output',
+    workflowGallery: [
+      { url: 'https://drive.google.com/uc?export=view&id=1QbO2tllQtBGrxcsl66FN-Pl0fbKQYobc', caption: 'n8n workflow — Zoom transcript extraction with dual AI agents (Gemini + OpenAI) for classification and structured data extraction' },
+    ],
   },
   {
     id: 'resume-screening',
