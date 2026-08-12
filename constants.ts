@@ -1,21 +1,23 @@
 import { CaseStudy, SkillGroup, TimelineItem, EducationItem } from './types';
 
+// Names only, no logo URLs. Remote brand logos meant 15 third-party requests per
+// page load, three of which 404'd, and dragged 15 foreign hues into a two-colour
+// palette. The strip is typographic instead: the name is the content.
 export const CORE_TOOLKIT = [
-  { name: 'n8n', icon: 'https://cdn.simpleicons.org/n8n/FF656D', category: 'Automation' },
-  { name: 'Make', icon: 'https://cdn.simpleicons.org/make/61549D', category: 'Automation' },
-  { name: 'Zapier', icon: 'https://cdn.simpleicons.org/zapier/FF4F00', category: 'Automation' },
-  { name: 'Claude', icon: 'https://cdn.simpleicons.org/anthropic/D4A97A', category: 'AI' },
-  { name: 'OpenAI', icon: 'https://cdn.simpleicons.org/openai/ffffff', category: 'AI' },
-  { name: 'Gemini', icon: 'https://cdn.simpleicons.org/googlegemini/8E75B2', category: 'AI' },
-  { name: 'Airtable', icon: 'https://cdn.simpleicons.org/airtable/18BFFF', category: 'Data' },
-  { name: 'Supabase', icon: 'https://cdn.simpleicons.org/supabase/3ECF8E', category: 'Data' },
-  { name: 'Google Sheets', icon: 'https://cdn.simpleicons.org/googlesheets/34A853', category: 'Data' },
-  { name: 'Python', icon: 'https://cdn.simpleicons.org/python/3776AB', category: 'Dev' },
-  { name: 'Node.js', icon: 'https://cdn.simpleicons.org/nodedotjs/339933', category: 'Dev' },
-  { name: 'Playwright', icon: 'https://cdn.simpleicons.org/playwright/2EAD33', category: 'Dev' },
-  { name: 'Slack', icon: 'https://cdn.simpleicons.org/slack/4A154B', category: 'Comm' },
-  { name: 'GitHub', icon: 'https://cdn.simpleicons.org/github/ffffff', category: 'Dev' },
-  { name: 'Notion', icon: 'https://cdn.simpleicons.org/notion/ffffff', category: 'Ops' },
+  { name: 'n8n', category: 'Automation' },
+  { name: 'Make', category: 'Automation' },
+  { name: 'Zapier', category: 'Automation' },
+  { name: 'Claude', category: 'AI' },
+  { name: 'OpenAI', category: 'AI' },
+  { name: 'Gemini', category: 'AI' },
+  { name: 'Airtable', category: 'Data' },
+  { name: 'Supabase', category: 'Data' },
+  { name: 'Google Sheets', category: 'Data' },
+  { name: 'Python', category: 'Dev' },
+  { name: 'Playwright', category: 'Dev' },
+  { name: 'Slack', category: 'Comm' },
+  { name: 'GitHub', category: 'Dev' },
+  { name: 'Notion', category: 'Ops' },
 ];
 
 export const SKILL_GROUPS: SkillGroup[] = [
@@ -80,7 +82,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
         icon: 'M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'
       },
       {
-        name: 'Python / Node.js / FFmpeg / docx-js',
+        name: 'Python / FFmpeg',
         icon: 'M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'
       }
     ]
@@ -98,7 +100,7 @@ export const TIMELINE: TimelineItem[] = [
     year: '2024 - 2025',
     role: 'Automation & Data Specialist',
     company: 'Independent Consulting',
-    description: 'Delivered automation and data workflow solutions for clients, leveraging n8n, AI integrations, and no-code platforms to streamline operations.'
+    description: 'Delivered automation and data workflow solutions for clients, using n8n, AI integrations, and no-code platforms to streamline operations.'
   },
   {
     year: '2019 - 2024',
@@ -133,7 +135,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     solution: 'Built an intelligent, zero-hallucination AI advisor using a three-tier retrieval system (Semantic Search + Knowledge Graph + Vector Store). The system ensures every answer is backed by exact statutory text and citations.',
     tools: ['n8n', 'Google Gemini', 'PostgreSQL', 'Neo4j', 'Redis', 'Mistral AI', 'Cohere'],
     impact: '88% reduction in research time and $180K additional revenue in Year 1.',
-    description: 'Implemented a sophisticated hierarchy-aware chunking algorithm that preserves legal structure. The system generally takes 8-15 seconds to respond, a deliberate latency that ensures extremely high accuracy. It achieves this by leveraging the dynamic memory provided in the Knowledge Graph to cross-reference every claim against statutory text before generating an answer.',
+    description: 'Implemented a sophisticated hierarchy-aware chunking algorithm that preserves legal structure. The system generally takes 8-15 seconds to respond, a deliberate latency that ensures extremely high accuracy. It achieves this by using the dynamic memory provided in the Knowledge Graph to cross-reference every claim against statutory text before generating an answer.',
     architecture: 'PDF Upload -> n8n Pipeline -> Mistral Vision -> Smart Chunker -> Neo4j (Relationships) + pgVector (Statutory Text) -> Gemini Agent',
     keyFeatures: [
       'Hierarchy-Aware Chunking (preserving Chapter/Section relationship)',
@@ -183,7 +185,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     architecture: 'Email Receipt (IMAP) -> n8n Webhook -> OpenAI Vision (OCR) -> PO Validation (PostgreSQL) -> Xero Injection',
     process: [
       { step: 'Webhook Listener Setup', description: 'Configured n8n to listen for incoming emails via IMAP and trigger the workflow upon PDF attachment detection.' },
-      { step: 'OCR Data Extraction', description: 'Leveraged OpenAI Vision capabilities to parse unstructured invoice PDFs and extract key fields (Date, Vendor, Amount) into a strict JSON schema.' },
+      { step: 'OCR Data Extraction', description: 'Used OpenAI Vision capabilities to parse unstructured invoice PDFs and extract key fields (Date, Vendor, Amount) into a strict JSON schema.' },
       { step: 'Validation & Injection', description: 'Implemented a logic layer to validate extracted amounts against open Purchase Orders in PostgreSQL, then auto-posted clean data to Xero.' }
     ],
     results: [
@@ -198,10 +200,10 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: 'GTM Engineering',
     problem: 'A high-growth B2B SaaS startup struggled with stale lead data and slow response times. Their sales team was wasting 20 hours a week manually verifying email addresses and LinkedIn profiles from Apollo.io exports.',
     solution: 'Architected a multi-step enrichment pipeline using Make.com and Python scripts. The system captures new leads via webhooks, enriches them through Apollo APIs, and scores them for immediate CRM prioritization.',
-    tools: ['Make.com', 'Python', 'Apollo API', 'Clearbit', 'HubSpot'],
+    tools: ['Make.com', 'Python', 'Apollo API', 'Clearbit', 'Zoho'],
     impact: 'Reclaimed 20+ hours of weekly sales capacity and improved lead conversion rate by 34%.',
     description: 'Built custom Python scripts to handle complex data transformation that standard integration blocks could not manage — including fuzzy matching company names across multiple databases and calculating a proprietary Propensity to Buy score based on recent hiring trends and tech stack changes.',
-    architecture: 'Apollo Webhook -> Make.com Switchboard -> Python Enrichment Module -> HubSpot CRM Sync',
+    architecture: 'Apollo Webhook -> Make.com Switchboard -> Python Enrichment Module -> Zoho CRM Sync',
     results: [
       { label: 'Sales Capacity', value: '+20 Hours', improvement: 'Weekly reclaimed' },
       { label: 'Conversion Rate', value: '34%', improvement: 'Increase' },
@@ -352,10 +354,10 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: 'Workflow SOP Documentation System',
     category: 'Operations Automation',
     problem: 'Documenting complex n8n workflows as Standard Operating Procedures required manually recreating workflow logic in Word documents — a tedious, error-prone process that rarely stayed current.',
-    solution: 'Built a Node.js system using docx-js that reads n8n JSON workflow exports and auto-generates structured, formatted .docx SOP documents.',
-    tools: ['n8n', 'docx-js', 'Node.js'],
+    solution: 'Built a system that reads n8n JSON workflow exports and auto-generates structured, formatted .docx SOP documents.',
+    tools: ['n8n', 'JSON Parsing', '.docx Generation'],
     impact: '.docx SOP generation automated from n8n JSON workflow exports.',
-    description: 'Engineered a documentation automation system where n8n workflow JSON exports are fed into a Node.js script using docx-js. The system parses workflow structure, interprets node configurations and logic connections, and generates formatted .docx SOP documents — turning a manual documentation task into a single-step operation.',
-    architecture: 'n8n Workflow Export (JSON) → Node.js (docx-js Parser) → Formatted .docx SOP Document',
+    description: 'Engineered a documentation automation system that ingests n8n workflow JSON exports. It parses workflow structure, interprets node configurations and logic connections, and generates formatted .docx SOP documents, turning a manual documentation task into a single-step operation.',
+    architecture: 'n8n Workflow Export (JSON) → Automated Parser → Formatted .docx SOP Document',
   },
 ];

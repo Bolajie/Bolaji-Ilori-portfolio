@@ -1,50 +1,76 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { CORE_TOOLKIT } from '../constants';
 
+const CATEGORIES = [...new Set(CORE_TOOLKIT.map(t => t.category))];
+
+const ToolName: React.FC<{ name: string; category: string }> = ({ name, category }) => (
+  <span className="flex items-baseline gap-2.5 flex-shrink-0">
+    <span className="font-display font-black text-xl sm:text-2xl text-brand-bone whitespace-nowrap">
+      {name}
+    </span>
+    <span className="font-mono text-[11px] tracking-wider text-brand-muted whitespace-nowrap">
+      {category}
+    </span>
+  </span>
+);
+
+/* Separator, not a bullet: a hairline tick that reads as a delimiter in a manifest. */
+const Tick: React.FC = () => (
+  <span aria-hidden="true" className="w-px h-5 bg-brand-orange/40 flex-shrink-0" />
+);
+
 const TechStackStrip: React.FC = () => {
-  const duplicatedTools = [...CORE_TOOLKIT, ...CORE_TOOLKIT];
+  const reduceMotion = useReducedMotion();
+  const marqueeItems = [...CORE_TOOLKIT, ...CORE_TOOLKIT];
 
   return (
-    <section className="w-full border-y border-white/[0.05] bg-brand-surface/40 overflow-hidden py-12 relative backdrop-blur-sm">
+    <section className="w-full border-y border-line bg-brand-sunken overflow-hidden py-14">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 mb-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
         <div>
           <p className="section-label mb-2">What I build with</p>
-          <h2 className="font-display font-black text-3xl sm:text-4xl text-brand-cream tracking-tight">
+          <h2 className="font-display font-black text-3xl sm:text-4xl text-brand-bone tracking-tight">
             The Engine Room<span className="text-brand-orange">.</span>
           </h2>
         </div>
-        <p className="section-label max-w-xs leading-relaxed" style={{ lineHeight: '2' }}>
-          15 tools · verified stack · no bloat
+        <p className="font-mono text-[11px] tracking-wider text-brand-muted sm:text-right">
+          {CORE_TOOLKIT.length} tools across {CATEGORIES.length} areas
         </p>
       </div>
 
-      <div className="flex relative w-full overflow-hidden mt-6">
-        <motion.div
-          className="flex whitespace-nowrap"
-          animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: 44, ease: 'linear', repeat: Infinity }}
-        >
-          {duplicatedTools.map((tool, idx) => (
-            <div
-              key={`${tool.name}-${idx}`}
-              className="flex flex-col items-center justify-center mx-6 sm:mx-10 group min-w-[72px]"
-            >
-              <div className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center rounded-xl bg-brand-surface border border-white/[0.07] group-hover:border-brand-orange/40 transition-all duration-300">
-                <img
-                  src={tool.icon}
-                  alt={tool.name}
-                  className="w-7 h-7 sm:w-8 sm:h-8 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                />
-              </div>
-              <span className="mt-3 section-label opacity-0 group-hover:opacity-100 transition-opacity" style={{ fontSize: '8px' }}>
-                {tool.name}
-              </span>
-            </div>
+      {/* Reduced motion gets the full set laid out statically. A paused marquee would
+          clip half the list off-screen, so the fallback is a different layout, not a
+          frozen one. framer-motion animates via JS transforms, so the CSS
+          prefers-reduced-motion block in index.css cannot reach it. */}
+      {reduceMotion ? (
+        <ul className="max-w-7xl mx-auto px-6 sm:px-10 flex flex-wrap items-baseline gap-x-7 gap-y-4">
+          {CORE_TOOLKIT.map(tool => (
+            <li key={tool.name}>
+              <ToolName name={tool.name} category={tool.category} />
+            </li>
           ))}
-        </motion.div>
-      </div>
+        </ul>
+      ) : (
+        <div className="relative flex w-full overflow-hidden">
+          <motion.div
+            className="flex items-center gap-7 pr-7"
+            animate={{ x: ['0%', '-50%'] }}
+            transition={{ duration: 44, ease: 'linear', repeat: Infinity }}
+          >
+            {marqueeItems.map((tool, idx) => (
+              <React.Fragment key={`${tool.name}-${idx}`}>
+                <ToolName name={tool.name} category={tool.category} />
+                <Tick />
+              </React.Fragment>
+            ))}
+          </motion.div>
+
+          {/* Edge fades so names dissolve into the surface instead of being sliced.
+              These must match the section fill exactly or they read as a band. */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-brand-sunken to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-brand-sunken to-transparent" />
+        </div>
+      )}
     </section>
   );
 };

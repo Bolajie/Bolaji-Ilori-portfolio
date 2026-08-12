@@ -32,10 +32,10 @@ const Navbar: React.FC = () => {
     <>
       {/* Top-left wordmark */}
       <Link to="/" className="fixed top-5 left-5 sm:top-6 sm:left-6 z-[60] flex items-center gap-3 group">
-        <div className="w-9 h-9 bg-brand-surface border border-white/10 rounded-lg flex items-center justify-center font-display font-black text-sm text-brand-cream group-hover:border-brand-orange/40 transition-all shadow-lg active:scale-95">
+        <div className="w-9 h-9 bg-brand-surface border border-line-strong rounded-lg flex items-center justify-center font-display font-black text-sm text-brand-bone group-hover:border-brand-orange/40 transition-all shadow-lg active:scale-95">
           B<span className="text-brand-orange">I</span>
         </div>
-        <span className="hidden sm:block font-display font-bold text-[11px] uppercase tracking-[0.3em] text-brand-muted group-hover:text-brand-cream transition-colors">
+        <span className="hidden sm:block font-display font-bold text-[11px] uppercase tracking-[0.3em] text-brand-muted group-hover:text-brand-bone transition-colors">
           Bolaji Ilori
         </span>
       </Link>
@@ -43,14 +43,14 @@ const Navbar: React.FC = () => {
       {/* Top-right status + CTA */}
       <div className="fixed top-5 right-5 sm:top-6 sm:right-6 z-[60] flex items-center gap-2 sm:gap-3">
         {/* Availability — always visible */}
-        <div className="flex items-center gap-2 px-3 py-2 sm:px-4 rounded-lg border border-white/[0.06] bg-brand-surface/80 backdrop-blur-md">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_rgba(52,211,153,0.8)]"></span>
-          <span className="section-label text-emerald-400 hidden sm:block">Available</span>
+        <div className="flex items-center gap-2 px-3 py-2 sm:px-4 rounded-lg border border-line bg-brand-surface/80 backdrop-blur-md">
+          <span className="w-1.5 h-1.5 rounded-full bg-brand-signal animate-pulse shadow-[0_0_6px_rgba(53,214,164,0.8)]"></span>
+          <span className="section-label text-brand-signal hidden sm:block">Available</span>
         </div>
         {/* CTA — sm+ only */}
         <Link
           to="/contact"
-          className="hidden sm:block accent-gradient text-white px-5 py-2.5 rounded-lg font-display font-bold text-[11px] uppercase tracking-wider hover:shadow-[0_0_24px_rgba(255,107,43,0.35)] hover:scale-[1.03] active:scale-95 transition-all"
+          className="hidden sm:block bg-brand-orange text-brand-deep px-5 py-2.5 rounded-lg font-display font-bold text-[11px] uppercase tracking-wider hover:shadow-[0_0_24px_rgba(255,65,3,0.35)] hover:scale-[1.03] active:scale-95 transition-all"
         >
           Work with me
         </Link>
@@ -62,7 +62,7 @@ const Navbar: React.FC = () => {
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-[200%] opacity-0'
         }`}
       >
-        <div className="bg-brand-surface/95 backdrop-blur-2xl border border-white/[0.08] p-1.5 rounded-2xl flex items-center gap-0.5 shadow-[0_8px_40px_rgba(0,0,0,0.6)]">
+        <div className="bg-brand-surface/95 backdrop-blur-2xl border border-line-strong p-1.5 rounded-2xl flex items-center gap-0.5 shadow-[0_8px_40px_rgba(0,8,12,0.75)]">
           {links.map((link) => {
             const isActive = location.pathname === link.path;
             return (
@@ -72,11 +72,11 @@ const Navbar: React.FC = () => {
                 className={`relative flex flex-col items-center justify-center gap-1 px-4 sm:px-5 py-2.5 rounded-xl transition-all duration-300 active:scale-95 min-w-[60px] sm:min-w-[72px] ${
                   isActive
                     ? 'bg-brand-orange/10 text-brand-orange'
-                    : 'text-brand-muted hover:text-brand-cream hover:bg-white/[0.04]'
+                    : 'text-brand-muted hover:text-brand-bone hover:bg-line'
                 }`}
               >
                 {isActive && (
-                  <span className="absolute top-1.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-brand-orange shadow-[0_0_6px_rgba(255,107,43,0.9)]" />
+                  <span className="absolute top-1.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-brand-orange shadow-[0_0_6px_rgba(255,65,3,0.9)]" />
                 )}
                 <svg
                   className={`w-[17px] h-[17px] mt-1.5 transition-transform duration-300 ${isActive ? 'scale-110' : ''}`}
@@ -84,7 +84,7 @@ const Navbar: React.FC = () => {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d={link.icon} />
                 </svg>
-                <span className="section-label" style={{ color: 'inherit', letterSpacing: '0.18em', fontSize: '8px' }}>
+                <span className="section-label" style={{ color: 'inherit', letterSpacing: '0.1em', fontSize: '11px' }}>
                   {link.name}
                 </span>
               </Link>

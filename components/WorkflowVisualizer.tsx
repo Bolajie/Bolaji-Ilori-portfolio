@@ -18,11 +18,13 @@ interface Workflow {
   outputs: [FlowNode, FlowNode];
 }
 
+// Nodes are differentiated by role and weight, not by hue. The orchestrator is
+// the point of the diagram, so it is the only node that carries the accent.
 const NODE_CFG: Record<NodeType, { border: string; bg: string; text: string; dot: string; tag: string }> = {
-  trigger: { border: 'border-emerald-500/40', bg: 'bg-emerald-500/[0.07]', text: 'text-emerald-300', dot: 'bg-emerald-400',  tag: 'TRIGGER' },
-  hub:     { border: 'border-orange-500/50',  bg: 'bg-orange-500/[0.08]',  text: 'text-orange-300',  dot: 'bg-orange-400',   tag: 'ORCH' },
-  ai:      { border: 'border-violet-400/40',  bg: 'bg-violet-500/[0.07]',  text: 'text-violet-300',  dot: 'bg-violet-400',   tag: 'AI' },
-  output:  { border: 'border-sky-400/40',     bg: 'bg-sky-500/[0.07]',     text: 'text-sky-300',     dot: 'bg-sky-400',      tag: 'OUTPUT' },
+  trigger: { border: 'border-line-strong',      bg: 'bg-brand-sunken/60',      text: 'text-brand-muted',  dot: 'bg-brand-muted',  tag: 'TRIGGER' },
+  hub:     { border: 'border-brand-orange/55',  bg: 'bg-brand-orange/[0.10]',  text: 'text-brand-orange', dot: 'bg-brand-orange', tag: 'ORCH' },
+  ai:      { border: 'border-line-strong',      bg: 'bg-brand-sunken/60',      text: 'text-brand-muted',  dot: 'bg-brand-muted',  tag: 'AI' },
+  output:  { border: 'border-line-strong',      bg: 'bg-brand-sunken/60',      text: 'text-brand-muted',  dot: 'bg-brand-muted',  tag: 'OUTPUT' },
 };
 
 const WORKFLOWS: Workflow[] = [
@@ -64,10 +66,10 @@ const Node: React.FC<{ node: FlowNode; style: React.CSSProperties }> = ({ node, 
     >
       <div className="flex items-center gap-1.5">
         <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${c.dot}`}></span>
-        <span className={`section-label ${c.text}`} style={{ fontSize: '7px' }}>{c.tag}</span>
+        <span className={`section-label ${c.text}`} style={{ fontSize: '11px', letterSpacing: '0.1em' }}>{c.tag}</span>
       </div>
-      <p className="font-display font-black text-[11px] text-brand-cream leading-tight">{node.label}</p>
-      <p className="section-label" style={{ fontSize: '7px' }}>{node.sub}</p>
+      <p className="font-display font-black text-[11px] text-brand-bone leading-tight">{node.label}</p>
+      <p className="section-label" style={{ fontSize: '11px', letterSpacing: '0.1em' }}>{node.sub}</p>
     </div>
   );
 };
@@ -80,11 +82,11 @@ const WorkflowVisualizer: React.FC = () => {
     <section className="py-24 px-6 sm:px-10 lg:px-16">
       <div className="max-w-7xl mx-auto">
 
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12 pb-8 border-b border-white/[0.06]">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12 pb-8 border-b border-line">
           <div>
             <p className="section-label mb-3">Workflow Architecture</p>
-            <h2 className="font-display font-black text-4xl sm:text-5xl text-brand-cream tracking-tight">
-              How I Wire <span className="text-gradient">Systems.</span>
+            <h2 className="font-display font-black text-4xl sm:text-5xl text-brand-bone tracking-tight">
+              How I Wire <span className="text-brand-orange">Systems.</span>
             </h2>
           </div>
           <p className="text-brand-muted text-sm font-medium max-w-sm leading-relaxed">
@@ -99,8 +101,8 @@ const WorkflowVisualizer: React.FC = () => {
               onClick={() => setActive(i)}
               className={`px-4 py-2 rounded-lg font-display font-bold text-xs uppercase tracking-wider transition-all cursor-pointer ${
                 active === i
-                  ? 'accent-gradient text-white shadow-[0_0_20px_rgba(255,107,43,0.25)]'
-                  : 'border border-white/[0.08] text-brand-muted hover:border-brand-orange/30 hover:text-brand-cream'
+                  ? 'bg-brand-orange text-brand-deep shadow-[0_0_20px_rgba(255,65,3,0.25)]'
+                  : 'border border-line-strong text-brand-muted hover:border-brand-orange/30 hover:text-brand-bone'
               }`}
             >
               {w.label}
@@ -108,23 +110,13 @@ const WorkflowVisualizer: React.FC = () => {
           ))}
         </div>
 
-        <div className="relative rounded-2xl border border-white/[0.06] bg-brand-surface overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-px accent-gradient opacity-40"></div>
+        <div className="relative rounded-2xl border border-line bg-brand-surface overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-px bg-brand-orange opacity-40"></div>
           <div className="absolute inset-0 grid-pattern opacity-25 pointer-events-none"></div>
 
-          <div className="relative z-10 flex items-center justify-between px-5 py-3 border-b border-white/[0.05] bg-black/20">
-            <div className="flex items-center gap-3">
-              <div className="flex gap-1.5">
-                <div className="w-2 h-2 rounded-full bg-rose-500/50"></div>
-                <div className="w-2 h-2 rounded-full bg-amber-500/50"></div>
-                <div className="w-2 h-2 rounded-full bg-emerald-500/50"></div>
-              </div>
-              <span className="section-label">{wf.fileId}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span className="section-label text-emerald-400">executing</span>
-            </div>
+          <div className="relative z-10 flex items-center justify-between px-5 py-3 border-b border-line bg-brand-sunken/40">
+            <span className="section-label">{wf.fileId}</span>
+            <span className="section-label">6 nodes</span>
           </div>
 
           <div className="overflow-x-auto py-10 px-6">
@@ -133,32 +125,32 @@ const WorkflowVisualizer: React.FC = () => {
               <svg className="absolute inset-0" width="700" height="180" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <marker id="wv-arr" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
-                    <polygon points="0 0, 6 2, 0 4" fill="#FF6B2B" fillOpacity="0.55" />
+                    <polygon points="0 0, 6 2, 0 4" fill="#FF4103" fillOpacity="0.55" />
                   </marker>
                 </defs>
 
                 <line x1="140" y1="90" x2="185" y2="90"
-                  stroke="#FF6B2B" strokeOpacity="0.5" strokeWidth="1.5"
+                  stroke="#FF4103" strokeOpacity="0.5" strokeWidth="1.5"
                   strokeDasharray="5 3" markerEnd="url(#wv-arr)"
                   className="flow-line" />
 
                 <line x1="308" y1="82" x2="344" y2="47"
-                  stroke="#FF6B2B" strokeOpacity="0.5" strokeWidth="1.5"
+                  stroke="#FF4103" strokeOpacity="0.5" strokeWidth="1.5"
                   strokeDasharray="5 3" markerEnd="url(#wv-arr)"
                   className="flow-line" style={{ animationDelay: '0.3s' }} />
 
                 <line x1="308" y1="98" x2="344" y2="133"
-                  stroke="#FF6B2B" strokeOpacity="0.5" strokeWidth="1.5"
+                  stroke="#FF4103" strokeOpacity="0.5" strokeWidth="1.5"
                   strokeDasharray="5 3" markerEnd="url(#wv-arr)"
                   className="flow-line" style={{ animationDelay: '0.6s' }} />
 
                 <line x1="465" y1="47" x2="505" y2="47"
-                  stroke="#FF6B2B" strokeOpacity="0.5" strokeWidth="1.5"
+                  stroke="#FF4103" strokeOpacity="0.5" strokeWidth="1.5"
                   strokeDasharray="5 3" markerEnd="url(#wv-arr)"
                   className="flow-line" style={{ animationDelay: '0.9s' }} />
 
                 <line x1="465" y1="133" x2="505" y2="133"
-                  stroke="#FF6B2B" strokeOpacity="0.5" strokeWidth="1.5"
+                  stroke="#FF4103" strokeOpacity="0.5" strokeWidth="1.5"
                   strokeDasharray="5 3" markerEnd="url(#wv-arr)"
                   className="flow-line" style={{ animationDelay: '1.2s' }} />
               </svg>

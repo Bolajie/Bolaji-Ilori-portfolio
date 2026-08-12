@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        /* Accent — carries 30-60% of the surface (Committed strategy) */
+        --brand-orange: #FF4103;
+
+        /* Backgrounds, coolest to warmest lift */
+        --bg-sunken: #000E15;
+        --bg-deep: #001621;
+        --bg-surface: #052430;
+
+        /* Neutrals, tinted toward the base hue. Never pure white. */
+        --text-bone: #EDF2F4;   /* 16.37:1 on deep */
+        --text-muted: #7A8D95;  /* 5.34:1 on deep, 4.67:1 on surface */
+
+        /* Functional. Availability only — not decoration. */
+        --signal: #35D6A4;      /* 9.95:1 on deep */
+
+        --line: rgba(237, 242, 244, 0.08);
+        --line-strong: rgba(237, 242, 244, 0.14);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+        font-family: 'Instrument Sans', sans-serif;
+        background-color: var(--bg-deep);
+        color: var(--text-bone);
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--bg-deep); }
+    ::-webkit-scrollbar-thumb { background: #0E3241; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--brand-orange); }
+
+    /* Selection */
+    ::selection { background: rgba(255, 65, 3, 0.28); color: var(--text-bone); }
+
+    /* Focus — visible, and itself at 3:1 against both deep and surface */
+    :focus-visible {
+        outline: 2px solid var(--brand-orange);
+        outline-offset: 2px;
+    }
+}
+
+@layer components {
+    /* Noise texture */
+    .noise-overlay::after {
+        content: "";
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        pointer-events: none;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        opacity: 0.035;
+        z-index: 9999;
+    }
+
+    /* Raised panel. Separation comes from the hairline, not the fill. */
+    .panel {
+        background: var(--bg-surface);
+        border: 1px solid var(--line);
+        box-shadow: 0 20px 44px -16px rgba(0, 8, 12, 0.7), inset 0 1px 0 rgba(237, 242, 244, 0.04);
+    }
+
+    /* Background patterns */
+    .grid-pattern {
+        background-image:
+            linear-gradient(rgba(255, 65, 3, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 65, 3, 0.05) 1px, transparent 1px);
+        background-size: 80px 80px;
+    }
+    .dot-pattern {
+        background-image: radial-gradient(rgba(255, 65, 3, 0.075) 1px, transparent 1px);
+        background-size: 44px 44px;
+    }
+    .radial-glow {
+        background: radial-gradient(ellipse 80% 55% at 50% 40%, rgba(255, 65, 3, 0.13) 0%, transparent 65%);
+    }
+
+    /* Typography */
+    .hero-title {
+        font-family: 'Syne', sans-serif;
+        letter-spacing: -0.025em;
+        line-height: 0.88;
+    }
+
+    /* 11px floor: no interface text smaller than this. */
+    .section-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+    }
+
+    /* Animation helpers */
+    .line-origin-left { transform-origin: left center; }
+
+    /* SVG flow line animation */
+    .flow-line {
+        animation: dash-flow 0.8s linear infinite;
+    }
+}
+
+@keyframes dash-flow {
+    to { stroke-dashoffset: -12; }
+}
+
+/* Motion is heavy on this surface. Respect the preference. */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .flow-line { animation: none !important; }
+}

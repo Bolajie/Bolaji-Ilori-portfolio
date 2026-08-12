@@ -30,8 +30,8 @@ A personal portfolio site built with React + TypeScript, deployed on Vercel. It 
 |Framework     |React + TypeScript                           |
 |Build Tool    |Vite                                         |
 |Deployment    |Vercel                                       |
-|AI Integration|Gemini API (`GEMINI_API_KEY` in `.env.local`)|
-|Styling       |CSS (component-level)                        |
+|Email         |Resend, via Vercel serverless function (`/api/contact`)|
+|Styling       |Tailwind CSS v3 (PostCSS build)              |
 
 -----
 
@@ -64,7 +64,7 @@ A personal portfolio site built with React + TypeScript, deployed on Vercel. It 
 **AI / LLM:** Gemini 2.5 Pro · Claude AI · OpenAI · Zep Knowledge Graph · RAG · Structured Output Parsers  
 **Data & CRM:** Airtable · Supabase · Google Sheets · Pandas · Microsoft Excel  
 **APIs:** Zoom API · Slack API · Google Docs API · Google Drive API · GitHub API  
-**Dev:** JavaScript · Node.js · Python · HTML/CSS/JS · Playwright · FFmpeg · docx-js  
+**Dev:** Python · Playwright · FFmpeg  
 **Platforms:** Slack Block Kit · Vercel · Vite
 
 -----
@@ -84,7 +84,7 @@ When updating the portfolio, use this list as the canonical project reference. D
 |7 |Short Video Automation            |n8n · FFmpeg · LLM                                         |Idea → produced video clip, fully automated              |
 |8 |Zoom Transcript Extraction        |n8n · Playwright · Zoom API · VTT Parser                   |Hybrid OAuth + Playwright extraction system              |
 |9 |Sales Closer Resume Screening     |n8n · Gemini · Structured Output Parser                    |AI candidate scoring for high-volume hiring              |
-|10|Workflow SOP Documentation System |n8n · docx-js · Node.js                                    |.docx SOP generation from n8n JSON exports               |
+|10|Workflow SOP Documentation System |n8n · .docx generation                                     |.docx SOP generation from n8n JSON exports               |
 
 -----
 
@@ -104,7 +104,7 @@ These rules apply to any AI working on this repo:
 ## Active Status (as of April 2026)
 
 - **Open to:** Full-time roles (remote) + freelance contracts
-- **Rate:** $25–40/hr (freelance)
+- **Rate:** Not published on the site — quoted per engagement (see freelance_startup rate card)
 - **Target clients:** Startups, digital agencies, ops-heavy businesses
 - **Target roles:** Automation Engineer · No-Code Developer · AI Workflow Engineer
 
@@ -117,7 +117,7 @@ npm install
 npm run dev
 ```
 
-Requires `GEMINI_API_KEY` in `.env.local`.
+Requires `RESEND_API_KEY` in `.env.local` for the contact form (see `.env.example`).
 
 -----
 
@@ -136,4 +136,4 @@ Update `CLAUDE.md` whenever:
 - Availability / rate / target role changes
 - Client anonymity rules change
 
-**Last updated:** April 2026
+**Last updated:** August 2026

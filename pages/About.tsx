@@ -53,11 +53,11 @@ const About: React.FC = () => {
 
             {/* Monogram avatar */}
             <div className="relative flex-shrink-0">
-              <div className="absolute -inset-4 accent-gradient rounded-2xl blur-3xl opacity-10"></div>
-              <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-2xl overflow-hidden bg-brand-surface border border-white/[0.07] shadow-2xl flex items-center justify-center">
+              <div className="absolute -inset-4 bg-brand-orange rounded-2xl blur-3xl opacity-10"></div>
+              <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-2xl overflow-hidden bg-brand-surface border border-line shadow-2xl flex items-center justify-center">
                 <div className="absolute inset-0 grid-pattern opacity-30"></div>
-                <div className="absolute top-0 left-0 right-0 h-px accent-gradient opacity-50"></div>
-                <div className="absolute bottom-0 left-0 right-0 h-px bg-white/[0.04]"></div>
+                <div className="absolute top-0 left-0 right-0 h-px bg-brand-orange opacity-50"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-line"></div>
                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-orange/[0.08] rounded-full blur-[50px] pointer-events-none"></div>
                 <span className="relative z-10 font-display font-black text-[88px] md:text-[100px] tracking-tight leading-none select-none">
                   B<span className="text-brand-orange">I</span>
@@ -68,19 +68,19 @@ const About: React.FC = () => {
             {/* Text */}
             <div className="flex-1">
               <p className="section-label mb-4">The Architect</p>
-              <h1 className="font-display font-black text-5xl sm:text-6xl md:text-7xl text-brand-cream tracking-tight leading-none mb-7">
+              <h1 className="font-display font-black text-5xl sm:text-6xl md:text-7xl text-brand-bone tracking-tight leading-none mb-7">
                 Bolaji Ilori<span className="text-brand-orange">.</span>
               </h1>
               <p className="text-brand-muted text-base sm:text-lg font-medium mb-8 max-w-xl leading-relaxed">
                 No-Code & Automation Engineer, available remotely — building{' '}
-                <span className="text-brand-orange font-semibold">AI-powered workflows</span>,{' '}
-                <span className="text-brand-rose font-semibold">no-code SaaS products</span>, and{' '}
-                <span className="text-brand-cream font-semibold">data pipelines</span> for startups and ops-heavy businesses. Open to remote roles and freelance contracts.
+                <span className="text-brand-bone font-semibold">AI-powered workflows</span>,{' '}
+                <span className="text-brand-bone font-semibold">no-code SaaS products</span>, and{' '}
+                <span className="text-brand-bone font-semibold">data pipelines</span> for startups and ops-heavy businesses. Open to remote roles and freelance contracts.
               </p>
 
               <div className="flex flex-wrap gap-2 mb-8">
                 {['No-Code Development', 'Automation Engineering', 'AI Workflows', 'Operations Systems'].map(tag => (
-                  <span key={tag} className="px-3.5 py-1.5 bg-brand-surface border border-white/[0.06] rounded-lg section-label" style={{ color: 'var(--text-muted)' }}>
+                  <span key={tag} className="px-3.5 py-1.5 bg-brand-surface border border-line rounded-lg section-label" style={{ color: 'var(--text-muted)' }}>
                     {tag}
                   </span>
                 ))}
@@ -90,7 +90,7 @@ const About: React.FC = () => {
               <div className="flex items-center gap-2.5">
                 {socials.map(s => (
                   <a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-xl flex items-center justify-center bg-brand-surface border border-white/[0.07] text-brand-muted hover:text-brand-cream hover:border-brand-orange/30 transition-all duration-300 hover:scale-110 active:scale-95"
+                    className="w-10 h-10 rounded-xl flex items-center justify-center bg-brand-surface border border-line text-brand-muted hover:text-brand-bone hover:border-brand-orange/30 transition-all duration-300 hover:scale-110 active:scale-95"
                     aria-label={s.name}
                   >
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d={s.icon} /></svg>
@@ -102,18 +102,17 @@ const About: React.FC = () => {
         </section>
 
         {/* ── AVAILABILITY STRIP ─────────────────────────── */}
-        <section className="mb-32 py-8 border-y border-white/[0.06]">
+        <section className="mb-32 py-8 border-y border-line">
           <div className="flex flex-wrap gap-10 sm:gap-16">
             {[
-              { label: 'Status',   value: 'Open to Work',          color: 'text-emerald-400', dot: true },
-              { label: 'Type',     value: 'Full-time · Freelance',  color: 'text-brand-cream', dot: false },
-              { label: 'Location', value: 'Remote · Worldwide',      color: 'text-brand-cream', dot: false },
-              { label: 'Rate',     value: '$25–40/hr',              color: 'text-brand-orange', dot: false },
+              { label: 'Status',   value: 'Open to Work',          color: 'text-brand-signal', dot: true },
+              { label: 'Type',     value: 'Full-time · Freelance',  color: 'text-brand-bone', dot: false },
+              { label: 'Location', value: 'Remote · Worldwide',      color: 'text-brand-bone', dot: false },
             ].map((item, i) => (
               <div key={i} className="flex flex-col gap-1.5">
                 <span className="section-label">{item.label}</span>
                 <div className="flex items-center gap-2">
-                  {item.dot && <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_rgba(52,211,153,0.8)]"></span>}
+                  {item.dot && <span className="w-1.5 h-1.5 rounded-full bg-brand-signal animate-pulse shadow-[0_0_6px_rgba(53,214,164,0.8)]"></span>}
                   <span className={`font-display font-bold text-base ${item.color}`}>{item.value}</span>
                 </div>
               </div>
@@ -123,29 +122,29 @@ const About: React.FC = () => {
 
         {/* ── SKILL GROUPS ───────────────────────────────── */}
         <section className="mb-32">
-          <div className="mb-12 pb-6 border-b border-white/[0.06]">
+          <div className="mb-12 pb-6 border-b border-line">
             <p className="section-label mb-3">Core Competencies</p>
-            <h2 className="font-display font-black text-4xl sm:text-5xl text-brand-cream tracking-tight">Automation & No-Code Expertise.</h2>
+            <h2 className="font-display font-black text-[clamp(1.75rem,8.5vw,3rem)] text-brand-bone tracking-tight">Automation &amp; No-Code Expertise.</h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
             {SKILL_GROUPS.map((group, idx) => (
-              <div key={group.name} className="p-8 sm:p-10 bg-brand-surface border border-white/[0.06] rounded-2xl hover:border-brand-orange/20 transition-all duration-500 group">
+              <div key={group.name} className="p-8 sm:p-10 bg-brand-surface border border-line rounded-2xl hover:border-brand-orange/20 transition-all duration-500 group">
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-9 h-9 rounded-lg accent-gradient flex items-center justify-center font-display font-black text-white text-sm shadow-md group-hover:scale-110 transition-transform">
+                  <div className="w-9 h-9 rounded-lg bg-brand-orange flex items-center justify-center font-display font-black text-brand-deep text-sm shadow-md group-hover:scale-110 transition-transform">
                     {idx + 1}
                   </div>
-                  <h3 className="font-display font-black text-xl text-brand-cream tracking-tight">{group.name}</h3>
+                  <h3 className="font-display font-black text-xl text-brand-bone tracking-tight">{group.name}</h3>
                 </div>
                 <div className="grid gap-2">
                   {group.skills.map(skill => (
-                    <div key={skill.name} className="flex items-center gap-3 px-4 py-3 bg-white/[0.03] border border-white/[0.04] rounded-xl hover:border-brand-orange/20 hover:bg-white/[0.05] transition-all group/item">
+                    <div key={skill.name} className="flex items-center gap-3 px-4 py-3 bg-line border border-line rounded-xl hover:border-brand-orange/20 hover:bg-line transition-all group/item">
                       <div className="w-6 h-6 rounded-lg bg-brand-orange/10 flex items-center justify-center text-brand-orange flex-shrink-0">
                         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
                           <path strokeLinecap="round" strokeLinejoin="round" d={skill.icon} />
                         </svg>
                       </div>
-                      <span className="section-label group-hover/item:text-brand-cream transition-colors" style={{ letterSpacing: '0.2em' }}>{skill.name}</span>
+                      <span className="section-label group-hover/item:text-brand-bone transition-colors" style={{ letterSpacing: '0.2em' }}>{skill.name}</span>
                     </div>
                   ))}
                 </div>
@@ -155,21 +154,21 @@ const About: React.FC = () => {
         </section>
 
         {/* ── TIMELINE ───────────────────────────────────── */}
-        <section className="mb-32 pt-12 border-t border-white/[0.06]">
+        <section className="mb-32 pt-12 border-t border-line">
           <div className="mb-12">
             <p className="section-label mb-3">Career Arc</p>
-            <h2 className="font-display font-black text-4xl sm:text-5xl text-brand-cream tracking-tight">The Trajectory.</h2>
+            <h2 className="font-display font-black text-4xl sm:text-5xl text-brand-bone tracking-tight">The Trajectory.</h2>
           </div>
 
           <div className="max-w-3xl space-y-5">
             {TIMELINE.map((item, idx) => (
-              <div key={idx} className="group flex items-start gap-6 p-7 bg-brand-surface border border-white/[0.06] rounded-2xl hover:border-brand-orange/25 transition-all duration-500">
+              <div key={idx} className="group flex items-start gap-6 p-7 bg-brand-surface border border-line rounded-2xl hover:border-brand-orange/25 transition-all duration-500">
                 <div className="flex-shrink-0 w-20 text-right">
                   <span className="section-label leading-relaxed" style={{ lineHeight: '1.6' }}>{item.year}</span>
                 </div>
-                <div className="w-px self-stretch bg-white/[0.06] flex-shrink-0"></div>
+                <div className="w-px self-stretch bg-line flex-shrink-0"></div>
                 <div className="flex-1 min-w-0">
-                  <h4 className="font-display font-black text-lg text-brand-cream mb-0.5">{item.role}</h4>
+                  <h4 className="font-display font-black text-lg text-brand-bone mb-0.5">{item.role}</h4>
                   <p className="section-label text-brand-orange mb-3" style={{ color: 'var(--brand-orange)' }}>{item.company}</p>
                   <p className="text-brand-muted text-sm leading-relaxed">{item.description}</p>
                 </div>
@@ -179,14 +178,14 @@ const About: React.FC = () => {
         </section>
 
         {/* ── GITHUB REPOS ───────────────────────────────── */}
-        <section className="mb-32 pt-12 border-t border-white/[0.06]">
+        <section className="mb-32 pt-12 border-t border-line">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
             <div>
               <p className="section-label mb-3">Open Source</p>
-              <h2 className="font-display font-black text-4xl sm:text-5xl text-brand-cream tracking-tight">GitHub Projects.</h2>
+              <h2 className="font-display font-black text-4xl sm:text-5xl text-brand-bone tracking-tight">GitHub Projects.</h2>
             </div>
             {!loading && (
-              <button onClick={fetchGithubRepos} className="section-label text-brand-orange hover:text-brand-cream transition-colors flex items-center gap-2 self-start sm:self-auto">
+              <button onClick={fetchGithubRepos} className="section-label text-brand-orange hover:text-brand-bone transition-colors flex items-center gap-2 self-start sm:self-auto">
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                 </svg>
@@ -198,12 +197,12 @@ const About: React.FC = () => {
           {loading ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
               {[...Array(6)].map((_, i) => (
-                <div key={i} className="p-7 bg-brand-surface border border-white/[0.06] rounded-2xl h-48 flex flex-col gap-3">
-                  <div className="w-2/3 h-4 bg-white/[0.05] rounded-lg animate-pulse"></div>
-                  <div className="w-full h-3 bg-white/[0.05] rounded-lg animate-pulse"></div>
-                  <div className="w-4/5 h-3 bg-white/[0.05] rounded-lg animate-pulse"></div>
+                <div key={i} className="p-7 bg-brand-surface border border-line rounded-2xl h-48 flex flex-col gap-3">
+                  <div className="w-2/3 h-4 bg-line rounded-lg animate-pulse"></div>
+                  <div className="w-full h-3 bg-line rounded-lg animate-pulse"></div>
+                  <div className="w-4/5 h-3 bg-line rounded-lg animate-pulse"></div>
                   <div className="flex gap-2 mt-auto">
-                    <div className="w-14 h-5 bg-white/[0.05] rounded-lg animate-pulse"></div>
+                    <div className="w-14 h-5 bg-line rounded-lg animate-pulse"></div>
                   </div>
                 </div>
               ))}
@@ -212,26 +211,29 @@ const About: React.FC = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
               {dynamicRepos.map((repo, idx) => (
                 <a key={idx} href={repo.url} target="_blank" rel="noopener noreferrer"
-                  className="group p-7 bg-brand-surface border border-white/[0.06] rounded-2xl hover:border-brand-orange/25 transition-all duration-400 flex flex-col"
+                  className="group p-7 bg-brand-surface border border-line rounded-2xl hover:border-brand-orange/25 transition-all duration-400 flex flex-col min-w-0"
                 >
-                  <div className="flex items-start justify-between mb-4">
-                    <h3 className="font-display font-black text-base text-brand-cream group-hover:text-brand-orange transition-colors truncate pr-4">{repo.name}</h3>
+                <div className="flex items-start justify-between gap-3 mb-4">
+                  {/* min-w-0 on both the card and this heading is what makes `truncate`
+                      actually truncate. Without it the nowrap name sets the grid track's
+                      min-content width and the card pushes the document 93px wide at 375. */}
+                  <h3 className="font-display font-black text-base text-brand-bone group-hover:text-brand-orange transition-colors truncate min-w-0">{repo.name}</h3>
                     <span className="section-label text-brand-orange flex-shrink-0">★ {repo.stars || 0}</span>
                   </div>
                   <p className="text-brand-muted text-sm leading-relaxed line-clamp-3 flex-grow mb-5">{repo.description}</p>
                   <div className="flex flex-wrap gap-2 mt-auto">
                     {repo.tech.map(t => (
-                      <span key={t} className="px-2.5 py-1 bg-white/[0.04] border border-white/[0.06] rounded-lg section-label group-hover:text-brand-cream transition-colors" style={{ fontSize: '8px' }}>{t}</span>
+                      <span key={t} className="px-2.5 py-1 bg-line border border-line rounded-lg font-mono text-[11px] tracking-wider text-brand-muted group-hover:text-brand-bone transition-colors">{t}</span>
                     ))}
                   </div>
                 </a>
               ))}
             </div>
           ) : (
-            <div className="p-12 bg-brand-surface border border-white/[0.06] rounded-2xl text-center">
+            <div className="p-12 bg-brand-surface border border-line rounded-2xl text-center">
               <p className="section-label mb-6">GitHub sync offline — view directly</p>
               <a href="https://github.com/Bolajie" target="_blank" rel="noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-white/10 rounded-xl font-display font-bold text-xs text-brand-cream uppercase tracking-widest hover:border-brand-orange/30 transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3 border border-line-strong rounded-xl font-display font-bold text-xs text-brand-bone uppercase tracking-widest hover:border-brand-orange/30 transition-all"
               >
                 Visit GitHub
                 <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
@@ -243,12 +245,12 @@ const About: React.FC = () => {
         </section>
 
         {/* ── EDUCATION ──────────────────────────────────── */}
-        <section className="pb-16 pt-12 border-t border-white/[0.06]">
+        <section className="pb-16 pt-12 border-t border-line">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <div>
               <p className="section-label mb-4">Educational Foundation</p>
-              <h2 className="font-display font-black text-4xl sm:text-5xl text-brand-cream tracking-tight leading-tight mb-6">
-                Logical<br/><span className="text-gradient">Bedrock.</span>
+              <h2 className="font-display font-black text-4xl sm:text-5xl text-brand-bone tracking-tight leading-tight mb-6">
+                Logical<br/><span className="text-brand-orange">Bedrock.</span>
               </h2>
               <p className="text-brand-muted text-base leading-relaxed max-w-sm">
                 A foundation in Mathematics, combined with advanced Data Science training, equips me to design automation systems grounded in statistical rigor and real-world business constraints.
@@ -256,9 +258,9 @@ const About: React.FC = () => {
             </div>
             <div className="space-y-5">
               {EDUCATION.map((edu, idx) => (
-                <div key={idx} className="p-7 bg-brand-surface border border-white/[0.06] rounded-2xl hover:border-brand-rose/20 transition-all group">
-                  <p className="section-label text-brand-rose mb-3" style={{ color: 'var(--brand-rose)' }}>{edu.year} · {edu.institution}</p>
-                  <h4 className="font-display font-black text-lg text-brand-cream mb-2">{edu.degree}</h4>
+                <div key={idx} className="p-7 bg-brand-surface border border-line rounded-2xl hover:border-brand-orange/25 transition-all group">
+                  <p className="section-label mb-3">{edu.year} · {edu.institution}</p>
+                  <h4 className="font-display font-black text-lg text-brand-bone mb-2">{edu.degree}</h4>
                   <p className="text-brand-muted text-sm leading-relaxed">{edu.details}</p>
                 </div>
               ))}

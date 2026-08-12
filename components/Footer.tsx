@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-brand-deep border-t border-white/[0.06] pt-24 pb-40 relative overflow-hidden">
+    <footer className="bg-brand-deep border-t border-line pt-24 pb-40 relative overflow-hidden">
 
       {/* Ambient glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-brand-orange/5 rounded-full blur-[120px] pointer-events-none"></div>
@@ -13,10 +13,10 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
 
         {/* Large name block */}
-        <div className="mb-16 pb-16 border-b border-white/[0.06]">
+        <div className="mb-16 pb-16 border-b border-line">
           <p className="section-label mb-6">Let's build something that works.</p>
-          <h2 className="font-display font-black text-[15vw] sm:text-[10vw] text-brand-cream leading-none tracking-tight">
-            Bolaji<span className="text-gradient">.</span>
+          <h2 className="font-display font-black text-[15vw] sm:text-[10vw] text-brand-bone leading-none tracking-tight">
+            Bolaji<span className="text-brand-orange">.</span>
           </h2>
         </div>
 
@@ -25,11 +25,11 @@ const Footer: React.FC = () => {
 
           {/* Role + availability */}
           <div>
-            <p className="font-display font-bold text-brand-cream text-sm mb-2">No-Code & Automation Engineer</p>
+            <p className="font-display font-bold text-brand-bone text-sm mb-2">No-Code & Automation Engineer</p>
             <p className="section-label mb-6">Remote · Worldwide</p>
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_rgba(52,211,153,0.8)]"></span>
-              <span className="section-label text-emerald-400">Open to work · $25–40/hr</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-signal animate-pulse shadow-[0_0_6px_rgba(53,214,164,0.8)]"></span>
+              <span className="section-label text-brand-signal">Open to work</span>
             </div>
           </div>
 
@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className="font-display font-bold text-brand-muted hover:text-brand-cream text-sm transition-colors w-fit"
+                className="font-display font-bold text-brand-muted hover:text-brand-bone text-sm transition-colors w-fit"
               >
                 {link.name}
               </Link>
@@ -78,7 +78,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Copyright row */}
-        <div className="mt-16 pt-8 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-16 pt-8 border-t border-line flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="section-label">© {year} Bolaji Ilori. All rights reserved.</p>
           <p className="section-label">Built for impact. Deployed for scale.</p>
         </div>
