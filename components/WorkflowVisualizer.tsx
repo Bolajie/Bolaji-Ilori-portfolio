@@ -29,30 +29,30 @@ const NODE_CFG: Record<NodeType, { border: string; bg: string; text: string; dot
 
 const WORKFLOWS: Workflow[] = [
   {
-    id: 'crm', label: 'CRM Pipeline', fileId: 'crm_automation.n8n.json',
-    trigger:  { type: 'trigger', label: 'Call Complete',     sub: 'Webhook Trigger' },
-    hub:      { type: 'hub',     label: 'n8n',               sub: 'Orchestrator' },
-    aiNodes:  [{ type: 'ai', label: 'Gemini 2.5', sub: 'Transcription' },
-               { type: 'ai', label: 'Claude AI',  sub: 'Analysis' }],
-    outputs:  [{ type: 'output', label: 'Airtable',      sub: 'CRM Update' },
-               { type: 'output', label: 'Google Sheets', sub: 'Reporting' }],
+    id: 'outreach', label: 'Cold Outreach', fileId: 'outreach_pipeline.n8n.json',
+    trigger:  { type: 'trigger', label: 'Lead Scored',    sub: 'Webhook Trigger' },
+    hub:      { type: 'hub',     label: 'n8n',            sub: 'Orchestrator' },
+    aiNodes:  [{ type: 'ai', label: 'Ogilvy Engine', sub: 'Positioning' },
+               { type: 'ai', label: 'Claude AI',  sub: 'Pitch Draft' }],
+    outputs:  [{ type: 'output', label: 'GoHighLevel', sub: 'Send + Follow-up' },
+               { type: 'output', label: 'Airtable',     sub: 'Tracking' }],
   },
   {
-    id: 'compliance', label: 'Compliance Audit', fileId: 'ftc_compliance.n8n.json',
-    trigger:  { type: 'trigger', label: 'Content Submitted', sub: 'HTTP Trigger' },
+    id: 'research', label: 'Research Agent', fileId: 'company_research.n8n.json',
+    trigger:  { type: 'trigger', label: 'Company Submitted', sub: 'HTTP Trigger' },
     hub:      { type: 'hub',     label: 'n8n',               sub: 'Orchestrator' },
-    aiNodes:  [{ type: 'ai', label: 'Zep KG',  sub: 'Rule Lookup' },
-               { type: 'ai', label: 'OpenAI',  sub: 'Audit Review' }],
-    outputs:  [{ type: 'output', label: 'Audit Report', sub: 'Structured PDF' },
-               { type: 'output', label: 'Slack Alert',  sub: 'Block Kit' }],
+    aiNodes:  [{ type: 'ai', label: 'Tavily',  sub: 'Live Research' },
+               { type: 'ai', label: 'Claude',  sub: 'Brief Synthesis' }],
+    outputs:  [{ type: 'output', label: 'Supabase',  sub: 'Cached Report' },
+               { type: 'output', label: 'Brief Doc',  sub: 'Structured Output' }],
   },
   {
-    id: 'content', label: 'Content Pipeline', fileId: 'content_gen.n8n.json',
-    trigger:  { type: 'trigger', label: 'Transcript Ready', sub: 'File Trigger' },
-    hub:      { type: 'hub',     label: 'n8n',              sub: 'Orchestrator' },
-    aiNodes:  [{ type: 'ai', label: 'LLM Prompt', sub: 'Script Gen' },
-               { type: 'ai', label: 'FFmpeg',     sub: 'Video Build' }],
-    outputs:  [{ type: 'output', label: 'Google Docs', sub: 'Document' },
+    id: 'video', label: 'Video Pipeline', fileId: 'video_design_studio.n8n.json',
+    trigger:  { type: 'trigger', label: 'Brief Ready', sub: 'File Trigger' },
+    hub:      { type: 'hub',     label: 'n8n',         sub: 'Orchestrator' },
+    aiNodes:  [{ type: 'ai', label: 'Claude Code', sub: 'Plan + Sub-agents' },
+               { type: 'ai', label: 'FFmpeg',     sub: 'Render' }],
+    outputs:  [{ type: 'output', label: 'Design Tokens', sub: 'Brand System' },
                { type: 'output', label: 'GitHub',      sub: 'Versioned Asset' }],
   },
 ];
@@ -101,7 +101,7 @@ const WorkflowVisualizer: React.FC = () => {
               onClick={() => setActive(i)}
               className={`px-4 py-2 rounded-lg font-display font-bold text-xs uppercase tracking-wider transition-all cursor-pointer ${
                 active === i
-                  ? 'bg-brand-orange text-brand-deep shadow-[0_0_20px_rgba(255,65,3,0.25)]'
+                  ? 'bg-brand-orange text-brand-deep shadow-[0_0_20px_rgba(232,160,0,0.25)]'
                   : 'border border-line-strong text-brand-muted hover:border-brand-orange/30 hover:text-brand-bone'
               }`}
             >
@@ -125,32 +125,32 @@ const WorkflowVisualizer: React.FC = () => {
               <svg className="absolute inset-0" width="700" height="180" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <marker id="wv-arr" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
-                    <polygon points="0 0, 6 2, 0 4" fill="#FF4103" fillOpacity="0.55" />
+                    <polygon points="0 0, 6 2, 0 4" fill="#E8A000" fillOpacity="0.55" />
                   </marker>
                 </defs>
 
                 <line x1="140" y1="90" x2="185" y2="90"
-                  stroke="#FF4103" strokeOpacity="0.5" strokeWidth="1.5"
+                  stroke="#E8A000" strokeOpacity="0.5" strokeWidth="1.5"
                   strokeDasharray="5 3" markerEnd="url(#wv-arr)"
                   className="flow-line" />
 
                 <line x1="308" y1="82" x2="344" y2="47"
-                  stroke="#FF4103" strokeOpacity="0.5" strokeWidth="1.5"
+                  stroke="#E8A000" strokeOpacity="0.5" strokeWidth="1.5"
                   strokeDasharray="5 3" markerEnd="url(#wv-arr)"
                   className="flow-line" style={{ animationDelay: '0.3s' }} />
 
                 <line x1="308" y1="98" x2="344" y2="133"
-                  stroke="#FF4103" strokeOpacity="0.5" strokeWidth="1.5"
+                  stroke="#E8A000" strokeOpacity="0.5" strokeWidth="1.5"
                   strokeDasharray="5 3" markerEnd="url(#wv-arr)"
                   className="flow-line" style={{ animationDelay: '0.6s' }} />
 
                 <line x1="465" y1="47" x2="505" y2="47"
-                  stroke="#FF4103" strokeOpacity="0.5" strokeWidth="1.5"
+                  stroke="#E8A000" strokeOpacity="0.5" strokeWidth="1.5"
                   strokeDasharray="5 3" markerEnd="url(#wv-arr)"
                   className="flow-line" style={{ animationDelay: '0.9s' }} />
 
                 <line x1="465" y1="133" x2="505" y2="133"
-                  stroke="#FF4103" strokeOpacity="0.5" strokeWidth="1.5"
+                  stroke="#E8A000" strokeOpacity="0.5" strokeWidth="1.5"
                   strokeDasharray="5 3" markerEnd="url(#wv-arr)"
                   className="flow-line" style={{ animationDelay: '1.2s' }} />
               </svg>

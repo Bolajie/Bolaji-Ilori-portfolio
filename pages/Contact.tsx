@@ -59,8 +59,8 @@ const Contact: React.FC = () => {
           {/* Left — info */}
           <div className="animate-reveal">
             <div className="flex items-center gap-2.5 mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-signal animate-pulse shadow-[0_0_6px_rgba(53,214,164,0.8)]"></span>
-              <span className="section-label text-brand-signal">Accepting new projects</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-signal animate-pulse shadow-[0_0_6px_rgba(0,85,255,0.8)]"></span>
+              <span className="section-label text-brand-cream">Accepting new projects</span>
             </div>
 
             {/* "Together." at text-6xl measured 434px inside a 327px box at 375px,
@@ -71,8 +71,9 @@ const Contact: React.FC = () => {
 
             <p className="text-brand-muted text-lg sm:text-xl font-medium mb-14 leading-relaxed max-w-md">
               Currently accepting inquiries for{' '}
-              <span className="text-brand-bone font-semibold">automation engineering</span>,
-              no-code app development, and AI workflow projects.
+              <span className="text-brand-bone font-semibold">automation systems</span>,
+              <span className="text-brand-bone font-semibold">AI workflows</span>, and{' '}
+              <span className="text-brand-bone font-semibold">operations architecture</span>.
             </p>
 
             <div className="space-y-4">

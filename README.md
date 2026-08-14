@@ -1,6 +1,6 @@
 # Bolaji Ilori — Portfolio
 
-Personal portfolio for **Bolaji (Emmanuel) Ilori**, No-Code & Automation Engineer based in Lagos, Nigeria.
+Personal portfolio for **Bolaji (Emmanuel) Ilori**, Operations & Automation Specialist based in Lagos, Nigeria.
 
 Live site: [bolaji-ilori-portfolio.vercel.app](https://bolaji-ilori-portfolio.vercel.app)
 
@@ -13,8 +13,8 @@ Live site: [bolaji-ilori-portfolio.vercel.app](https://bolaji-ilori-portfolio.ve
 | Framework | React + TypeScript |
 | Build tool | Vite |
 | Styling | Tailwind CSS (CDN) |
-| Fonts | Syne · Instrument Sans · JetBrains Mono |
-| Animation | Framer Motion · CSS keyframes |
+| Fonts | Poppins · JetBrains Mono |
+| Animation | Framer Motion · CSS keyframes · Three.js (WebGL hero) |
 | Deployment | Vercel |
 | AI Integration | Gemini API |
 
@@ -24,7 +24,7 @@ Live site: [bolaji-ilori-portfolio.vercel.app](https://bolaji-ilori-portfolio.ve
 
 - **Home** — Hero, workflow visualizer, featured projects, automation domains, technical dashboard, engagement process
 - **About** — Background, skills, timeline, GitHub repos, education
-- **Case Studies** — Full project index (10 projects) with filterable cards and detail view
+- **Case Studies** — Full project index (9 projects) with filterable cards and detail view
 - **Contact** — Contact form wired to a live endpoint + direct email/LinkedIn links
 
 ---

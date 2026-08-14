@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import TechStackStrip from '../components/TechStackStrip';
 import WorkflowVisualizer from '../components/WorkflowVisualizer';
+
+const ThreeBackground = lazy(() => import('../components/ThreeBackground'));
 
 interface FeaturedProject {
   id: number;
@@ -15,60 +17,60 @@ interface FeaturedProject {
 const FEATURED_PROJECTS: FeaturedProject[] = [
   {
     id: 1,
-    tools: 'n8n · Gemini 2.5 Pro · Claude AI',
-    title: 'Sales Call CRM Automation Pipeline',
-    problem: 'Sales reps spending hours logging post-call data manually, creating CRM lag and inaccuracy.',
-    solve: 'Built an end-to-end pipeline that eliminated 100% of manual post-call CRM entry.',
-    breakdown: 'An n8n workflow triggers on call completion, feeds the recording through Gemini 2.5 Pro for transcription analysis, then routes structured data via Claude AI to both Airtable (CRM) and Google Sheets (reporting) — zero manual input required from rep to record.'
+    tools: 'Claude Code · Python · FFmpeg',
+    title: 'Video Design Studio',
+    problem: 'Hand-built video production that drifted off-brand — no shared tokens, no repeatable pipeline.',
+    solve: 'Built MotionForge, an agentic pipeline that produces brand-consistent clips from one token set.',
+    breakdown: 'An orchestrator agent plans the clip, delegates script and scene work to focused sub-agents, and renders via FFmpeg. Every scene draws from the same design-system tokens — type, color, spacing — so output stays on-brand clip after clip, programmatically.'
   },
   {
     id: 2,
-    tools: 'n8n · Zep Knowledge Graph · OpenAI',
-    title: 'FTC Compliance Auditing System',
-    problem: 'Manual compliance reviews against FTC guidelines taking days per audit cycle.',
-    solve: 'Deployed an AI auditing system that reduced compliance review time from days to seconds.',
-    breakdown: 'n8n receives content submissions and routes them to OpenAI, which cross-references against FTC guidelines stored in a Zep Knowledge Graph. Structured audit results are delivered instantly to Slack via Block Kit.'
+    tools: 'Claude · GoHighLevel · n8n',
+    title: 'Cold Outreach System',
+    problem: 'Generic cold messages that never tied to the prospect\'s actual situation.',
+    solve: 'Built a positioning engine that generates a personalized Ogilvy 4-part pitch for every lead.',
+    breakdown: 'Each lead\'s context feeds an Ogilvy-style engine — hook, promise, proof, bridge — and Claude drafts the message per lead. n8n orchestrates the send and follow-up inside GoHighLevel, so no two messages read generic.'
   },
   {
     id: 3,
-    tools: 'Bubble.io',
-    title: 'Three-Portal SaaS Platform',
-    problem: 'A job search management company needed a production-grade multi-role app without a long dev timeline.',
-    solve: 'Architected a complete three-portal SaaS in Bubble.io — client, associate, and admin portals in one app.',
-    breakdown: 'Built a full no-code SaaS with role-based routing across three distinct portals. Clients track job search progress, associates manage their active candidate workload, and administrators oversee the full operation — all within a single Bubble.io application with clean permission separation.'
+    tools: 'Supabase · PostgreSQL · n8n',
+    title: 'Plenteous Systems Architecture',
+    problem: 'Client backends needed scalable auth, structured data, and server-side logic — without a bespoke server to maintain.',
+    solve: 'Architected the backend on Supabase — Postgres, edge functions, and row-level security.',
+    breakdown: 'Postgres is the source of truth, edge functions handle server-side logic, and row-level security gates multi-user access. n8n keeps external systems in sync with the database, replacing a bespoke server entirely.'
   }
 ];
 
 const WHAT_I_AUTOMATE = [
   {
     title: 'CRM & Sales Automation',
-    tools: 'n8n · Airtable · Google Sheets',
-    desc: 'Eliminate post-call data entry. Log contacts, notes, and deal stages the moment a call ends.',
+    tools: 'GoHighLevel · n8n · HubSpot',
+    desc: 'Sync calls, leads, and pipeline updates across your CRM — no manual entry.',
   },
   {
     title: 'AI-Powered Analysis',
-    tools: 'Claude · Gemini · OpenAI',
-    desc: 'Route data through LLMs for scoring, summarization, compliance checks, and structured output.',
+    tools: 'Claude · Codex · Antigravity',
+    desc: 'Route data through LLMs for scoring, synthesis, research, and structured output.',
   },
   {
-    title: 'Slack Integration',
-    tools: 'Slack · Block Kit · n8n',
-    desc: 'Push real-time alerts, audit results, and reports directly into Slack with rich Block Kit formatting.',
+    title: 'Content & Media Pipelines',
+    tools: 'n8n · FFmpeg · Python',
+    desc: 'Turn topics and transcripts into captioned videos, docs, and versioned assets.',
   },
   {
-    title: 'Document Generation',
-    tools: 'Google Docs · .docx · n8n',
-    desc: 'Auto-generate SOPs, reports, and structured documents from raw data or transcript sources.',
+    title: 'Data Architecture',
+    tools: 'Supabase · PostgreSQL · n8n',
+    desc: 'Postgres backends, edge functions, and clean sync between systems.',
   },
   {
-    title: 'Data Migration Pipelines',
-    tools: 'Supabase · Bubble API · Sheets',
-    desc: 'Move and transform data between platforms without downtime or manual mapping errors.',
+    title: 'Lead & Outreach Operations',
+    tools: 'GHL · Airtable · Claude',
+    desc: 'Capture, enrich, and follow up on every lead from one pipeline.',
   },
   {
-    title: 'Compliance & Auditing',
-    tools: 'Zep KG · OpenAI · Slack',
-    desc: 'Audit content against regulatory rules in seconds. Cross-reference a knowledge graph, deliver instant verdicts.',
+    title: 'WhatsApp & Conversational Ops',
+    tools: 'WhatsApp · Claude · n8n',
+    desc: '24/7 automated conversations with human handoff when it matters.',
   },
 ];
 
@@ -139,7 +141,7 @@ const HowIWork: React.FC = () => (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6 relative z-10">
           {PROCESS_STEPS.map((step, i) => (
             <div key={i} className="flex flex-col gap-4">
-              <div className="w-16 h-16 rounded-2xl bg-brand-orange flex items-center justify-center flex-shrink-0 shadow-[0_0_24px_rgba(255,65,3,0.18)]">
+              <div className="w-16 h-16 rounded-2xl bg-brand-orange flex items-center justify-center flex-shrink-0 shadow-[0_0_24px_rgba(232,160,0,0.18)]">
                 <span className="font-display font-black text-lg text-brand-deep">{step.num}</span>
               </div>
               <div>
@@ -166,11 +168,14 @@ const Home: React.FC = () => {
       <section className="relative min-h-screen flex flex-col justify-between pt-24 pb-28 px-6 sm:px-10 lg:px-16 overflow-hidden">
         <div className="absolute inset-0 dot-pattern z-0 opacity-60"></div>
         <div className="absolute inset-0 radial-glow z-0"></div>
+        <Suspense fallback={null}>
+          <ThreeBackground className="absolute inset-0 z-0" />
+        </Suspense>
 
         <div className="relative z-10 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-signal shadow-[0_0_8px_rgba(53,214,164,0.9)] animate-pulse"></span>
-            <span className="section-label text-brand-signal">Available for Work</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-signal shadow-[0_0_8px_rgba(0,85,255,0.9)] animate-pulse"></span>
+            <span className="section-label text-brand-cream">Available for Work</span>
           </div>
           <span className="section-label hidden sm:block">Remote · Worldwide</span>
         </div>
@@ -193,13 +198,13 @@ const Home: React.FC = () => {
 
         <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 mt-6">
           <div className="max-w-lg">
-            <p className="section-label mb-3">No-Code & Automation Engineer</p>
+            <p className="section-label mb-3">Operations & Automation Specialist</p>
             <p className="text-base sm:text-lg font-medium text-brand-muted leading-relaxed">
-              I build automation systems, no-code products, and AI workflows that eliminate manual work and let operations scale without breaking.
+              I help founders and small teams run leaner operations — automating the manual work, wiring the systems, and building the AI workflows that let ops scale without breaking.
             </p>
           </div>
           <div className="flex items-center gap-3 flex-shrink-0">
-            <Link to="/contact" className="inline-flex items-center gap-2 px-7 py-3 bg-brand-orange text-brand-deep font-display font-bold text-sm uppercase tracking-wide rounded-xl shadow-[0_0_24px_rgba(255,65,3,0.3)] hover:shadow-[0_0_40px_rgba(255,65,3,0.5)] hover:scale-[1.03] active:scale-95 transition-all">
+            <Link to="/contact" className="inline-flex items-center gap-2 px-7 py-3 bg-brand-orange text-brand-deep font-display font-bold text-sm uppercase tracking-wide rounded-xl shadow-[0_0_24px_rgba(232,160,0,0.3)] hover:shadow-[0_0_40px_rgba(232,160,0,0.5)] hover:scale-[1.03] active:scale-95 transition-all">
               Hire Me
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15M19.5 4.5H8.25M19.5 4.5v11.25" />
@@ -216,9 +221,9 @@ const Home: React.FC = () => {
         <div className="relative z-10 mt-8 pt-8 border-t border-line">
           <ul className="flex flex-col sm:flex-row sm:flex-wrap gap-y-4 gap-x-10 lg:gap-x-14">
             {[
-              { claim: 'Removed 100% of manual post-call CRM entry', source: 'Sales Call CRM Pipeline' },
-              { claim: 'Cut compliance review from days to seconds', source: 'FTC Auditing System' },
-              { claim: 'Shipped three role-based portals in one app', source: 'Bubble.io SaaS build' },
+              { claim: 'Every lead turned into a personalized 4-part pitch', source: 'Cold Outreach System' },
+              { claim: 'Agentic pipeline, one brand token set, consistent video', source: 'Video Design Studio' },
+              { claim: 'Fork, build, PR — each task graded by rubric', source: 'Dynamo Task Authoring' },
             ].map(item => (
               <li key={item.source} className="flex items-start gap-3 max-w-xs">
                 <span aria-hidden="true" className="w-1 h-1 mt-[7px] rounded-full bg-brand-orange flex-shrink-0" />

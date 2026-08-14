@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { SKILL_GROUPS, TIMELINE, EDUCATION } from '../constants';
 import { GithubProject } from '../types';
 import Toast, { ToastProps } from '../components/Toast';
+import profileImg from '../img/IMG_0022.jpeg';
 
 const About: React.FC = () => {
+  const reduceMotion = useReducedMotion();
   const [dynamicRepos, setDynamicRepos] = useState<GithubProject[]>([]);
   const [loading, setLoading] = useState(true);
   const [toast, setToast] = useState<Pick<ToastProps, 'message' | 'type'> | null>(null);
@@ -51,17 +54,16 @@ const About: React.FC = () => {
         <section className="mb-32 animate-reveal">
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-12 lg:gap-20">
 
-            {/* Monogram avatar */}
+            {/* Profile photo */}
             <div className="relative flex-shrink-0">
               <div className="absolute -inset-4 bg-brand-orange rounded-2xl blur-3xl opacity-10"></div>
-              <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-2xl overflow-hidden bg-brand-surface border border-line shadow-2xl flex items-center justify-center">
-                <div className="absolute inset-0 grid-pattern opacity-30"></div>
-                <div className="absolute top-0 left-0 right-0 h-px bg-brand-orange opacity-50"></div>
-                <div className="absolute bottom-0 left-0 right-0 h-px bg-line"></div>
-                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-orange/[0.08] rounded-full blur-[50px] pointer-events-none"></div>
-                <span className="relative z-10 font-display font-black text-[88px] md:text-[100px] tracking-tight leading-none select-none">
-                  B<span className="text-brand-orange">I</span>
-                </span>
+              <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-2xl overflow-hidden bg-brand-surface border border-line shadow-2xl">
+                <img
+                  src={profileImg}
+                  alt="Bolaji Ilori"
+                  loading="lazy"
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
             </div>
 
@@ -72,14 +74,14 @@ const About: React.FC = () => {
                 Bolaji Ilori<span className="text-brand-orange">.</span>
               </h1>
               <p className="text-brand-muted text-base sm:text-lg font-medium mb-8 max-w-xl leading-relaxed">
-                No-Code & Automation Engineer, available remotely — building{' '}
+                Operations & Automation Specialist, available remotely — building{' '}
                 <span className="text-brand-bone font-semibold">AI-powered workflows</span>,{' '}
-                <span className="text-brand-bone font-semibold">no-code SaaS products</span>, and{' '}
+                <span className="text-brand-bone font-semibold">operations systems</span>, and{' '}
                 <span className="text-brand-bone font-semibold">data pipelines</span> for startups and ops-heavy businesses. Open to remote roles and freelance contracts.
               </p>
 
               <div className="flex flex-wrap gap-2 mb-8">
-                {['No-Code Development', 'Automation Engineering', 'AI Workflows', 'Operations Systems'].map(tag => (
+                {['Automation Engineering', 'AI Workflows', 'Data Architecture', 'Operations Systems'].map(tag => (
                   <span key={tag} className="px-3.5 py-1.5 bg-brand-surface border border-line rounded-lg section-label" style={{ color: 'var(--text-muted)' }}>
                     {tag}
                   </span>
@@ -105,14 +107,14 @@ const About: React.FC = () => {
         <section className="mb-32 py-8 border-y border-line">
           <div className="flex flex-wrap gap-10 sm:gap-16">
             {[
-              { label: 'Status',   value: 'Open to Work',          color: 'text-brand-signal', dot: true },
+              { label: 'Status',   value: 'Open to Work',          color: 'text-brand-cream', dot: true },
               { label: 'Type',     value: 'Full-time · Freelance',  color: 'text-brand-bone', dot: false },
               { label: 'Location', value: 'Remote · Worldwide',      color: 'text-brand-bone', dot: false },
             ].map((item, i) => (
               <div key={i} className="flex flex-col gap-1.5">
                 <span className="section-label">{item.label}</span>
                 <div className="flex items-center gap-2">
-                  {item.dot && <span className="w-1.5 h-1.5 rounded-full bg-brand-signal animate-pulse shadow-[0_0_6px_rgba(53,214,164,0.8)]"></span>}
+                  {item.dot && <span className="w-1.5 h-1.5 rounded-full bg-brand-signal animate-pulse shadow-[0_0_6px_rgba(0,85,255,0.8)]"></span>}
                   <span className={`font-display font-bold text-base ${item.color}`}>{item.value}</span>
                 </div>
               </div>
@@ -124,7 +126,7 @@ const About: React.FC = () => {
         <section className="mb-32">
           <div className="mb-12 pb-6 border-b border-line">
             <p className="section-label mb-3">Core Competencies</p>
-            <h2 className="font-display font-black text-[clamp(1.75rem,8.5vw,3rem)] text-brand-bone tracking-tight">Automation &amp; No-Code Expertise.</h2>
+            <h2 className="font-display font-black text-[clamp(1.75rem,8.5vw,3rem)] text-brand-bone tracking-tight">Automation &amp; Operations Expertise.</h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -160,20 +162,57 @@ const About: React.FC = () => {
             <h2 className="font-display font-black text-4xl sm:text-5xl text-brand-bone tracking-tight">The Trajectory.</h2>
           </div>
 
-          <div className="max-w-3xl space-y-5">
-            {TIMELINE.map((item, idx) => (
-              <div key={idx} className="group flex items-start gap-6 p-7 bg-brand-surface border border-line rounded-2xl hover:border-brand-orange/25 transition-all duration-500">
-                <div className="flex-shrink-0 w-20 text-right">
-                  <span className="section-label leading-relaxed" style={{ lineHeight: '1.6' }}>{item.year}</span>
+          <div className="relative max-w-3xl">
+            <div className="absolute left-5 sm:left-6 top-0 bottom-0 w-px -translate-x-1/2 bg-line" aria-hidden="true"></div>
+
+            <div className="space-y-8 sm:space-y-10">
+              {TIMELINE.map((item, idx) => (
+                <div key={idx} className="relative grid grid-cols-[2.5rem_1fr] sm:grid-cols-[3rem_1fr] gap-x-4 sm:gap-x-6 items-start">
+                  <div className="flex flex-col items-center pt-7">
+                    <motion.span
+                      initial={reduceMotion ? false : { scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true, margin: '-80px' }}
+                      transition={{ type: 'spring', stiffness: 320, damping: 20, delay: 0.1 }}
+                      className="relative flex h-3.5 w-3.5"
+                    >
+                      {idx === 0 && (
+                        <span className="absolute inline-flex h-full w-full rounded-full bg-brand-orange opacity-50 animate-ping"></span>
+                      )}
+                      <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-brand-orange ring-4 ring-brand-orange/15 shadow-[0_0_10px_rgba(232,160,0,0.4)]"></span>
+                    </motion.span>
+                  </div>
+
+                  <motion.div
+                    initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-80px' }}
+                    transition={{ duration: 0.55, ease: 'easeOut', delay: 0.08 }}
+                    className="p-6 sm:p-8 bg-brand-surface border border-line rounded-2xl hover:border-brand-orange/25 transition-colors duration-300 group"
+                  >
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-3">
+                      <span className="font-mono text-[11px] tracking-wider text-brand-orange uppercase">{item.year}</span>
+                      <span className="text-brand-muted font-mono text-[11px]" aria-hidden="true">/</span>
+                      <span className="section-label text-brand-muted">{item.company}</span>
+                    </div>
+                    <h4 className="font-display font-black text-lg sm:text-xl text-brand-bone mb-3 tracking-tight">{item.role}</h4>
+                    <p className="text-brand-muted text-sm leading-relaxed mb-4">{item.description}</p>
+                    {item.highlights && item.highlights.length > 0 && (
+                      <ul className="space-y-2.5">
+                        {item.highlights.map((h, i) => (
+                          <li key={i} className="flex items-start gap-2.5 text-brand-muted text-sm leading-relaxed">
+                            <svg className="w-3.5 h-3.5 mt-1 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5" aria-hidden="true">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                            </svg>
+                            <span>{h}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </motion.div>
                 </div>
-                <div className="w-px self-stretch bg-line flex-shrink-0"></div>
-                <div className="flex-1 min-w-0">
-                  <h4 className="font-display font-black text-lg text-brand-bone mb-0.5">{item.role}</h4>
-                  <p className="section-label text-brand-orange mb-3" style={{ color: 'var(--brand-orange)' }}>{item.company}</p>
-                  <p className="text-brand-muted text-sm leading-relaxed">{item.description}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 

@@ -1,44 +1,45 @@
 import { CaseStudy, SkillGroup, TimelineItem, EducationItem } from './types';
 
-// Names only, no logo URLs. Remote brand logos meant 15 third-party requests per
-// page load, three of which 404'd, and dragged 15 foreign hues into a two-colour
-// palette. The strip is typographic instead: the name is the content.
+// The 12-tool core stack, per DESIGN.md. Names match TOOL_ICONS keys (toolIcons.ts).
+// The strip is typographic: the name is the content.
 export const CORE_TOOLKIT = [
+  { name: 'GoHighLevel', category: 'CRM' },
   { name: 'n8n', category: 'Automation' },
+  { name: 'Claude', category: 'AI' },
+  { name: 'Supabase', category: 'Data' },
   { name: 'Make', category: 'Automation' },
   { name: 'Zapier', category: 'Automation' },
-  { name: 'Claude', category: 'AI' },
-  { name: 'OpenAI', category: 'AI' },
-  { name: 'Gemini', category: 'AI' },
   { name: 'Airtable', category: 'Data' },
-  { name: 'Supabase', category: 'Data' },
-  { name: 'Google Sheets', category: 'Data' },
+  { name: 'HubSpot', category: 'CRM' },
+  { name: 'Google Workspace', category: 'Ops' },
   { name: 'Python', category: 'Dev' },
-  { name: 'Playwright', category: 'Dev' },
-  { name: 'Slack', category: 'Comm' },
-  { name: 'GitHub', category: 'Dev' },
-  { name: 'Notion', category: 'Ops' },
+  { name: 'Codex', category: 'AI' },
+  { name: 'Antigravity', category: 'AI' },
 ];
 
 export const SKILL_GROUPS: SkillGroup[] = [
   {
-    name: 'Automation & No-Code',
+    name: 'Automation & Operations',
     skills: [
       {
         name: 'n8n / Make / Zapier',
         icon: 'M13 10V3L4 14h7v7l9-11h-7z'
       },
       {
-        name: 'Bubble.io App Development',
-        icon: 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z'
+        name: 'Workflow Logic Design',
+        icon: 'M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4'
       },
       {
         name: 'GoHighLevel (GHL)',
         icon: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6'
       },
       {
-        name: 'Workflow Logic Design',
-        icon: 'M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4'
+        name: 'Airtable / HubSpot',
+        icon: 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z'
+      },
+      {
+        name: 'Google Workspace',
+        icon: 'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'
       },
       {
         name: 'CRM & API Integrations',
@@ -47,10 +48,6 @@ export const SKILL_GROUPS: SkillGroup[] = [
       {
         name: 'SOP & Process Documentation',
         icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'
-      },
-      {
-        name: 'Data Migration Pipelines',
-        icon: 'M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4'
       }
     ]
   },
@@ -58,32 +55,28 @@ export const SKILL_GROUPS: SkillGroup[] = [
     name: 'AI / LLM & Data',
     skills: [
       {
-        name: 'Gemini 2.5 Pro / Claude / OpenAI',
-        icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
+        name: 'Claude / Codex / Antigravity',
+        icon: 'M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z'
       },
       {
         name: 'RAG Pipeline Architecture',
         icon: 'M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7'
       },
       {
-        name: 'Zep Knowledge Graph',
-        icon: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064'
-      },
-      {
         name: 'Structured Output Parsers',
         icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4'
       },
       {
-        name: 'Airtable / Supabase / Google Sheets',
-        icon: 'M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z'
-      },
-      {
-        name: 'Playwright / Zoom / GitHub APIs',
-        icon: 'M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'
+        name: 'Supabase / PostgreSQL',
+        icon: 'M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4'
       },
       {
         name: 'Python / FFmpeg',
         icon: 'M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'
+      },
+      {
+        name: 'Web Research & Scraping',
+        icon: 'M12 8v8m-4-4h8M12 21a9 9 0 100-18 9 9 0 000 18z'
       }
     ]
   }
@@ -92,21 +85,71 @@ export const SKILL_GROUPS: SkillGroup[] = [
 export const TIMELINE: TimelineItem[] = [
   {
     year: 'Present',
-    role: 'No-Code & Automation Engineer',
-    company: 'Freelance · Remote',
-    description: 'Building AI-powered automation workflows, no-code SaaS products, and data pipelines for startups, digital agencies, and ops-heavy businesses.'
+    role: 'Operations & Automation Specialist',
+    company: 'Independent · Remote',
+    description: 'Building AI-powered automation workflows, operations systems, and data pipelines for startups, digital agencies, and ops-heavy businesses.'
   },
   {
-    year: '2024 - 2025',
-    role: 'Automation & Data Specialist',
-    company: 'Independent Consulting',
-    description: 'Delivered automation and data workflow solutions for clients, using n8n, AI integrations, and no-code platforms to streamline operations.'
+    year: 'Feb – May 2026',
+    role: 'Automation Specialist',
+    company: 'Inside Success TV (ISTV) · Remote contract',
+    description: 'Automation across sales, fulfillment, and recruitment in a startup-like sales environment.',
+    highlights: [
+      'Call-recording-to-CRM pipeline processing 200+ recordings a day — transcription, Claude-based summarization, CRM sync',
+      'End-to-end transcript AI classification for sales leads (Zoom API with a Whisper/AssemblyAI fallback), matched to leads and handed to the CRM',
+      'Compliance auditor built on a Zep knowledge graph with automated Slack Block Kit reporting',
+      'Resume screening / analyzer agent for recruitment',
+      'Multi-model document generator — Gemini classification + Mistral drafting with structured-output fixes — producing formatted PDFs',
+      'Sales performance analyzer (Claude primary, Gemini fallback) triggered from Sheets, writing to Airtable and Slack',
+      'Shipped "ISTV Engine" — a 5-stage AI thumbnail pipeline (Claude, Gemini, Pexels, Sharp) deployed on Render'
+    ]
   },
   {
-    year: '2019 - 2024',
+    year: 'Jan – Apr 2026',
+    role: 'Operations & Automation Specialist',
+    company: 'IP Express Nigeria Limited · On-site, Lagos',
+    description: 'Led one of the most technically demanding migrations to date — spreadsheet data onto a modern stack.',
+    highlights: [
+      'Migrated data from spreadsheets into Bubble.io and Supabase',
+      'Planned the database schema for the migrated system',
+      'Built a client dashboard in Bubble.io'
+    ]
+  },
+  {
+    year: 'Apr – Jun 2025',
+    role: 'Sales Analyst Intern',
+    company: 'IJAN Africa · Hybrid, Lagos',
+    description: 'Sales analytics for an education-sector business, plus hands-on training delivery.',
+    highlights: [
+      'Cleaned and analyzed sales performance data; compared courses and class hours to surface best sellers',
+      'Fed findings into business decisions on where to focus',
+      'Taught SQL — took a class from zero to proficient and mentored a student to top performer in the cohort'
+    ]
+  },
+  {
+    year: 'Sep – Dec 2024',
+    role: 'Freelance Data Entry & Reporting Specialist',
+    company: 'Remote · US client (lead paint inspection)',
+    description: 'Freelance data entry and reporting for a NYC-based lead paint inspection business.'
+  },
+  {
+    year: '2019 – 2024',
     role: 'Entrepreneur (Self-Employed)',
-    company: 'E-commerce & Retail',
-    description: 'Managed a digital storefront focused on footwear, optimizing inventory tracking and customer data management while completing a B.Sc. in Mathematics at FUNAAB.'
+    company: 'E-commerce · Apparel & Footwear',
+    description: 'Ran a dropshipping apparel and footwear business end-to-end while completing a B.Sc. in Mathematics.',
+    highlights: [
+      'Managed finances, logistics, and accounting',
+      'Handled customer service directly'
+    ]
+  },
+  {
+    year: 'Sep 2018 – Jun 2019',
+    role: 'E-commerce Virtual Assistant',
+    company: 'All Things Fashion',
+    description: 'Operations support for an online store with a physical fulfillment footprint.',
+    highlights: [
+      'Graphic design (Canva), social media management, customer service, and inventory management'
+    ]
   }
 ];
 
@@ -126,238 +169,197 @@ export const EDUCATION: EducationItem[] = [
   }
 ];
 
+// 9 projects, per DESIGN.md §5. Four are grounded in shipped systems (see sources).
+// Five are drafted from project names + the core stack and carry a [VERIFY] flag in
+// `description` — correct those before publishing, no fabricated metrics.
 export const CASE_STUDIES: CaseStudy[] = [
   {
-    id: 'nigeria-tax-ai',
-    title: 'AI-Powered Nigerian Tax Advisory System',
+    id: 'jollofull-whatsapp-bot',
+    title: 'Jollofull WhatsApp Bot',
     category: 'Automation & AI',
-    problem: 'A leading Lagos-based tax consultancy was losing 60% of billable hours to manual research in the 400+ page Nigeria Tax Act 2025. This caused inconsistencies, client delays, and high staff burnout.',
-    solution: 'Built an intelligent, zero-hallucination AI advisor using a three-tier retrieval system (Semantic Search + Knowledge Graph + Vector Store). The system ensures every answer is backed by exact statutory text and citations.',
-    tools: ['n8n', 'Google Gemini', 'PostgreSQL', 'Neo4j', 'Redis', 'Mistral AI', 'Cohere'],
-    impact: '88% reduction in research time and $180K additional revenue in Year 1.',
-    description: 'Implemented a sophisticated hierarchy-aware chunking algorithm that preserves legal structure. The system generally takes 8-15 seconds to respond, a deliberate latency that ensures extremely high accuracy. It achieves this by using the dynamic memory provided in the Knowledge Graph to cross-reference every claim against statutory text before generating an answer.',
-    architecture: 'PDF Upload -> n8n Pipeline -> Mistral Vision -> Smart Chunker -> Neo4j (Relationships) + pgVector (Statutory Text) -> Gemini Agent',
+    problem: 'Customer inquiries arrived on WhatsApp at all hours, and with a small team there was no way to answer instantly or route requests without someone glued to a screen.',
+    solution: 'Built a WhatsApp automation where Claude answers common questions naturally, captures customer details, and hands high-intent conversations to a human — running 24/7.',
+    tools: ['n8n', 'WhatsApp', 'Claude', 'Supabase'],
+    impact: '24/7 automated WhatsApp conversations — questions answered instantly, leads captured, humans called in when needed.',
+    description: '[VERIFY] Draft from the project name + stack. Replace with the real build: what the bot answers, how it was built, and the outcome you want to feature. Current shape: an n8n workflow wired to the WhatsApp Business API; Claude classifies intent and replies to FAQs while n8n routes sales/high-intent messages to the team and logs every conversation to Supabase.',
+    architecture: 'WhatsApp Inbound → n8n Webhook → Claude (Intent + Reply) → Supabase (Log) / Team (Escalation)',
     keyFeatures: [
-      'Hierarchy-Aware Chunking (preserving Chapter/Section relationship)',
-      'Multi-Tier RAG Orchestration (Semantic + Knowledge Graph)',
-      'Autonomous Citation Verification (Anti-hallucination layer)',
-      'High-Speed PDF Ingestion & OCR Processing'
+      'Instant FAQ responses around the clock',
+      'Conversation logging to Supabase',
+      'Human handoff for high-intent messages'
     ],
     process: [
-      { step: 'Ingestion', description: 'Raw PDFs are ingested via n8n and processed using Mistral Vision to capture tables and complex formatting.' },
-      { step: 'Knowledge Mapping', description: 'Legal relationships are mapped into Neo4j to allow for contextual cross-referencing between sections.' },
-      { step: 'Vectorization', description: 'Statutory text is embedded and stored in pgVector with high-dimensional metadata for precise retrieval.' },
-      { step: 'Agentic Reasoning', description: 'Gemini Pro acts as the reasoning engine, orchestrating tool calls to verify every citation before responding.' }
-    ],
-    workflowGallery: [
-      {
-        url: 'https://drive.google.com/uc?export=view&id=1B6Zc4HLkhHn1yDyrQGychvpjP2bPR1dr',
-        caption: 'Agent Orchestration & Handshake Logic'
-      },
-      {
-        url: 'https://drive.google.com/uc?export=view&id=1QkSSNbYtJ1W1Yb7LDDZQUS6sQMVFHrRz',
-        caption: 'ETL Pipeline: Extraction, Transform & Knowledge Loading'
-      }
-    ],
-    results: [
-      { label: 'Research Time', value: '30 mins/day', improvement: '88% reduction' },
-      { label: 'Response Time', value: '8-15 secs', improvement: 'High Precision' },
-      { label: 'Citation Accuracy', value: '99.2%', improvement: '+17.2% gain' },
-      { label: 'Revenue Growth', value: '$180K+', improvement: 'Year 1 Impact' }
-    ],
-    testimonial: {
-      text: "This AI system transformed our practice. What used to take our team hours of manual research now happens in seconds—with perfect citations every time.",
-      author: "Oluwaseun Adebayo",
-      role: "Managing Partner"
-    },
-    demoUrl: 'https://nigeria-tax-law-bot.vercel.app',
-    repoUrl: 'https://github.com/Bolajie/Nigeria-Tax-Law-bot'
-  },
-  {
-    id: 'autonomous-invoice-ops',
-    title: 'Autonomous Invoice Ops',
-    category: 'Finance Automation',
-    problem: 'Finance team was burning 15h/week on manual data entry from unstructured invoices.',
-    solution: 'Deployed an OCR pipeline using n8n and OpenAI Vision to extract, validate, and inject invoice data into Xero.',
-    tools: ['n8n', 'OpenAI', 'PostgreSQL', 'Xero'],
-    impact: 'Reduced processing time from 15h/week to under 10 mins/week.',
-    description: 'Architected a webhook-based listener in n8n that triggers upon email receipt. Utilized OpenAI Vision API for extraction of unstructured PDF data into strict JSON schemas. Implemented a validation layer against existing POs in PostgreSQL before final injection into Xero.',
-    architecture: 'Email Receipt (IMAP) -> n8n Webhook -> OpenAI Vision (OCR) -> PO Validation (PostgreSQL) -> Xero Injection',
-    process: [
-      { step: 'Webhook Listener Setup', description: 'Configured n8n to listen for incoming emails via IMAP and trigger the workflow upon PDF attachment detection.' },
-      { step: 'OCR Data Extraction', description: 'Used OpenAI Vision capabilities to parse unstructured invoice PDFs and extract key fields (Date, Vendor, Amount) into a strict JSON schema.' },
-      { step: 'Validation & Injection', description: 'Implemented a logic layer to validate extracted amounts against open Purchase Orders in PostgreSQL, then auto-posted clean data to Xero.' }
-    ],
-    results: [
-      { label: 'Manual Hours', value: '0', improvement: '100% Removed' },
-      { label: 'Processing Speed', value: '< 2 min', improvement: 'Real-time' },
-      { label: 'Error Rate', value: '0.02%', improvement: 'Near Zero' }
+      { step: 'Ingestion', description: 'n8n webhook receives inbound WhatsApp messages and normalizes sender + message metadata.' },
+      { step: 'Classification', description: 'Claude classifies intent and either answers from the FAQ or flags the conversation for escalation.' },
+      { step: 'Logging', description: 'Every conversation is written to Supabase, preserving context for follow-up.' }
     ]
   },
   {
-    id: 'autonomous-gtm-engine',
-    title: 'Autonomous GTM Enrichment & Scoring Engine',
-    category: 'GTM Engineering',
-    problem: 'A high-growth B2B SaaS startup struggled with stale lead data and slow response times. Their sales team was wasting 20 hours a week manually verifying email addresses and LinkedIn profiles from Apollo.io exports.',
-    solution: 'Architected a multi-step enrichment pipeline using Make.com and Python scripts. The system captures new leads via webhooks, enriches them through Apollo APIs, and scores them for immediate CRM prioritization.',
-    tools: ['Make.com', 'Python', 'Apollo API', 'Clearbit', 'Zoho'],
-    impact: 'Reclaimed 20+ hours of weekly sales capacity and improved lead conversion rate by 34%.',
-    description: 'Built custom Python scripts to handle complex data transformation that standard integration blocks could not manage — including fuzzy matching company names across multiple databases and calculating a proprietary Propensity to Buy score based on recent hiring trends and tech stack changes.',
-    architecture: 'Apollo Webhook -> Make.com Switchboard -> Python Enrichment Module -> Zoho CRM Sync',
-    results: [
-      { label: 'Sales Capacity', value: '+20 Hours', improvement: 'Weekly reclaimed' },
-      { label: 'Conversion Rate', value: '34%', improvement: 'Increase' },
-      { label: 'Data Accuracy', value: '98%', improvement: 'Up from 70%' },
-      { label: 'Enrichment Time', value: '< 2 Mins', improvement: 'Instantaneous' }
-    ],
-    repoUrl: 'https://github.com/Bolajie/autonomous-enrichment-kit'
-  },
-  {
-    id: 'data-warehouse-medallion',
-    title: 'Data Warehouse — Medallion Architecture',
-    category: 'Data Engineering',
-    problem: 'Raw transactional data from multiple sources was fragmented and unstructured, making it impossible to generate accurate sales reports or analyze customer behavior efficiently.',
-    solution: 'Designed and implemented a Data Warehouse using the Medallion Architecture within SQL Server Management Studio (SSMS), transforming raw data into a Star Schema optimized for business intelligence.',
-    tools: ['SSMS', 'SQL Server', 'SQL', 'Medallion Architecture', 'ETL'],
-    impact: 'Established a scalable, single-source-of-truth data foundation enabling accurate sales reporting and customer segmentation.',
-    description: 'Designed and implemented a full Data Warehouse in SSMS using the Medallion Architecture. The project follows a three-layer processing approach — Bronze for ingestion, Silver for transformation, Gold for analytics-ready Star Schema — ensuring data quality, scalability, and reliable reporting.',
-    architecture: 'Raw Source -> Bronze (Ingestion) -> Silver (Transformation) -> Gold (Star Schema)',
+    id: 'job-alert-automation',
+    title: 'Job Alert Automation',
+    category: 'Automation & AI',
+    problem: 'Finding relevant roles meant manually checking job boards, company pages, and inboxes multiple times a day — with no central record of what had been seen or applied for.',
+    solution: 'Built a job-monitoring pipeline that watches sources, filters roles against a target profile, and delivers a daily digest — with applications tracked in one table.',
+    tools: ['n8n', 'Gmail', 'Python', 'Airtable', 'Claude'],
+    impact: 'A daily digest of matched roles with application tracking — no more manual board-checking.',
+    description: '[VERIFY] Draft from the project name + stack. Replace with the real build. Current shape: n8n schedules scrapes of job sources, Python handles pagination/dedup, Claude scores each role against the target profile, matched roles land in a daily email digest, and application status lives in Airtable.',
+    architecture: 'Job Sources → n8n (Scheduled) → Python (Fetch + Dedup) → Claude (Match Score) → Digest Email + Airtable Tracker',
     keyFeatures: [
-      'Layered data pipeline using Medallion principles',
-      'Data cleaning and transformation within SQL Server',
-      'Star Schema design (Fact & Dimension tables)',
-      'Business-focused analytical queries'
+      'Scheduled source monitoring with dedup',
+      'Profile-aware match scoring',
+      'Application status tracker in Airtable'
     ],
     process: [
-      { step: 'Bronze Layer', description: 'Raw data ingestion into SQL Server tables directly from transactional sources.' },
-      { step: 'Silver Layer', description: 'Data cleaning, transformation, and standardization using SQL queries to ensure consistency.' },
-      { step: 'Gold Layer', description: 'Final, analytics-ready data modeled into a Star Schema (Fact & Dimension tables) for high-performance reporting.' }
+      { step: 'Fetch', description: 'n8n triggers on schedule; Python pulls new postings across the configured sources.' },
+      { step: 'Score', description: 'Claude evaluates each role against the target profile and returns a structured match decision.' },
+      { step: 'Deliver', description: 'Matched roles go to a daily digest; every application is logged to Airtable.' }
+    ]
+  },
+  {
+    id: 'lead-management-system',
+    title: 'Lead Management System',
+    category: 'CRM & Data',
+    problem: 'Leads arrived from multiple channels — ads, forms, referrals — and lived in different places, so follow-ups were missed and nobody had a single view of the pipeline.',
+    solution: 'Centralized every lead source into one system with automated capture, enrichment, assignment, and follow-up reminders.',
+    tools: ['n8n', 'Airtable', 'HubSpot', 'Zapier', 'GoHighLevel'],
+    impact: 'Every lead captured, enriched, and followed up from one place — no channel left behind.',
+    description: '[VERIFY] Draft from the project name + stack. Replace with the real build. Current shape: n8n ingests leads from each channel, HubSpot enriches contact records, everything lands in a unified Airtable pipeline, and GoHighLevel/Zapier drive follow-up reminders.',
+    architecture: 'Lead Sources → n8n → HubSpot (Enrich) → Airtable (Pipeline) → GHL / Zapier (Follow-up)',
+    keyFeatures: [
+      'Unified lead inbox from every channel',
+      'Automatic enrichment and deduplication',
+      'Automated follow-up reminders'
     ],
-    results: [
-      { label: 'Data Quality', value: '100%', improvement: 'Structured' },
-      { label: 'Reporting', value: 'Reliable', improvement: 'Single Source of Truth' },
-      { label: 'Architecture', value: 'Medallion', improvement: 'Scalable Design' },
-      { label: 'Query Speed', value: 'High', improvement: 'Optimized Schema' }
+    process: [
+      { step: 'Capture', description: 'Webhooks and form triggers push new leads into the pipeline from every channel.' },
+      { step: 'Enrich', description: 'HubSpot appends firmographic and contact data before the lead is scored.' },
+      { step: 'Assign', description: 'Leads route to the right owner with follow-up reminders wired into the CRM.' }
+    ]
+  },
+  {
+    id: 'video-design-studio',
+    title: 'Video Design Studio',
+    category: 'AI & LLM',
+    problem: 'Producing consistent, on-brand video content required hand-building each piece — apply brand tokens, keep style coherent, repeat — a slow process that drifted visually from clip to clip.',
+    solution: 'Built MotionForge, an agentic video design system: Claude Code orchestrates focused sub-agents that plan, write, and assemble motion-graphics clips from one shared design-system token set, producing on-brand video programmatically.',
+    tools: ['Claude Code', 'Python', 'n8n', 'FFmpeg', 'Supabase'],
+    impact: 'Brand-consistent motion-graphics clips produced by an agentic pipeline instead of hand-built frames.',
+    description: 'MotionForge: an orchestrator agent plans a clip, delegates script and scene work to focused sub-agents, and renders the final motion-graphics video. Style stays on-brand because every scene draws from the same design-system tokens — type, color, spacing — so output is consistent clip after clip. (Source: rnd/design-studio + adapters/scripts/design-studio.)',
+    architecture: 'Brief → Orchestrator Agent → Planner + Script + Scene Sub-agents → Design Tokens → FFmpeg (Render) → Final Clip',
+    keyFeatures: [
+      'Agentic planning with sub-agent delegation',
+      'Shared design-system tokens for brand consistency',
+      'Scripted, deterministic render pipeline'
     ],
-    repoUrl: 'https://github.com/Bolajie/data-warehouse-project'
+    process: [
+      { step: 'Plan', description: 'The orchestrator turns the brief into a scene plan with reference to the brand tokens.' },
+      { step: 'Delegate', description: 'Script and scene sub-agents work from the plan, constrained by the token set.' },
+      { step: 'Render', description: 'FFmpeg assembles the final clip; the asset is versioned for reuse.' }
+    ]
   },
   {
-    id: 'sales-crm-automation',
-    title: 'Sales Call CRM Automation Pipeline',
-    category: 'Automation & AI',
-    problem: 'Sales reps spent significant time manually logging call data and updating CRM records after every customer interaction — creating lag, inconsistency, and wasted hours that should have gone to selling.',
-    solution: 'Built an end-to-end n8n automation pipeline that captures call data, extracts structured information using Gemini 2.5 Pro and Claude AI, and writes clean records directly to both Airtable and Google Sheets — with zero manual input.',
-    tools: ['n8n', 'Gemini 2.5 Pro', 'Claude AI', 'Airtable', 'Google Sheets'],
-    impact: 'Eliminated 100% of manual post-call CRM entry.',
-    description: 'Designed and deployed an n8n workflow that processes sales call data end-to-end. Gemini 2.5 Pro handles transcription analysis while Claude AI extracts structured deal data. Clean records route automatically to Airtable for CRM management and Google Sheets for reporting — replacing a fully manual post-call process.',
-    architecture: 'Call Recording → n8n Trigger → Gemini 2.5 Pro (Transcription) → Claude AI (Data Extraction) → Airtable (CRM) + Google Sheets (Reporting)',
-    workflowGallery: [
-      { url: 'https://drive.google.com/uc?export=view&id=1LDP9qPeV-15EX2Z4QTt1fkNNljSx54Zd', caption: 'n8n workflow — Claude AI performance agent routing structured deal data to Airtable and reporting outputs' },
+    id: 'yt-shorts-engine',
+    title: 'YT Shorts Engine',
+    category: 'Media Automation',
+    problem: 'Producing a YouTube Short from a topic meant scripting, recording, editing, captioning, and scheduling by hand — too slow to post consistently.',
+    solution: 'Built an automated engine that takes a topic, writes a short-form script, generates the voiceover and visuals, assembles captioned clips with FFmpeg, and stages the upload.',
+    tools: ['n8n', 'Python', 'FFmpeg', 'Claude', 'Gemini'],
+    impact: 'Topic to finished, captioned Short — fully automated.',
+    description: '[VERIFY] Draft from the project name + stack. Replace with the real build. Current shape: n8n orchestrates; an LLM writes the script from the topic, TTS produces the voiceover, FFmpeg assembles visuals with captions, and the finished asset is staged for upload.',
+    architecture: 'Topic → n8n → LLM (Script) → TTS + FFmpeg (Assemble) → Captioned Short Output',
+    keyFeatures: [
+      'Script generation from a bare topic',
+      'Automatic caption burn-in',
+      'FFmpeg assembly and export'
     ],
+    process: [
+      { step: 'Script', description: 'An LLM converts the topic into a timed short-form script with scene direction.' },
+      { step: 'Voice', description: 'TTS produces the narration track from the script.' },
+      { step: 'Assemble', description: 'FFmpeg composes visuals, narration, and captions into the final Short.' }
+    ]
   },
   {
-    id: 'ftc-compliance-auditing',
-    title: 'FTC Compliance Auditing System',
-    category: 'Compliance Automation',
-    problem: 'Compliance reviews required manual cross-referencing of marketing content against FTC guidelines — a process taking days per audit cycle and prone to human error and inconsistency.',
-    solution: 'Deployed an AI auditing pipeline using n8n to orchestrate submissions, a Zep Knowledge Graph to hold persistent regulatory memory, and OpenAI for intelligent content analysis, with results delivered instantly via Slack Block Kit.',
-    tools: ['n8n', 'Zep Knowledge Graph', 'OpenAI', 'Slack Block Kit'],
-    impact: 'Compliance review time reduced from days to seconds.',
-    description: 'Built a compliance automation system where n8n receives content submissions and routes them to OpenAI, which analyzes content against FTC guidelines stored in a persistent Zep Knowledge Graph. The Knowledge Graph enables consistent, context-aware regulatory reasoning across all reviews. Structured audit results are delivered instantly to Slack via Block Kit.',
-    architecture: 'Content Submission → n8n → OpenAI + Zep Knowledge Graph (Compliance Check) → Slack Block Kit (Audit Report)',
+    id: 'company-research-agent',
+    title: 'Company Research Agent',
+    category: 'AI & LLM',
+    problem: 'Preparing for outreach or a call meant hours of digging through a company\'s site, funding news, tech stack, and recent hires — most of which went stale within weeks.',
+    solution: 'Built a research agent that compiles a structured company brief — positioning, stack, signals, and talking points — on demand from live web sources.',
+    tools: ['Claude', 'Python', 'n8n', 'Tavily', 'Supabase'],
+    impact: 'A structured, up-to-date company brief in minutes instead of hours of manual research.',
+    description: '[VERIFY] Draft from the project name + stack. Replace with the real build. Current shape: n8n triggers research on a company name, Tavily pulls live web sources, Claude synthesizes a structured brief, and reports are cached in Supabase and refreshed on demand.',
+    architecture: 'Company Name → n8n → Tavily (Research) → Claude (Brief Synthesis) → Supabase (Cache) + Output',
+    keyFeatures: [
+      'Live web research via Tavily',
+      'Structured company brief output',
+      'Cached reports that refresh on demand'
+    ],
+    process: [
+      { step: 'Research', description: 'Tavily queries live sources for the company across news, sites, and hiring signals.' },
+      { step: 'Synthesize', description: 'Claude compiles the findings into a structured brief with positioning, stack, and talking points.' },
+      { step: 'Store', description: 'Briefs cache in Supabase; the pipeline re-runs to keep them fresh.' }
+    ]
   },
   {
-    id: 'three-portal-saas',
-    title: 'Three-Portal SaaS Platform',
-    category: 'No-Code Product',
-    problem: 'A job search management company needed a production-grade multi-role web application — with separate interfaces for clients, associates, and administrators — without an extended development timeline.',
-    solution: 'Architected and built a complete three-portal SaaS platform in Bubble.io, with distinct role-based interfaces and permission levels for all three user types within a single unified application.',
-    tools: ['Bubble.io'],
-    impact: 'Delivered a production-grade three-portal SaaS application for a job search management company.',
-    description: 'Designed and built a full no-code SaaS product for a job search management company. The platform serves three distinct user roles: clients track their job search progress via a personal dashboard, associates manage their active candidate workload, and administrators oversee the full operation — all within a single Bubble.io application with clean permission separation.',
-    architecture: 'Bubble.io Single App → Role-Based Routing → Client Portal + Associate Portal + Admin Portal',
+    id: 'cold-outreach-system',
+    title: 'Cold Outreach System',
+    category: 'GTM Engineering',
+    problem: 'Cold outreach that didn\'t convert was burning inboxes and time — messages were generic and never tied to the prospect\'s actual situation.',
+    solution: 'Built a positioning engine that applies the Ogilvy 4-part pitch structure to each prospect — a hook that names their world, a promise, the proof, and a bridge to the next step — generated per lead and orchestrated in n8n.',
+    tools: ['Claude', 'GoHighLevel', 'n8n', 'Supabase'],
+    impact: 'Every outreach message built on a proven persuasion structure — hook, promise, proof, bridge.',
+    description: 'A cold-outreach system powered by an Ogilvy-style positioning engine. Each lead\'s context feeds the engine, which generates the 4-part pitch — the world they live in, the promise, the proof it holds, and the bridge to the next step — so no two messages read generic. (Source: ogilvy-positioning-engine skill + business-development agent spec.)',
+    architecture: 'Lead Context → Ogilvy Engine (Hook / Promise / Proof / Bridge) → Draft → GHL (Send) + Follow-up Logic',
+    keyFeatures: [
+      'Ogilvy 4-part pitch structure',
+      'Personalized per-lead messaging',
+      'n8n-orchestrated send and follow-up in GHL'
+    ],
+    process: [
+      { step: 'Position', description: 'The engine maps the lead\'s context to the four pitch components.' },
+      { step: 'Generate', description: 'Claude drafts the message from the positioned structure, per lead.' },
+      { step: 'Send', description: 'n8n pushes the draft into GoHighLevel with follow-up logic attached.' }
+    ]
   },
   {
-    id: 'data-migration-pipelines',
-    title: 'Data Migration Pipelines',
+    id: 'plenteous-systems-architecture',
+    title: 'Plenteous Systems Architecture',
     category: 'Data Engineering',
-    problem: 'Business data was fragmented across Bubble.io and Google Sheets, requiring clean migration to Supabase for a more scalable infrastructure — plus a reverse pipeline for ongoing data ingestion.',
-    solution: 'Built two bidirectional n8n migration pipelines: one extracting from Bubble.io via its API and loading into Supabase with schema transformation, and a second syncing Google Sheets data back to Bubble.io.',
-    tools: ['n8n', 'Bubble API', 'Supabase', 'Google Sheets'],
-    impact: 'Clean bidirectional migration: Bubble → Supabase and Sheets → Bubble.',
-    description: 'Engineered two production n8n pipelines to solve a multi-source data challenge. The primary pipeline extracts records from Bubble.io via its API, applies transformation logic to match the Supabase schema, and loads clean data. The second pipeline handles Google Sheets to Bubble sync, maintaining data consistency across both systems.',
-    architecture: 'Bubble API → n8n (Transform) → Supabase  |  Google Sheets → n8n (Map) → Bubble API',
-  },
-  {
-    id: 'ai-content-generation',
-    title: 'AI Content Generation Pipeline',
-    category: 'Content Automation',
-    problem: 'Converting raw transcripts into two distinct formatted document types required significant manual editing effort — a bottleneck for content teams producing at volume.',
-    solution: 'Built an n8n pipeline that accepts transcript input, applies structured LLM prompt engineering to generate two distinct document formats simultaneously, and publishes directly to Google Docs via API.',
-    tools: ['n8n', 'Claude AI', 'LLM Prompt Engineering', 'Google Docs API'],
-    impact: 'Automated dual-format document generation directly from transcripts.',
-    description: 'Designed a content automation workflow in n8n that takes raw transcript data as input. A Claude AI PDF agent extracts and structures source content, then structured LLM prompts generate two distinct output formats in parallel. Both documents are published automatically to Google Docs via API, eliminating manual editing and reformatting entirely.',
-    architecture: 'Transcript/PDF Input → n8n → Claude AI PDF Agent (Extraction) → LLM (Format A + Format B) → Google Docs API (Publish)',
-    workflowGallery: [
-      { url: 'https://drive.google.com/uc?export=view&id=148pTvziPhBzMogUFj-HCFlw6zOEIsazo', caption: 'n8n workflow — Claude AI PDF agent extracting and processing content for dual-format Google Docs output' },
+    problem: 'Client systems needed a scalable backend — reliable auth, structured data, and server-side logic — without the weight of a bespoke server to maintain.',
+    solution: 'Architected the backend on Supabase: Postgres for data, edge functions for server-side logic, and row-level security for safe multi-user access.',
+    tools: ['Supabase', 'PostgreSQL', 'n8n', 'Airtable'],
+    impact: 'A scalable Postgres + edge-function backend with row-level security, replacing a bespoke server.',
+    description: 'Reference architecture for the Plenteous systems build: Supabase provides Postgres storage, RLS-gated multi-user access, and edge functions for server-side logic, while n8n keeps external systems in sync. (Source: Supabase edge-function architecture in the master resume.)',
+    architecture: 'Clients → Supabase Edge Function → Postgres (RLS) + n8n (Sync) → Airtable / External Systems',
+    keyFeatures: [
+      'Postgres backend with row-level security',
+      'Edge functions for server-side logic',
+      'n8n sync to external systems'
     ],
+    process: [
+      { step: 'Model', description: 'Schema and RLS policies are designed around the client\'s data and roles.' },
+      { step: 'Serve', description: 'Edge functions handle server-side logic without a dedicated server.' },
+      { step: 'Sync', description: 'n8n keeps external systems in step with the Postgres source of truth.' }
+    ]
   },
   {
-    id: 'thumbnail-generator',
-    title: 'Thumbnail Generator',
-    category: 'Media Automation',
-    problem: 'Creating and versioning thumbnail assets for content production was a manual, repetitive task with no organized version history — making it difficult to track changes and maintain consistent output.',
-    solution: 'Built an n8n automation that applies image processing logic for thumbnail generation and commits versioned outputs directly to GitHub for organized asset management.',
-    tools: ['n8n', 'GitHub API', 'Image Processing'],
-    impact: 'Automated thumbnail production with built-in GitHub versioning.',
-    description: 'Engineered an automated thumbnail production pipeline in n8n. The workflow applies image processing logic to generate final thumbnail assets and uses the GitHub API to commit each output as a versioned file — giving the team a fully automated production-to-archive workflow with a clean audit trail.',
-    architecture: 'Content Input → n8n → Image Processing (Thumbnail) → GitHub API (Versioned Commit)',
-  },
-  {
-    id: 'short-video-automation',
-    title: 'Short Video Automation',
-    category: 'Media Automation',
-    problem: 'Producing short-form video content from a raw idea involved multiple manual steps across different tools — a time-intensive process difficult to repeat at volume.',
-    solution: 'Built a fully automated end-to-end pipeline in n8n where an LLM converts the initial idea into a structured script and scene direction, and FFmpeg handles all video assembly and rendering.',
-    tools: ['n8n', 'FFmpeg', 'LLM'],
-    impact: 'Full pipeline: idea → produced video clip, completely automated.',
-    description: 'Designed an end-to-end video production automation in n8n. An LLM processes the content idea to generate a structured script and scene layout. FFmpeg then handles video assembly, clip rendering, and output — delivering a finished short-form video with no manual editing required.',
-    architecture: 'Content Idea → n8n → LLM (Script + Direction) → FFmpeg (Assembly + Render) → Final Video Output',
-  },
-  {
-    id: 'zoom-transcript-extraction',
-    title: 'Zoom Transcript Extraction',
-    category: 'Data Extraction',
-    problem: 'Extracting transcripts from Zoom recordings required navigating both OAuth API access and browser-based flows depending on account configuration — with no reliable automated solution that handled both cases.',
-    solution: 'Engineered a hybrid extraction system combining Zoom OAuth API as the primary method with Playwright browser automation as a fallback, plus a custom VTT parser to normalize transcript output across both paths.',
-    tools: ['n8n', 'Playwright', 'Zoom API', 'Gemini', 'OpenAI', 'VTT Parser'],
-    impact: 'Reliable hybrid OAuth + Playwright transcript extraction with AI-powered analysis.',
-    description: 'Built a resilient transcript extraction and analysis pipeline in n8n. The system first attempts extraction via Zoom\'s OAuth API; when API access is restricted, Playwright browser automation handles extraction as a fallback. A custom VTT parser normalizes raw transcript files into clean structured data. AI agents — Gemini and OpenAI — then run classification and extraction on the normalized transcript output.',
-    architecture: 'Zoom Recording → n8n → Zoom OAuth API (Primary) / Playwright (Fallback) → VTT Parser → Gemini + OpenAI Agents (Classification/Extraction) → Structured Output',
-    workflowGallery: [
-      { url: 'https://drive.google.com/uc?export=view&id=1QbO2tllQtBGrxcsl66FN-Pl0fbKQYobc', caption: 'n8n workflow — Zoom transcript extraction with dual AI agents (Gemini + OpenAI) for classification and structured data extraction' },
+    id: 'dynamo-task-authoring',
+    title: 'Dynamo Task Authoring',
+    category: 'AI & LLM',
+    problem: 'Distributing coding tasks to many learners meant manual setup — cloning repos, handing out branches, collecting submissions, and grading each one individually.',
+    solution: 'Built an authoring pipeline that forks a task repo per participant via the GitHub CLI, wires up the exercise, and collects each PR for rubric-based review.',
+    tools: ['Claude', 'GitHub CLI', 'Python', 'n8n'],
+    impact: 'Per-participant task repos with fork → build → PR submission and rubric review, fully scripted.',
+    description: 'Dynamo Task Authoring automates the mechanics of assigning and grading coding tasks: each participant works from their own fork created via the GitHub CLI, submits a PR, and the submission is checked against a rubric before merge. (Source: dynamo-551bf8a-data-querying-and-databases task-authoring workflow.)',
+    architecture: 'Task Repo → GitHub CLI (Fork per Participant) → Exercise → PR Submit → Rubric Review → Merge',
+    keyFeatures: [
+      'Automated per-participant forks via GitHub CLI',
+      'PR-based submission flow',
+      'Rubric-based review gate'
     ],
-  },
-  {
-    id: 'resume-screening',
-    title: 'Sales Closer Resume Screening',
-    category: 'HR Automation',
-    problem: 'High-volume hiring for sales closer roles meant reviewing large numbers of resumes manually — a slow, inconsistent process that introduced bias and delayed hiring decisions.',
-    solution: 'Built an n8n automation using Gemini and a Structured Output Parser to analyze each resume against defined scoring criteria and return a ranked, structured candidate shortlist automatically.',
-    tools: ['n8n', 'Gemini', 'Structured Output Parser'],
-    impact: 'AI candidate scoring for high-volume sales closer hiring.',
-    description: 'Deployed an n8n resume screening pipeline where Gemini analyzes each submitted resume against a defined scoring rubric and returns structured JSON output via a Structured Output Parser. Candidates are ranked automatically, giving hiring teams a prioritized shortlist without manual review.',
-    architecture: 'Resume Submission → n8n → Gemini (Scoring Analysis) → Structured Output Parser (JSON) → Ranked Candidate Report',
-  },
-  {
-    id: 'sop-documentation',
-    title: 'Workflow SOP Documentation System',
-    category: 'Operations Automation',
-    problem: 'Documenting complex n8n workflows as Standard Operating Procedures required manually recreating workflow logic in Word documents — a tedious, error-prone process that rarely stayed current.',
-    solution: 'Built a system that reads n8n JSON workflow exports and auto-generates structured, formatted .docx SOP documents.',
-    tools: ['n8n', 'JSON Parsing', '.docx Generation'],
-    impact: '.docx SOP generation automated from n8n JSON workflow exports.',
-    description: 'Engineered a documentation automation system that ingests n8n workflow JSON exports. It parses workflow structure, interprets node configurations and logic connections, and generates formatted .docx SOP documents, turning a manual documentation task into a single-step operation.',
-    architecture: 'n8n Workflow Export (JSON) → Automated Parser → Formatted .docx SOP Document',
-  },
+    process: [
+      { step: 'Author', description: 'The task repo is prepared with exercise and rubric definitions.' },
+      { step: 'Fork', description: 'GitHub CLI forks the repo per participant and wires up the exercise.' },
+      { step: 'Review', description: 'Each PR is checked against the rubric before it merges.' }
+    ]
+  }
 ];

@@ -44,13 +44,13 @@ const Navbar: React.FC = () => {
       <div className="fixed top-5 right-5 sm:top-6 sm:right-6 z-[60] flex items-center gap-2 sm:gap-3">
         {/* Availability — always visible */}
         <div className="flex items-center gap-2 px-3 py-2 sm:px-4 rounded-lg border border-line bg-brand-surface/80 backdrop-blur-md">
-          <span className="w-1.5 h-1.5 rounded-full bg-brand-signal animate-pulse shadow-[0_0_6px_rgba(53,214,164,0.8)]"></span>
-          <span className="section-label text-brand-signal hidden sm:block">Available</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-brand-signal animate-pulse shadow-[0_0_6px_rgba(0,85,255,0.8)]"></span>
+          <span className="section-label text-brand-cream hidden sm:block">Available</span>
         </div>
         {/* CTA — sm+ only */}
         <Link
           to="/contact"
-          className="hidden sm:block bg-brand-orange text-brand-deep px-5 py-2.5 rounded-lg font-display font-bold text-[11px] uppercase tracking-wider hover:shadow-[0_0_24px_rgba(255,65,3,0.35)] hover:scale-[1.03] active:scale-95 transition-all"
+          className="hidden sm:block bg-brand-orange text-brand-deep px-5 py-2.5 rounded-lg font-display font-bold text-[11px] uppercase tracking-wider hover:shadow-[0_0_24px_rgba(232,160,0,0.35)] hover:scale-[1.03] active:scale-95 transition-all"
         >
           Work with me
         </Link>
@@ -62,7 +62,7 @@ const Navbar: React.FC = () => {
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-[200%] opacity-0'
         }`}
       >
-        <div className="bg-brand-surface/95 backdrop-blur-2xl border border-line-strong p-1.5 rounded-2xl flex items-center gap-0.5 shadow-[0_8px_40px_rgba(0,8,12,0.75)]">
+        <div className="bg-brand-surface/95 backdrop-blur-2xl border border-line-strong p-1.5 rounded-2xl flex items-center gap-0.5 shadow-[0_8px_40px_rgba(4,6,11,0.75)]">
           {links.map((link) => {
             const isActive = location.pathname === link.path;
             return (
@@ -76,7 +76,7 @@ const Navbar: React.FC = () => {
                 }`}
               >
                 {isActive && (
-                  <span className="absolute top-1.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-brand-orange shadow-[0_0_6px_rgba(255,65,3,0.9)]" />
+                  <span className="absolute top-1.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-brand-orange shadow-[0_0_6px_rgba(232,160,0,0.9)]" />
                 )}
                 <svg
                   className={`w-[17px] h-[17px] mt-1.5 transition-transform duration-300 ${isActive ? 'scale-110' : ''}`}

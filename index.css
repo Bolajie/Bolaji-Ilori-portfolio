@@ -4,29 +4,32 @@
 
 @layer base {
     :root {
-        /* Accent — carries 30-60% of the surface (Committed strategy) */
-        --brand-orange: #FF4103;
+        /* Accent — Amber Honey, carries 30-60% of the surface (Committed strategy) */
+        --brand-orange: #E8A000;
 
-        /* Backgrounds, coolest to warmest lift */
-        --bg-sunken: #000E15;
-        --bg-deep: #001621;
-        --bg-surface: #052430;
+        /* Warm secondary accent — Vanilla Custard */
+        --brand-cream: #F5E4A8;
 
-        /* Neutrals, tinted toward the base hue. Never pure white. */
-        --text-bone: #EDF2F4;   /* 16.37:1 on deep */
-        --text-muted: #7A8D95;  /* 5.34:1 on deep, 4.67:1 on surface */
+        /* Backgrounds, Ink Black family with a blue lift */
+        --bg-sunken: #04060B;
+        --bg-deep: #06090F;     /* Ink Black */
+        --bg-surface: #0C1220;
 
-        /* Functional. Availability only — not decoration. */
-        --signal: #35D6A4;      /* 9.95:1 on deep */
+        /* Neutrals, tinted toward Lavender. Never pure white. */
+        --text-bone: #EBF0FF;   /* 17.3:1 on deep */
+        --text-muted: #97A3C0;  /* 8.0:1 on deep, 7.8:1 on surface */
 
-        --line: rgba(237, 242, 244, 0.08);
-        --line-strong: rgba(237, 242, 244, 0.14);
+        /* Functional. Full Spectrum Blue — availability only, not decoration. */
+        --signal: #0055FF;      /* 3.67:1 on deep (non-text dot use) */
+
+        --line: rgba(235, 240, 255, 0.08);
+        --line-strong: rgba(235, 240, 255, 0.14);
     }
 
     *, *::before, *::after { box-sizing: border-box; }
 
     body {
-        font-family: 'Instrument Sans', sans-serif;
+        font-family: 'Poppins', sans-serif;
         background-color: var(--bg-deep);
         color: var(--text-bone);
         overflow-x: hidden;
@@ -37,11 +40,11 @@
     /* Scrollbar */
     ::-webkit-scrollbar { width: 3px; }
     ::-webkit-scrollbar-track { background: var(--bg-deep); }
-    ::-webkit-scrollbar-thumb { background: #0E3241; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb { background: #13203A; border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--brand-orange); }
 
     /* Selection */
-    ::selection { background: rgba(255, 65, 3, 0.28); color: var(--text-bone); }
+    ::selection { background: rgba(232, 160, 0, 0.28); color: var(--text-bone); }
 
     /* Focus — visible, and itself at 3:1 against both deep and surface */
     :focus-visible {
@@ -67,27 +70,27 @@
     .panel {
         background: var(--bg-surface);
         border: 1px solid var(--line);
-        box-shadow: 0 20px 44px -16px rgba(0, 8, 12, 0.7), inset 0 1px 0 rgba(237, 242, 244, 0.04);
+        box-shadow: 0 20px 44px -16px rgba(4, 6, 11, 0.7), inset 0 1px 0 rgba(235, 240, 255, 0.04);
     }
 
     /* Background patterns */
     .grid-pattern {
         background-image:
-            linear-gradient(rgba(255, 65, 3, 0.05) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 65, 3, 0.05) 1px, transparent 1px);
+            linear-gradient(rgba(232, 160, 0, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(232, 160, 0, 0.05) 1px, transparent 1px);
         background-size: 80px 80px;
     }
     .dot-pattern {
-        background-image: radial-gradient(rgba(255, 65, 3, 0.075) 1px, transparent 1px);
+        background-image: radial-gradient(rgba(232, 160, 0, 0.075) 1px, transparent 1px);
         background-size: 44px 44px;
     }
     .radial-glow {
-        background: radial-gradient(ellipse 80% 55% at 50% 40%, rgba(255, 65, 3, 0.13) 0%, transparent 65%);
+        background: radial-gradient(ellipse 80% 55% at 50% 40%, rgba(232, 160, 0, 0.13) 0%, transparent 65%);
     }
 
     /* Typography */
     .hero-title {
-        font-family: 'Syne', sans-serif;
+        font-family: 'Poppins', sans-serif;
         letter-spacing: -0.025em;
         line-height: 0.88;
     }

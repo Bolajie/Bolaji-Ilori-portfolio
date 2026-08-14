@@ -25,11 +25,11 @@ const Footer: React.FC = () => {
 
           {/* Role + availability */}
           <div>
-            <p className="font-display font-bold text-brand-bone text-sm mb-2">No-Code & Automation Engineer</p>
+            <p className="font-display font-bold text-brand-bone text-sm mb-2">Operations & Automation Specialist</p>
             <p className="section-label mb-6">Remote · Worldwide</p>
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-signal animate-pulse shadow-[0_0_6px_rgba(53,214,164,0.8)]"></span>
-              <span className="section-label text-brand-signal">Open to work</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-signal animate-pulse shadow-[0_0_6px_rgba(0,85,255,0.8)]"></span>
+              <span className="section-label text-brand-cream">Open to work</span>
             </div>
           </div>
 

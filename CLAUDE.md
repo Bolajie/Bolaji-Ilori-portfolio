@@ -1,139 +1,42 @@
 # CLAUDE.md — The Governor
 
-### Bolaji-Ilori-portfolio
+> Authoritative rules for any AI assistant working in the **Bolaji-Ilori-portfolio** repo.
+> Read `context.md` (repo facts) first, then this file. Follow both without exception.
 
-> This file is the authoritative context document for Claude (and any AI assistant) working inside this repository. Read this before touching any file.
+---
 
------
+## File Structure
 
-## Who Owns This Repo
+| File         | What it holds                                             |
+|--------------|-----------------------------------------------------------|
+| `context.md` | Repo facts: owner, stack, structure, full stack, project inventory, active status, dev/deploy |
+| `CLAUDE.md`  | This file — the non-negotiable rules governing AI work    |
 
-**Bolaji (Emmanuel) Ilori**  
-No-Code & Automation Engineer · Lagos, Nigeria · Remote  
-ibolajie@gmail.com · [linkedin.com/in/ibolajie](https://linkedin.com/in/ibolajie) · [@ibolajie](https://x.com/ibolajie)
-
------
-
-## What This Repo Is
-
-A personal portfolio site built with React + TypeScript, deployed on Vercel. It showcases Bolaji's automation projects, Bubble.io product builds, and professional background.
-
-**Live URL:** [bolaji-ilori-portfolio.vercel.app](https://bolaji-ilori-portfolio.vercel.app)  
-**Repo:** [github.com/Bolajie/Bolaji-Ilori-portfolio](https://github.com/Bolajie/Bolaji-Ilori-portfolio)
-
------
-
-## Tech Stack
-
-|Layer         |Technology                                   |
-|--------------|---------------------------------------------|
-|Framework     |React + TypeScript                           |
-|Build Tool    |Vite                                         |
-|Deployment    |Vercel                                       |
-|Email         |Resend, via Vercel serverless function (`/api/contact`)|
-|Styling       |Tailwind CSS v3 (PostCSS build)              |
-
------
-
-## Repo Structure
-
-```
-/
-├── components/        # Reusable React components
-├── icons/             # SVG icon assets
-├── pages/             # Page-level components
-├── App.tsx            # Root app component
-├── constants.ts       # Global constants (project data, skills, etc.)
-├── types.ts           # TypeScript type definitions
-├── index.tsx          # Entry point
-├── index.html         # HTML shell
-├── README.md          # Public-facing repo documentation
-├── CLAUDE.md          # This file — AI context and governance
-├── metadata.json      # App metadata
-├── package.json       # Dependencies
-├── vite.config.ts     # Vite config
-└── vercel.json        # Vercel deployment config
-```
-
------
-
-## Bolaji's Full Stack (for reference when adding/updating project content)
-
-**Automation:** n8n · Make · Zapier · GoHighLevel (GHL)  
-**No-Code / App Dev:** Bubble.io  
-**AI / LLM:** Gemini 2.5 Pro · Claude AI · OpenAI · Zep Knowledge Graph · RAG · Structured Output Parsers  
-**Data & CRM:** Airtable · Supabase · Google Sheets · Pandas · Microsoft Excel  
-**APIs:** Zoom API · Slack API · Google Docs API · Google Drive API · GitHub API  
-**Dev:** Python · Playwright · FFmpeg  
-**Platforms:** Slack Block Kit · Vercel · Vite
-
------
-
-## Project Inventory (Source of Truth)
-
-When updating the portfolio, use this list as the canonical project reference. Do not invent projects or outcomes.
-
-|# |Project                           |Stack                                                      |Key Outcome                                              |
-|--|----------------------------------|-----------------------------------------------------------|---------------------------------------------------------|
-|1 |Sales Call CRM Automation Pipeline|n8n · Gemini 2.5 Pro · Claude AI · Airtable · Google Sheets|Eliminated 100% of manual post-call CRM entry            |
-|2 |FTC Compliance Auditing System    |n8n · Zep Knowledge Graph · OpenAI · Slack Block Kit       |Compliance review: days → seconds                        |
-|3 |Three-Portal SaaS Platform        |Bubble.io                                                  |Client dashboard + associate + admin portal (client anon)|
-|4 |Data Migration Pipelines          |n8n · Bubble API · Supabase · Google Sheets                |Bubble → Supabase · Sheets → Bubble                      |
-|5 |AI Content Generation Pipeline    |n8n · LLM Prompt Engineering · Google Docs API             |Dual-format document generation from transcripts         |
-|6 |Thumbnail Generator               |n8n · GitHub API · Image Processing                        |Automated thumbnail production + GitHub versioning       |
-|7 |Short Video Automation            |n8n · FFmpeg · LLM                                         |Idea → produced video clip, fully automated              |
-|8 |Zoom Transcript Extraction        |n8n · Playwright · Zoom API · VTT Parser                   |Hybrid OAuth + Playwright extraction system              |
-|9 |Sales Closer Resume Screening     |n8n · Gemini · Structured Output Parser                    |AI candidate scoring for high-volume hiring              |
-|10|Workflow SOP Documentation System |n8n · .docx generation                                     |.docx SOP generation from n8n JSON exports               |
-
------
+Update `context.md` when facts change (projects, stack, availability). Update this file when the rules change.
 
 ## Content Rules
 
-These rules apply to any AI working on this repo:
+Non-negotiable. Applies to any AI working on this repo.
 
-1. **Do not fabricate metrics.** Only use outcomes that are documented in this file or confirmed by Bolaji in conversation.
-1. **Client anonymity.** The three-portal Bubble.io client (CVUnlocked) must not be named — reference as "a job search management company."
-1. **ISTV anonymity optional.** Inside Success TV can be named or described as "a US-based media company" — Bolaji's preference in context.
-1. **Tone:** Confident, direct, no fluff. No "passionate about" or "I love helping" language.
-1. **Stack accuracy.** Always reference the stack table above. Do not add tools Bolaji hasn't used.
-1. **Project count.** There are 10 projects. Do not add or remove without Bolaji's confirmation.
+1. **Do not fabricate metrics.** Use only outcomes documented in `context.md` or confirmed by Bolaji in conversation.
+2. **Client anonymity.** The job search management company (CVUnlocked) must not be named — reference as "a job search management company." Currently not featured on the site.
+3. **ISTV anonymity optional.** Inside Success TV may be named or described as "a US-based media company" — Bolaji's preference in context.
+4. **Tone:** Confident, direct, no fluff. No "passionate about" or "I love helping" language.
+5. **Stack accuracy.** Always reference the 12-tool core stack in `context.md`. Do not add tools Bolaji hasn't used.
+6. **Project count.** There are 9 projects, per `DESIGN.md` §5. Five are `[VERIFY]` drafts awaiting Bolaji's correction — do not publish or present them as confirmed before correction. Do not add or remove projects without Bolaji's confirmation.
 
------
+## Design Rules
 
-## Active Status (as of April 2026)
-
-- **Open to:** Full-time roles (remote) + freelance contracts
-- **Rate:** Not published on the site — quoted per engagement (see freelance_startup rate card)
-- **Target clients:** Startups, digital agencies, ops-heavy businesses
-- **Target roles:** Automation Engineer · No-Code Developer · AI Workflow Engineer
-
------
-
-## Local Development
-
-```bash
-npm install
-npm run dev
-```
-
-Requires `RESEND_API_KEY` in `.env.local` for the contact form (see `.env.example`).
-
------
-
-## Deployment
-
-Auto-deploys via Vercel on push to `main`. No manual deployment steps needed.
-
------
+1. **Motion respects the user.** The site animates heavily; any new animation must honor `prefers-reduced-motion` (see `index.css`).
+2. **Palette and fonts are fixed.** Follow `DESIGN.md`: Ink Black `#06090F`, Full Spectrum Blue `#0055FF`, Lavender `#EBF0FF`, Vanilla Custard `#F5E4A8`, Amber Honey `#E8A000`; Poppins + JetBrains Mono. Tokens live in `index.css` and `tailwind.config.js`. Do not introduce new hues or typefaces.
+3. **Three.js scenes** must reuse the brand tool icons (`icons/*.png`) and match the palette above.
 
 ## Updating This File
 
-Update `CLAUDE.md` whenever:
+Update whenever:
 
-- A new project is added to the portfolio
-- Stack changes (new tools adopted)
-- Availability / rate / target role changes
+- Content or governance rules change
 - Client anonymity rules change
+- The file structure (context/CLAUDE split) changes
 
 **Last updated:** August 2026

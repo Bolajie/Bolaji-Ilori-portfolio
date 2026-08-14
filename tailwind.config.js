@@ -10,29 +10,30 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Instrument Sans', 'sans-serif'],
-        display: ['Syne', 'sans-serif'],
+        sans: ['Poppins', 'sans-serif'],
+        display: ['Poppins', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       colors: {
         brand: {
-          orange: '#FF4103',
-          deep: '#001621',
-          sunken: '#000E15',
-          surface: '#052430',
-          bone: '#EDF2F4',
-          muted: '#7A8D95',
-          signal: '#35D6A4',
+          orange: '#E8A000',
+          cream: '#F5E4A8',
+          deep: '#06090F',
+          sunken: '#04060B',
+          surface: '#0C1220',
+          bone: '#EBF0FF',
+          muted: '#97A3C0',
+          signal: '#0055FF',
         },
-        // Hairline ladder. Bone-tinted so lines belong to the surface, never grey.
+        // Hairline ladder. Lavender-tinted so lines belong to the surface, never grey.
         // DEFAULT/strong/bright are decorative separation. `field` is the only
         // rung that clears WCAG 1.4.11 (3:1 on brand-surface) — use it wherever a
         // border is the sole thing marking an interactive boundary, i.e. inputs.
         line: {
-          DEFAULT: 'rgba(237, 242, 244, 0.08)',
-          strong: 'rgba(237, 242, 244, 0.14)',
-          bright: 'rgba(237, 242, 244, 0.22)',
-          field: 'rgba(237, 242, 244, 0.36)',
+          DEFAULT: 'rgba(235, 240, 255, 0.08)',
+          strong: 'rgba(235, 240, 255, 0.14)',
+          bright: 'rgba(235, 240, 255, 0.22)',
+          field: 'rgba(235, 240, 255, 0.36)',
         },
       },
       animation: {

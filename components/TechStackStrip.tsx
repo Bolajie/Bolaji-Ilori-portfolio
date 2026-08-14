@@ -1,19 +1,33 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { CORE_TOOLKIT } from '../constants';
+import { TOOL_ICONS } from '../toolIcons';
 
 const CATEGORIES = [...new Set(CORE_TOOLKIT.map(t => t.category))];
 
-const ToolName: React.FC<{ name: string; category: string }> = ({ name, category }) => (
-  <span className="flex items-baseline gap-2.5 flex-shrink-0">
-    <span className="font-display font-black text-xl sm:text-2xl text-brand-bone whitespace-nowrap">
-      {name}
+const ToolName: React.FC<{ name: string; category: string }> = ({ name, category }) => {
+  const icon = TOOL_ICONS[name];
+  return (
+    <span className="flex items-center gap-2.5 flex-shrink-0">
+      {icon && (
+        <img
+          src={icon}
+          alt=""
+          loading="lazy"
+          className="w-6 h-6 rounded-md object-contain"
+        />
+      )}
+      <span className="flex items-baseline gap-2.5">
+        <span className="font-display font-black text-xl sm:text-2xl text-brand-bone whitespace-nowrap">
+          {name}
+        </span>
+        <span className="font-mono text-[11px] tracking-wider text-brand-muted whitespace-nowrap">
+          {category}
+        </span>
+      </span>
     </span>
-    <span className="font-mono text-[11px] tracking-wider text-brand-muted whitespace-nowrap">
-      {category}
-    </span>
-  </span>
-);
+  );
+};
 
 /* Separator, not a bullet: a hairline tick that reads as a delimiter in a manifest. */
 const Tick: React.FC = () => (

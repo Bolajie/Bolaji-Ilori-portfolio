@@ -6,7 +6,6 @@ const FILTERS = [
   { label: 'All',        value: 'all' },
   { label: 'Automation', value: 'automation' },
   { label: 'AI & LLM',   value: 'ai-llm' },
-  { label: 'No-Code',    value: 'no-code' },
   { label: 'Data',       value: 'data' },
 ] as const;
 
@@ -14,15 +13,10 @@ type FilterValue = (typeof FILTERS)[number]['value'];
 
 const CATEGORY_FILTER: Record<string, FilterValue> = {
   'Automation & AI':      'automation',
-  'Finance Automation':   'automation',
-  'GTM Engineering':      'automation',
   'Media Automation':     'automation',
-  'Data Extraction':      'automation',
-  'Operations Automation':'automation',
-  'Compliance Automation':'ai-llm',
-  'Content Automation':   'ai-llm',
-  'HR Automation':        'ai-llm',
-  'No-Code Product':      'no-code',
+  'GTM Engineering':      'automation',
+  'AI & LLM':             'ai-llm',
+  'CRM & Data':           'data',
   'Data Engineering':     'data',
 };
 
@@ -53,11 +47,11 @@ const CaseStudyList: React.FC = () => {
               </h1>
             </div>
             <p className="section-label hidden sm:block text-right" style={{ lineHeight: '2' }}>
-              {CASE_STUDIES.length} projects · automation · AI · no-code · data
+              {CASE_STUDIES.length} projects · automation · AI · data
             </p>
           </div>
           <p className="text-brand-muted text-base sm:text-lg font-medium max-w-xl leading-relaxed">
-            Automation systems, AI pipelines, and no-code products built for measurable operational impact.
+            Automation systems, AI pipelines, and data architecture built for measurable operational impact.
           </p>
         </div>
 
@@ -72,7 +66,7 @@ const CaseStudyList: React.FC = () => {
                 onClick={() => setActiveFilter(f.value)}
                 className={`flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-lg border font-display font-bold text-xs uppercase tracking-widest transition-all duration-200 ${
                   isActive
-                    ? 'bg-brand-orange border-brand-orange text-brand-deep shadow-[0_0_16px_rgba(255,65,3,0.28)]'
+                    ? 'bg-brand-orange border-brand-orange text-brand-deep shadow-[0_0_16px_rgba(232,160,0,0.28)]'
                     : 'bg-transparent border-line text-brand-muted hover:border-line-bright hover:text-brand-bone'
                 }`}
               >
@@ -350,7 +344,7 @@ const CaseStudyDetail: React.FC = () => {
             <section className="animate-reveal">
               <div className="p-10 sm:p-14 bg-brand-surface border border-line rounded-2xl relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-48 h-48 bg-brand-orange/5 rounded-full blur-[60px]"></div>
-                <svg className="w-10 h-10 mb-7" fill="currentColor" viewBox="0 0 24 24" style={{ color: 'rgba(255,65,3,0.2)' }}>
+                <svg className="w-10 h-10 mb-7" fill="currentColor" viewBox="0 0 24 24" style={{ color: 'rgba(232,160,0,0.2)' }}>
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                 </svg>
                 <p className="font-display font-medium text-xl sm:text-2xl text-brand-bone/80 leading-relaxed italic mb-8 max-w-2xl">"{study.testimonial.text}"</p>
