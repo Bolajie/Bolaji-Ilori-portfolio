@@ -16,7 +16,7 @@ export default {
       },
       colors: {
         brand: {
-          orange: '#E8A000',
+          orange: '#FF4103',
           cream: '#F5E4A8',
           deep: '#06090F',
           sunken: '#04060B',

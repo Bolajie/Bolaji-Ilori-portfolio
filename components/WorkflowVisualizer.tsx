@@ -101,7 +101,7 @@ const WorkflowVisualizer: React.FC = () => {
               onClick={() => setActive(i)}
               className={`px-4 py-2 rounded-lg font-display font-bold text-xs uppercase tracking-wider transition-all cursor-pointer ${
                 active === i
-                  ? 'bg-brand-orange text-brand-deep shadow-[0_0_20px_rgba(232,160,0,0.25)]'
+                  ? 'bg-brand-orange text-brand-deep shadow-[0_0_20px_rgba(255,65,3,0.25)]'
                   : 'border border-line-strong text-brand-muted hover:border-brand-orange/30 hover:text-brand-bone'
               }`}
             >
@@ -125,32 +125,32 @@ const WorkflowVisualizer: React.FC = () => {
               <svg className="absolute inset-0" width="700" height="180" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <marker id="wv-arr" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
-                    <polygon points="0 0, 6 2, 0 4" fill="#E8A000" fillOpacity="0.55" />
+                    <polygon points="0 0, 6 2, 0 4" fill="#FF4103" fillOpacity="0.55" />
                   </marker>
                 </defs>
 
                 <line x1="140" y1="90" x2="185" y2="90"
-                  stroke="#E8A000" strokeOpacity="0.5" strokeWidth="1.5"
+                  stroke="#FF4103" strokeOpacity="0.5" strokeWidth="1.5"
                   strokeDasharray="5 3" markerEnd="url(#wv-arr)"
                   className="flow-line" />
 
                 <line x1="308" y1="82" x2="344" y2="47"
-                  stroke="#E8A000" strokeOpacity="0.5" strokeWidth="1.5"
+                  stroke="#FF4103" strokeOpacity="0.5" strokeWidth="1.5"
                   strokeDasharray="5 3" markerEnd="url(#wv-arr)"
                   className="flow-line" style={{ animationDelay: '0.3s' }} />
 
                 <line x1="308" y1="98" x2="344" y2="133"
-                  stroke="#E8A000" strokeOpacity="0.5" strokeWidth="1.5"
+                  stroke="#FF4103" strokeOpacity="0.5" strokeWidth="1.5"
                   strokeDasharray="5 3" markerEnd="url(#wv-arr)"
                   className="flow-line" style={{ animationDelay: '0.6s' }} />
 
                 <line x1="465" y1="47" x2="505" y2="47"
-                  stroke="#E8A000" strokeOpacity="0.5" strokeWidth="1.5"
+                  stroke="#FF4103" strokeOpacity="0.5" strokeWidth="1.5"
                   strokeDasharray="5 3" markerEnd="url(#wv-arr)"
                   className="flow-line" style={{ animationDelay: '0.9s' }} />
 
                 <line x1="465" y1="133" x2="505" y2="133"
-                  stroke="#E8A000" strokeOpacity="0.5" strokeWidth="1.5"
+                  stroke="#FF4103" strokeOpacity="0.5" strokeWidth="1.5"
                   strokeDasharray="5 3" markerEnd="url(#wv-arr)"
                   className="flow-line" style={{ animationDelay: '1.2s' }} />
               </svg>

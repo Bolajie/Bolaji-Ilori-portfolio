@@ -179,7 +179,7 @@ const About: React.FC = () => {
                       {idx === 0 && (
                         <span className="absolute inline-flex h-full w-full rounded-full bg-brand-orange opacity-50 animate-ping"></span>
                       )}
-                      <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-brand-orange ring-4 ring-brand-orange/15 shadow-[0_0_10px_rgba(232,160,0,0.4)]"></span>
+                      <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-brand-orange ring-4 ring-brand-orange/15 shadow-[0_0_10px_rgba(255,65,3,0.4)]"></span>
                     </motion.span>
                   </div>
 

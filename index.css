@@ -4,8 +4,8 @@
 
 @layer base {
     :root {
-        /* Accent — Amber Honey, carries 30-60% of the surface (Committed strategy) */
-        --brand-orange: #E8A000;
+        /* Accent — Blaze Orange, carries 30-60% of the surface (Committed strategy) */
+        --brand-orange: #FF4103;
 
         /* Warm secondary accent — Vanilla Custard */
         --brand-cream: #F5E4A8;
@@ -44,7 +44,7 @@
     ::-webkit-scrollbar-thumb:hover { background: var(--brand-orange); }
 
     /* Selection */
-    ::selection { background: rgba(232, 160, 0, 0.28); color: var(--text-bone); }
+    ::selection { background: rgba(255, 65, 3, 0.28); color: var(--text-bone); }
 
     /* Focus — visible, and itself at 3:1 against both deep and surface */
     :focus-visible {
@@ -76,16 +76,16 @@
     /* Background patterns */
     .grid-pattern {
         background-image:
-            linear-gradient(rgba(232, 160, 0, 0.05) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(232, 160, 0, 0.05) 1px, transparent 1px);
+            linear-gradient(rgba(255, 65, 3, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 65, 3, 0.05) 1px, transparent 1px);
         background-size: 80px 80px;
     }
     .dot-pattern {
-        background-image: radial-gradient(rgba(232, 160, 0, 0.075) 1px, transparent 1px);
+        background-image: radial-gradient(rgba(255, 65, 3, 0.075) 1px, transparent 1px);
         background-size: 44px 44px;
     }
     .radial-glow {
-        background: radial-gradient(ellipse 80% 55% at 50% 40%, rgba(232, 160, 0, 0.13) 0%, transparent 65%);
+        background: radial-gradient(ellipse 80% 55% at 50% 40%, rgba(255, 65, 3, 0.13) 0%, transparent 65%);
     }
 
     /* Typography */

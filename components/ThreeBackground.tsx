@@ -14,7 +14,7 @@ import googleIcon from '../icons/google-color.png';
 import codexIcon from '../icons/codex.png';
 import antigravityIcon from '../icons/antigravity.png';
 
-const ACCENT = 0xe8a000;
+const ACCENT = 0xff4103;
 const BONE = 0xebf0ff;
 const SIGNAL = 0x0055ff;
 

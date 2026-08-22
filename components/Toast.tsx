@@ -16,7 +16,7 @@ const Toast: React.FC<ToastProps> = ({ message, type, onClose }) => {
 
   const styles = {
     success: 'bg-brand-signal/10 border-brand-signal/25 text-brand-signal shadow-[0_0_30px_rgba(0,85,255,0.08)]',
-    error: 'bg-brand-orange/10 border-brand-orange/30 text-brand-orange shadow-[0_0_30px_rgba(232,160,0,0.1)]',
+    error: 'bg-brand-orange/10 border-brand-orange/30 text-brand-orange shadow-[0_0_30px_rgba(255,65,3,0.1)]',
     info: 'bg-line border-line-strong text-brand-bone'
   };
 

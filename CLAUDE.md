@@ -28,7 +28,7 @@ Non-negotiable. Applies to any AI working on this repo.
 ## Design Rules
 
 1. **Motion respects the user.** The site animates heavily; any new animation must honor `prefers-reduced-motion` (see `index.css`).
-2. **Palette and fonts are fixed.** Follow `DESIGN.md`: Ink Black `#06090F`, Full Spectrum Blue `#0055FF`, Lavender `#EBF0FF`, Vanilla Custard `#F5E4A8`, Amber Honey `#E8A000`; Poppins + JetBrains Mono. Tokens live in `index.css` and `tailwind.config.js`. Do not introduce new hues or typefaces.
+2. **Palette and fonts are fixed.** Follow `DESIGN.md`: Ink Black `#06090F`, Full Spectrum Blue `#0055FF`, Lavender `#EBF0FF`, Vanilla Custard `#F5E4A8`, Blaze Orange `#FF4103`; Poppins + JetBrains Mono. Tokens live in `index.css` and `tailwind.config.js`. Do not introduce new hues or typefaces.
 3. **Three.js scenes** must reuse the brand tool icons (`icons/*.png`) and match the palette above.
 
 ## Updating This File

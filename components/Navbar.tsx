@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
         {/* CTA — sm+ only */}
         <Link
           to="/contact"
-          className="hidden sm:block bg-brand-orange text-brand-deep px-5 py-2.5 rounded-lg font-display font-bold text-[11px] uppercase tracking-wider hover:shadow-[0_0_24px_rgba(232,160,0,0.35)] hover:scale-[1.03] active:scale-95 transition-all"
+          className="hidden sm:block bg-brand-orange text-brand-deep px-5 py-2.5 rounded-lg font-display font-bold text-[11px] uppercase tracking-wider hover:shadow-[0_0_24px_rgba(255,65,3,0.35)] hover:scale-[1.03] active:scale-95 transition-all"
         >
           Work with me
         </Link>
@@ -76,7 +76,7 @@ const Navbar: React.FC = () => {
                 }`}
               >
                 {isActive && (
-                  <span className="absolute top-1.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-brand-orange shadow-[0_0_6px_rgba(232,160,0,0.9)]" />
+                  <span className="absolute top-1.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-brand-orange shadow-[0_0_6px_rgba(255,65,3,0.9)]" />
                 )}
                 <svg
                   className={`w-[17px] h-[17px] mt-1.5 transition-transform duration-300 ${isActive ? 'scale-110' : ''}`}

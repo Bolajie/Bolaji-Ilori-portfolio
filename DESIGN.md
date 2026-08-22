@@ -20,7 +20,7 @@
 
 ## 2. Brand
 
-- Palette: Ink Black `#06090F`, Full Spectrum Blue `#0055FF`, Lavender `#EBF0FF`, Vanilla Custard `#F5E4A8`, Amber Honey `#E8A000`
+- Palette: Ink Black `#06090F`, Full Spectrum Blue `#0055FF`, Lavender `#EBF0FF`, Vanilla Custard `#F5E4A8`, Blaze Orange `#FF4103`
 - Font: Poppins
 - Positioning (lead with this, not a tool name): "Operations and Automation Specialist" — "I help founders and small teams run leaner operations."
 

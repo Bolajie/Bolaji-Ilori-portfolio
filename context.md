@@ -26,7 +26,7 @@ Per `DESIGN.md` — palette and fonts are fixed. Do not introduce new hues.
 | Full Spectrum Blue | `#0055FF` | Functional / availability only |
 | Lavender | `#EBF0FF` | Primary text |
 | Vanilla Custard | `#F5E4A8` | Warm secondary accent |
-| Amber Honey | `#E8A000` | Main accent (maps to `--brand-orange`) |
+| Blaze Orange | `#FF4103` | Main accent (maps to `--brand-orange`) |
 
 Font: **Poppins** (body + display), JetBrains Mono for technical labels.
 
